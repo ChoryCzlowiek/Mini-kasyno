@@ -4,13 +4,18 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bebas: 'Bebas Neue';
+}
+
 // Curtain
 
 .curtain {
     position: relative;
     height: 100vh;
     overflow: hidden;
-    display: flex;
+    // display: flex;
+    display: none;
 
     &__site {
         flex-basis: 50%;
@@ -70,7 +75,7 @@
         .curtain__title {
             text-align: center;
             font-size: 3.5rem;
-            font-family: 'Bebas Neue';
+            font-family: var(--bebas);
             letter-spacing: 2px;
             color: gold;
             text-shadow: 0 0 5px orangered, 0 0 10px orangered,
