@@ -27,23 +27,54 @@
         </div>
     </div>
     <div class="home">
-        <div class="home__navigation-box navigation-box">
-            <!-- <div class="navigation-box__menu menu">
-                <i class="fas fa-times"></i>
-                <a href="#" class="menu__item">Strona Główna</a>
-                <a href="#" class="menu__item">Gra</a>
-                <a href="#" class="menu__item">Gra</a>
-                <a href="#" class="menu__item">Gra</a>
-                <a href="#" class="menu__item">Gra</a>
-                <a href="#" class="menu__item">Gra</a>
-                <a href="#" class="menu__item">Kontakt</a>
-            </div> -->
+        <div class="home__navigation-box-left navigation-box-left">
+            <i class="fas fa-times navigation-box-left__cross"></i>
+            <ul class="navigation-box-left__list">
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Strona Główna</a>
+                </ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Kontakt</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Blackjack</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Makao</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
+            </ul>
         </div>
-        <div class="home__main main">
+        <div class="home__navigation-box-right navigation-box-right">
+            <i class="fas fa-times navigation-box-right__cross"></i>
+            <div class="navigation-box-right__sign-container sign-container">
+                <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
+                <h3 class="sign-container__text sign-container__text--sign-up">Rejestracja</h3>
+            </div>
+            <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
+            <form action="" method='post' class="navigation-box-right__sign-in-form sign-in-form">
+                <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login">
+                <input type="password" placeholder="Hasło" class="sign-in-form__input sign-in-form__input--password">
+                <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
+                <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
+                <button type="submit" class="sign-in-form__button">Zaloguj</button>
+            </form>
+            <form action="" method='post' class="navigation-box-right__sign-up-form sign-up-form">
+                <input type="text" placeholder="Imię" class="sign-up-form__input sign-up-form__input--name">
+                <input type="text" placeholder="Nazwisko" class="sign-up-form__input sign-up-form__input--surname">
+                <input type="text" placeholder="Rok urodzenia" class="sign-up-form__input sign-up-form__input--year">
+                <input type="text" placeholder="E-mail" class="sign-up-form__input sign-up-form__input--email">
+                <input type="text" placeholder="Login" class="sign-up-form__input sign-up-form__input--login">
+                <input type="password" placeholder="Hasło" class="sign-up-form__input sign-up-form__input--password">
+                <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--name"></i>
+                <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--surname"></i>
+                <i class="fas fa-birthday-cake sign-up-form__icon sign-up-form__icon--year"></i>
+                <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
+                <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
+                <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
+                <button type="submit" class="sign-up-form__button">Zarejestruj</button>
+            </form>
+        </div>
+        <div class="home__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <h3 class="navbar__title">Mini kasyno</h3>
-                <i class="far fa-user navbar__icon"></i>
+                <i class="far fa-user navbar__icon navbar__icon--login"></i>
             </div>
             <div class="main__header header">
                 <div class="header__text-container">
@@ -52,9 +83,35 @@
                     <a href="#" class="header__button header__button--sign-in">Sign in</a>
                 </div>
             </div>
-            <div class="main__games-box games-box"></div>
+            <div class="main__games-container games-container">
+                <h3 class="games-container__title">Gry</h3>
+                <div class="games-container__games-box games-box">
+                    <div class="games-box__game game">
+                        <div class="game__background"></div>
+                        <h4 class="game__name">Blackjack</h4>
+                    </div>
+                    <div class="games-box__game game">
+                        <div class="game__background game__background--second"></div>
+                        <h4 class="game__name">Makao</h4>
+                    </div>
+                    <div class="games-box__game game">
+                        <div class="game__background game__background--third"></div>
+                        <h4 class="game__name">Game</h4>
+                    </div>
+                    <div class="games-box__game game">
+                        <div class="game__background game__background--fourth"></div>
+                        <h4 class="game__name">Game</h4>
+                    </div>
+                    <div class="games-box__game game">
+                        <div class="game__background game__background--fifth"></div>
+                        <h4 class="game__name">Game</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
