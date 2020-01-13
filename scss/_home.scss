@@ -106,7 +106,7 @@ body {
             position: relative;
 
             &__input {
-                height: 4vh;
+                min-height: 4vh;
                 width: 100%;
                 background-color: rgb(70, 70, 70);
                 border: none;
@@ -168,7 +168,7 @@ body {
             display: none;
 
             &__input {
-                height: 4vh;
+                min-height: 4vh;
                 width: 100%;
                 background-color: rgb(70, 70, 70);
                 border: none;
@@ -646,7 +646,7 @@ body {
             .sign-in-form {
 
                 &__input {
-                    height: 6vh;
+                    min-height: 6vh;
                     padding-left: 2rem;
                     font-size: 0.8rem;
 
@@ -676,7 +676,7 @@ body {
             .sign-up-form {
 
                 &__input {
-                    height: 6vh;
+                    min-height: 6vh;
                     padding-left: 2rem;
                     font-size: .8rem;
 
@@ -962,7 +962,7 @@ body {
             }
         }
 
-        .main {
+        min- .main {
 
             .header {
                 background-position: 0 90%;
