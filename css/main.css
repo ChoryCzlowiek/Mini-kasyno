@@ -1206,6 +1206,7 @@ body {
   letter-spacing: 3px;
   font-size: 2rem;
   color: whitesmoke;
+  text-shadow: 0 0 10px green, 0 0 20px green, 0 0 40px green, 0 0 30px green, 0 0 50px green;
   position: relative;
 }
 
@@ -1217,7 +1218,7 @@ body {
   margin-top: 1rem;
   width: 40%;
   height: 2px;
-  background-color: orangered;
+  background-color: green;
 }
 
 .contact .main .contact-box__subtitle {
@@ -1246,7 +1247,7 @@ body {
   margin: 0 auto 1.5rem;
   width: 15vh;
   height: 15vh;
-  border: 3px solid orangered;
+  border: 3px solid green;
   border-radius: 50%;
   position: relative;
 }
@@ -1258,7 +1259,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-size: 2rem;
-  color: orangered;
+  color: green;
 }
 
 .contact .main .contact-box .data-container .data-box__name {

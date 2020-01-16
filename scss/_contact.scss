@@ -16,6 +16,9 @@
                 letter-spacing: 3px;
                 font-size: 2rem;
                 color: rgb(245, 245, 245);
+                text-shadow: 0 0 10px green, 0 0 20px green,
+                    0 0 40px green, 0 0 30px green,
+                    0 0 50px green;
                 position: relative;
 
                 &:before {
@@ -26,7 +29,7 @@
                     margin-top: 1rem;
                     width: 40%;
                     height: 2px;
-                    background-color: orangered;
+                    background-color: green;
                 }
             }
 
@@ -50,7 +53,7 @@
                         margin: 0 auto 1.5rem;
                         width: 15vh;
                         height: 15vh;
-                        border: 3px solid orangered;
+                        border: 3px solid green;
                         border-radius: 50%;
                         position: relative;
 
@@ -60,7 +63,7 @@
                             left: 50%;
                             transform: translate(-50%, -50%);
                             font-size: 2rem;
-                            color: orangered;
+                            color: green;
                         }
                     }
 
