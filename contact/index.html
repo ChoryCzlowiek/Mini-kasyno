@@ -5,35 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mini kasyno</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>Kontakt | Mini kasyno</title>
+    <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat|Signika|Parisienne&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="curtain">
-        <div class="curtain__site curtain__site--left"></div>
-        <div class="curtain__site curtain__site--right"></div>
-        <div class="curtain__progress-bar progress-bar">
-            <div class="progress-bar__bar">
-                <div class="progress-bar__active-bar"></div>
-            </div>
-            <img src="images/token.png" alt="" class="progress-bar__token">
-        </div>
-        <div class="curtain__box-title">
-            <h1 class="curtain__title">Mini kasyno</h1>
-        </div>
-    </div>
-    <div class="home">
-        <div class="home__navigation-box-left navigation-box-left">
+    <div class="contact">
+        <div class="contact__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Strona Główna</a>
                 </ul>
-                <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="contact/index.html">Kontakt</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Kontakt</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Blackjack</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Makao</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
@@ -41,7 +27,7 @@
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
             </ul>
         </div>
-        <div class="home__navigation-box-right navigation-box-right">
+        <div class="contact__navigation-box-right navigation-box-right">
             <i class="fas fa-times navigation-box-right__cross"></i>
             <div class="navigation-box-right__sign-container sign-container">
                 <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
@@ -71,41 +57,54 @@
                 <button type="submit" class="sign-up-form__button">Zarejestruj</button>
             </form>
         </div>
-        <div class="home__main main ">
+        <div class="contact__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <h3 class="navbar__title">Mini kasyno</h3>
                 <i class="far fa-user navbar__icon navbar__icon--login"></i>
             </div>
-            <div class="main__header header">
-                <div class="header__text-container">
-                    <p class="header__title">My jesteśmy gotowi, <br>a Ty?</p>
-                    <a href="#" class="header__button header__button--sign-up">Sign up</a>
-                    <a href="#" class="header__button header__button--sign-in">Sign in</a>
-                </div>
-            </div>
-            <div class="main__games-container games-container">
-                <h3 class="games-container__title">Gry</h3>
-                <div class="games-container__games-box games-box">
-                    <div class="games-box__game game">
-                        <div class="game__background"></div>
-                        <h4 class="game__name">Blackjack</h4>
+            <div class="main__contact-box contact-box">
+                <h1 class="contact-box__title">Skontaktuj się z nami</h1>
+                <p class="contact-box__subtitle">Napisz lub zadzwoń do nas!</p>
+                <div class="contact-box__data-container data-container">
+                    <div class="data-container__data-box data-box">
+                        <div class="data-box__circle">
+                            <i class="fas fa-map-marker-alt data-box__icon"></i>
+                        </div>
+                        <p class="data-box__name">ADRES</p>
+                        <p class="data-box__text">Mini Kasyno<br>Aleja Żołnierzy Wyklętych 62,<br>08-111 Marynowice</p>
                     </div>
-                    <div class="games-box__game game">
-                        <div class="game__background game__background--second"></div>
-                        <h4 class="game__name">Makao</h4>
+                    <div class="data-container__data-box data-box">
+                        <div class="data-box__circle">
+                            <i class="fas fa-phone-alt data-box__icon"></i>
+                        </div>
+                        <p class="data-box__name">TELEFON</p>
+                        <p class="data-box__text">+48 762 081 418</p>
                     </div>
-                    <div class="games-box__game game">
-                        <div class="game__background game__background--third"></div>
-                        <h4 class="game__name">Game</h4>
+                    <div class="data-container__data-box data-box">
+                        <div class="data-box__circle">
+                            <i class="fas fa-at data-box__icon"></i>
+                        </div>
+                        <p class="data-box__name">E-MAIL</p>
+                        <p class="data-box__text">kontakt@minikasyno.pl</p>
                     </div>
-                    <div class="games-box__game game">
-                        <div class="game__background game__background--fourth"></div>
-                        <h4 class="game__name">Game</h4>
-                    </div>
-                    <div class="games-box__game game">
-                        <div class="game__background game__background--fifth"></div>
-                        <h4 class="game__name">Game</h4>
+                    <div class="data-container__data-box data-box">
+                        <div class="data-box__circle">
+                            <i class="fas fa-clock data-box__icon"></i>
+                        </div>
+                        <p class="data-box__name">GODZINY OTWARCIA</p>
+                        <p class="data-box__text data-box__text--today">Dzisiaj: 08:00-16:00</p>
+                        <i class="fas fa-sort-down data-box__icon data-box__icon--open"></i>
+                        <i class="fas fa-sort-up data-box__icon data-box__icon--close"></i>
+                        <ul class="data-box__list">
+                            <li class="data-box__text data-box__text--day">Poniedziałek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day">Wtorek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day">Środa: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day">Czwartek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day">Piątek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day">Sobota: 10:00-14:00</li>
+                            <li class="data-box__text data-box__text--day">Niedziela: Zamknięte</li>
+                        </ul>
                     </div>
                 </div>
             </div>

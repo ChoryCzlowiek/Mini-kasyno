@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-:root {
-    --bebas: 'Bebas Neue';
+body {
+    background-color: rgb(100, 100, 100);
 }
 
 // Curtain
@@ -78,7 +78,7 @@
         .curtain__title {
             text-align: center;
             font-size: 3.5rem;
-            font-family: var(--bebas);
+            font-family: 'Bebas Neue';
             letter-spacing: 2px;
             color: gold;
             text-shadow: 0 0 5px orangered, 0 0 10px orangered,
