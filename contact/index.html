@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kontakt | Mini kasyno</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat|Signika|Parisienne&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
 </head>
 
@@ -17,9 +16,11 @@
         <div class="contact__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Strona Główna</a>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../index.html">Strona Główna</a>
                 </ul>
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Kontakt</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="index.html">Kontakt</a>
+                </ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Blackjack</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Makao</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
@@ -93,17 +94,17 @@
                             <i class="fas fa-clock data-box__icon"></i>
                         </div>
                         <p class="data-box__name">GODZINY OTWARCIA</p>
-                        <p class="data-box__text data-box__text--today">Dzisiaj: 08:00-16:00</p>
+                        <p class="data-box__text data-box__text--today"></p>
                         <i class="fas fa-sort-down data-box__icon data-box__icon--open"></i>
                         <i class="fas fa-sort-up data-box__icon data-box__icon--close"></i>
                         <ul class="data-box__list">
-                            <li class="data-box__text data-box__text--day">Poniedziałek: 08:00-16:00</li>
-                            <li class="data-box__text data-box__text--day">Wtorek: 08:00-16:00</li>
-                            <li class="data-box__text data-box__text--day">Środa: 08:00-16:00</li>
-                            <li class="data-box__text data-box__text--day">Czwartek: 08:00-16:00</li>
-                            <li class="data-box__text data-box__text--day">Piątek: 08:00-16:00</li>
-                            <li class="data-box__text data-box__text--day">Sobota: 10:00-14:00</li>
-                            <li class="data-box__text data-box__text--day">Niedziela: Zamknięte</li>
+                            <li class="data-box__text data-box__text--day" id="1">Poniedziałek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day" id="2">Wtorek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day" id="3">Środa: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day" id="4">Czwartek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day" id="5">Piątek: 08:00-16:00</li>
+                            <li class="data-box__text data-box__text--day" id="6">Sobota: 10:00-14:00</li>
+                            <li class="data-box__text data-box__text--day" id="7">Niedziela: Zamknięte</li>
                         </ul>
                     </div>
                 </div>
@@ -112,6 +113,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="../nav.js"></script>
 </body>
 
 </html>

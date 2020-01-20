@@ -88,6 +88,7 @@
                     &__icon {
                         color: rgb(245, 245, 245);
                         transform: translateY(-25%);
+                        cursor: pointer;
 
                         &--close {
                             transform: translateY(25%);
@@ -99,6 +100,212 @@
                         margin: 1rem;
                         list-style: none;
                         display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .contact {
+
+        .main {
+
+            .contact-box {
+
+                &__title {
+                    margin: 5rem 0 3rem;
+                    letter-spacing: 5px;
+                    font-size: 4rem;
+                    text-shadow: 0 0 20px green, 0 0 30px green,
+                        0 0 50px green, 0 0 40px green,
+                        0 0 60px green;
+
+                    &:before {
+                        left: 25%;
+                        width: 50%;
+                        height: 4px;
+                    }
+                }
+
+                &__subtitle {
+                    font-size: 1.7rem;
+                    margin-bottom: 4rem;
+                }
+
+                .data-container {
+
+                    .data-box {
+                        flex-basis: 50%;
+
+                        &__circle {
+                            border: 5px solid green;
+
+                            .data-box__icon {
+                                font-size: 3rem;
+                            }
+                        }
+
+                        &__name {
+                            font-size: 3rem;
+                            margin-bottom: 1rem;
+                        }
+
+                        &__text {
+                            font-size: 1.5rem;
+
+                            &--day {
+                                margin: .4rem;
+                            }
+                        }
+
+                        &__icon {
+                            font-size: 1.3rem;
+                        }
+
+                        &__list {
+                            margin: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (orientation: landscape) and (min-height: 360px) {
+    .contact {
+
+        .main {
+
+            .contact-box {
+                margin-bottom: 3rem;
+
+                &__title {
+                    font-size: 2.5rem;
+                }
+
+                .data-container {
+
+                    .data-box {
+                        flex-basis: 25%;
+
+                        &__circle {
+                            width: 20vh;
+                            height: 20vh;
+
+                            .data-box__icon {
+                                font-size: 1.5rem;
+                            }
+                        }
+
+                        &__name {
+                            font-size: 1.5rem;
+                        }
+
+                        &__text {
+                            font-size: .7rem;
+                        }
+
+                        &__icon {
+                            font-size: .8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (orientation: landscape) and (min-height: 768px) {
+    .contact {
+
+        .main {
+
+            .contact-box {
+
+                &__title {
+                    font-size: 3.5rem;
+                }
+
+                .data-container {
+                    margin-left: 5%;
+                    width: 90%;
+
+                    .data-box {
+
+                        &__circle {
+                            height: 18vh;
+                            width: 18vh;
+
+                            .data-box__icon {
+                                font-size: 3rem;
+                            }
+                        }
+
+                        &__name {
+                            font-size: 2rem;
+                            letter-spacing: 3px;
+                        }
+
+                        &__text {
+                            font-size: 1.2rem;
+                        }
+
+                        &__icon {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (orientation: landscape) and (min-width: 1440px) {
+    .contact {
+
+        .main {
+
+            .contact-box {
+
+                &__title {
+                    font-size: 3.5rem;
+
+                    &:before {
+                        left: 40%;
+                        width: 20%;
+                    }
+                }
+
+                .data-container {
+                    margin-left: 5%;
+                    width: 90%;
+
+                    .data-box {
+
+                        &__circle {
+                            height: 18vh;
+                            width: 18vh;
+
+                            .data-box__icon {
+                                font-size: 3rem;
+                            }
+                        }
+
+                        &__name {
+                            font-size: 2rem;
+                            letter-spacing: 3px;
+                        }
+
+                        &__text {
+                            font-size: 1.2rem;
+                        }
+
+                        &__icon {
+                            font-size: 1.1rem;
+                        }
                     }
                 }
             }
