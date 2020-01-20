@@ -21,14 +21,14 @@ closeArrow.addEventListener('click', closeWeekList);
 // Change active day
 
 const activeDay = document.querySelector('.data-box__text--today');
-const weekDays = document.querySelectorAll('.data-box__text--day');
+const weekHours = document.querySelectorAll('.data-box__text--hours');
 
 const today = new Date();
 
 const indexOfToday = today.getDay();
 
-weekDays.forEach(day => {
-    if (indexOfToday == day.id) {
-        activeDay.textContent = day.textContent;
+weekHours.forEach(hours => {
+    if (indexOfToday == hours.id) {
+        activeDay.textContent = 'Dzisiaj: ' + hours.textContent;
     }
 });
