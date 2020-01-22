@@ -138,7 +138,7 @@ body {
     }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .curtain {
 
         .progress-bar {
@@ -159,7 +159,7 @@ body {
     }
 }
 
-@media (orientation: landscape) and (min-height: 360px) {
+@media screen and (orientation: landscape) and (min-height: 360px) {
     .curtain {
 
         &__site {
@@ -180,7 +180,7 @@ body {
     }
 }
 
-@media (orientation: landscape) and (min-height: 768px) {
+@media screen and (orientation: landscape) and (min-height: 768px) {
     .curtain {
 
         &__site {
@@ -207,7 +207,7 @@ body {
     }
 }
 
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
     .curtain {
 
         &__site {

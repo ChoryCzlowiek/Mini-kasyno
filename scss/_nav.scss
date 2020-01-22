@@ -301,7 +301,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .navigation-box-left {
 
         .navigation-box-left__cross {
@@ -408,7 +408,7 @@
     }
 }
 
-@media (orientation: landscape) and (min-height: 360px) {
+@media screen and (orientation: landscape) and (min-height: 360px) {
     .navigation-box-left {
         width: 20vw;
         left: -20vw;
@@ -558,7 +558,7 @@
     }
 }
 
-@media (orientation: landscape) and (min-width: 1024px) {
+@media screen and (orientation: landscape) and (min-width: 1024px) {
     .navigation-box-left {
 
         .navigation-box-left__cross {
@@ -664,7 +664,7 @@
     }
 }
 
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
     .navigation-box-left {
 
         .navigation-box-left__cross {

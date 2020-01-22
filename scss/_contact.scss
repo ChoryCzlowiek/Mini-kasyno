@@ -107,7 +107,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .contact {
 
         .main {
@@ -174,7 +174,7 @@
     }
 }
 
-@media (orientation: landscape) and (min-height: 360px) {
+@media screen and (orientation: landscape) and (min-height: 360px) {
     .contact {
 
         .main {
@@ -218,7 +218,7 @@
     }
 }
 
-@media (orientation: landscape) and (min-height: 768px) {
+@media screen and (orientation: landscape) and (min-height: 768px) {
     .contact {
 
         .main {
@@ -263,7 +263,7 @@
     }
 }
 
-@media (orientation: landscape) and (min-width: 1440px) {
+@media screen and (orientation: landscape) and (min-width: 1440px) {
     .contact {
 
         .main {

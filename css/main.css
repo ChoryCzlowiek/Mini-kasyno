@@ -198,7 +198,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .curtain .progress-bar {
     left: 25%;
     right: 25%;
@@ -210,7 +210,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-height: 360px) {
+@media screen and (orientation: landscape) and (min-height: 360px) {
   .curtain__site--left {
     background-position: 100% 70%;
   }
@@ -223,7 +223,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-height: 768px) {
+@media screen and (orientation: landscape) and (min-height: 768px) {
   .curtain__site--left {
     background-position: 100% 50%;
   }
@@ -237,7 +237,7 @@ body {
   }
 }
 
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .curtain__site--left {
     background-position: 0 50%;
   }
@@ -593,7 +593,7 @@ body {
   font-size: 2rem;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .navigation-box-left .navigation-box-left__cross {
     font-size: 4rem;
   }
@@ -683,7 +683,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-height: 360px) {
+@media screen and (orientation: landscape) and (min-height: 360px) {
   .navigation-box-left {
     width: 20vw;
     left: -20vw;
@@ -821,7 +821,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-width: 1024px) {
+@media screen and (orientation: landscape) and (min-width: 1024px) {
   .navigation-box-left .navigation-box-left__cross {
     margin: 3rem .5rem 0;
     font-size: 3rem;
@@ -909,7 +909,7 @@ body {
   }
 }
 
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .navigation-box-left .navigation-box-left__cross {
     margin: 3rem 1rem 0;
   }
@@ -1066,7 +1066,7 @@ body {
   transition: 1s;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .home .main .header__text-container .header__title {
     font-size: 4.5rem;
     letter-spacing: 4px;
@@ -1087,7 +1087,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-height: 360px) {
+@media screen and (orientation: landscape) and (min-height: 360px) {
   .home .main .header {
     height: 89vh;
     background-position: 0 60%;
@@ -1141,7 +1141,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-width: 1024px) {
+@media screen and (orientation: landscape) and (min-width: 1024px) {
   .home .main .header {
     background-position: 0;
   }
@@ -1169,7 +1169,7 @@ body {
   }
 }
 
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .home .main .header {
     background-position: 0 90%;
   }
@@ -1299,7 +1299,7 @@ body {
   display: none;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .contact .main .contact-box__title {
     margin: 5rem 0 3rem;
     letter-spacing: 5px;
@@ -1343,7 +1343,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-height: 360px) {
+@media screen and (orientation: landscape) and (min-height: 360px) {
   .contact .main .contact-box {
     margin-bottom: 3rem;
   }
@@ -1372,7 +1372,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-height: 768px) {
+@media screen and (orientation: landscape) and (min-height: 768px) {
   .contact .main .contact-box__title {
     font-size: 3.5rem;
   }
@@ -1399,7 +1399,7 @@ body {
   }
 }
 
-@media (orientation: landscape) and (min-width: 1440px) {
+@media screen and (orientation: landscape) and (min-width: 1440px) {
   .contact .main .contact-box__title {
     font-size: 3.5rem;
   }
