@@ -1429,4 +1429,155 @@ body {
     font-size: 1.1rem;
   }
 }
+
+.rotate-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #1b1b1b;
+  color: orangered;
+  text-align: center;
+  font-family: 'Bebas Neue';
+}
+
+.rotate-container__border {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  bottom: 1rem;
+  right: 1rem;
+  border: 3px solid gold;
+  -webkit-box-shadow: 0 0 5px orangered, 0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered;
+          box-shadow: 0 0 5px orangered, 0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered;
+}
+
+.rotate-container__name {
+  margin: 15vh 3rem;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  color: gold;
+  text-shadow: 0 0 5px orangered, 0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered, 0 0 40px orangered;
+}
+
+.rotate-container__phone {
+  position: absolute;
+  top: 40vh;
+  left: 30%;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  font-size: 6rem;
+  -webkit-animation: rotatePhone 2s linear infinite both;
+          animation: rotatePhone 2s linear infinite both;
+}
+
+.rotate-container__text {
+  margin: 45vh 3rem;
+  font-size: 2rem;
+  color: gold;
+}
+
+@-webkit-keyframes rotatePhone {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@keyframes rotatePhone {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .rotate-container__border {
+    top: 2rem;
+    left: 2rem;
+    bottom: 2rem;
+    right: 2rem;
+    border: 5px solid gold;
+    -webkit-box-shadow: 0 0 5px orangered, 0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered, 0 0 40px orangered, 0 0 50px orangered;
+            box-shadow: 0 0 5px orangered, 0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered, 0 0 40px orangered, 0 0 50px orangered;
+  }
+  .rotate-container__name {
+    margin: 15vh 5rem;
+    font-size: 5.5rem;
+    letter-spacing: 4px;
+  }
+  .rotate-container__phone {
+    left: 35%;
+    font-size: 8rem;
+  }
+  .rotate-container__text {
+    margin: 45vh 7rem;
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-height: 360px) {
+  .rotate-container {
+    display: none;
+  }
+  .blackjack {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .blackjack__table {
+    position: absolute;
+    top: 0%;
+    left: -10%;
+    width: 120%;
+    height: 70%;
+    background-image: url("../images/green-table.png");
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom: 1px solid #666666;
+    z-index: 3;
+  }
+  .blackjack__wood {
+    position: absolute;
+    left: -10%;
+    top: 10%;
+    width: 120%;
+    height: 70%;
+    background-image: url("../images/wood.jpg");
+    background-size: cover;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom: 1px solid #666666;
+    z-index: 2;
+  }
+  .blackjack__lether {
+    position: absolute;
+    left: -10%;
+    top: 30%;
+    width: 120%;
+    height: 65%;
+    background-image: url("../images/lether.png");
+    background-size: cover;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    z-index: 1;
+  }
+  .blackjack__carpet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/carpet.jpg");
+    background-size: cover;
+  }
+}
 /*# sourceMappingURL=main.css.map */
