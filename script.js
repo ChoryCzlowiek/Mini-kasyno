@@ -6,7 +6,7 @@ function disableCurtain() {
     curtain.style.display = 'none';
 }
 
-setTimeout(disableCurtaincurt, 6500)
+setTimeout(disableCurtain, 6500);
 
 // Sign in and Sign up Buttons
 
