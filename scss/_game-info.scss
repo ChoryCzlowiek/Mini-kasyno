@@ -1,0 +1,88 @@
+@media only screen and (orientation: landscape) and (min-height: 360px) {
+
+    .game {
+        position: absolute;
+        top: 11vh;
+        left: 0;
+        height: 89vh;
+        width: 100vw;
+        z-index: 98;
+        font-family: 'Bebas Neue';
+        letter-spacing: 1px;
+        color: rgba(255, 217, 0, 0.7);
+        font-size: .9rem;
+
+        &__saldo {
+            position: absolute;
+            top: 50%;
+            left: 10vw;
+
+            span {
+                font-size: 1.2rem;
+                color: orangered;
+            }
+        }
+
+        .form {
+            position: absolute;
+            top: 40%;
+            left: 10vw;
+
+            &__rate {
+                background: transparent;
+                border: 1px solid rgba(255, 217, 0, 0.7);
+                box-shadow: 0 0 2px gold;
+                font-size: 1rem;
+                color: orangered;
+                width: 65px;
+                padding: .1rem;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid orangered;
+                    box-shadow: 0 0 2px orangered;
+                }
+            }
+        }
+
+        &__play-btn {
+            position: absolute;
+            top: 55%;
+            left: 45vw;
+            padding: .2rem .6rem;
+            color: rgba(255, 217, 0, 0.7);
+            font-family: 'Bebas Neue';
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+            overflow: hidden;
+            transition: .2s;
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+            cursor: pointer;
+
+            &:hover {
+                background: orangered;
+                box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+            }
+        }
+
+        .stats {
+            position: absolute;
+            top: 10%;
+            left: 80vw;
+            font-size: .8rem;
+
+            &__text {
+                font-size: .9rem;
+                margin-bottom: 1rem;
+                text-shadow: 0 0 10px orangered, 0 0 30px orangered;
+            }
+
+            span {
+                color: orangered;
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

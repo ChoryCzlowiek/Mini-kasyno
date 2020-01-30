@@ -1,94 +1,5 @@
-// Rotate info
-.rotate-container {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(27, 27, 27);
-    color: orangered;
-    text-align: center;
-    font-family: 'Bebas Neue';
-
-    &__border {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        bottom: 1rem;
-        right: 1rem;
-        border: 3px solid gold;
-        box-shadow: 0 0 5px orangered, 0 0 10px orangered,
-            0 0 20px orangered, 0 0 30px orangered;
-    }
-
-    &__name {
-        margin: 15vh 3rem;
-        font-size: 3.5rem;
-        letter-spacing: 2px;
-        color: gold;
-        text-shadow: 0 0 5px orangered, 0 0 10px orangered,
-            0 0 20px orangered, 0 0 30px orangered,
-            0 0 40px orangered;
-    }
-
-    &__phone {
-        position: absolute;
-        top: 40vh;
-        left: 30%;
-        transform-origin: right bottom;
-        font-size: 6rem;
-        animation: rotatePhone 2s linear infinite both;
-    }
-
-    &__text {
-        margin: 45vh 3rem;
-        font-size: 2rem;
-        color: gold
-    }
-}
-
 .blackjack__main {
     display: none;
-}
-
-@keyframes rotatePhone {
-    0% {
-        transform: rotate(0);
-    }
-
-    100% {
-        transform: rotate(90deg);
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .rotate-container {
-
-        &__border {
-            top: 2rem;
-            left: 2rem;
-            bottom: 2rem;
-            right: 2rem;
-            border: 5px solid gold;
-            box-shadow: 0 0 5px orangered, 0 0 10px orangered,
-                0 0 20px orangered, 0 0 30px orangered,
-                0 0 40px orangered, 0 0 50px orangered;
-        }
-
-        &__name {
-            margin: 15vh 5rem;
-            font-size: 5.5rem;
-            letter-spacing: 4px;
-        }
-
-        &__phone {
-            left: 35%;
-            font-size: 8rem;
-        }
-
-        &__text {
-            margin: 45vh 7rem;
-            font-size: 4rem;
-        }
-    }
 }
 
 @media only screen and (orientation: landscape) and (min-height: 360px) {
@@ -100,137 +11,6 @@
 
         .main {
             display: block;
-
-
-            .background {
-                height: 89vh;
-                max-width: 100vw;
-                position: relative;
-                overflow: hidden;
-
-
-                &__table {
-                    position: absolute;
-                    top: 0;
-                    left: -10vw;
-                    width: 120vw;
-                    height: 70%;
-                    background-image: url('../images/green-table.png');
-                    border-bottom-left-radius: 50%;
-                    border-bottom-right-radius: 50%;
-                    border-bottom: 1px solid rgb(102, 102, 102);
-                    z-index: 3;
-                }
-
-                &__wood {
-                    position: absolute;
-                    left: -10vw;
-                    top: 10%;
-                    width: 120vw;
-                    height: 70%;
-                    background-image: url('../images/wood.jpg');
-                    background-size: cover;
-                    border-bottom-left-radius: 50%;
-                    border-bottom-right-radius: 50%;
-                    border-bottom: 1px solid rgb(102, 102, 102);
-                    z-index: 2;
-
-                    .background__pocket {
-                        position: absolute;
-                        bottom: 7%;
-                        left: 15%;
-                        transform: scale(.5);
-
-                        &--right {
-                            left: 75%;
-                        }
-                    }
-
-                    .background__long-pocket {
-                        position: absolute;
-                        bottom: -4%;
-                        left: 50%;
-                        transform: translateX(-50%) scale(0.6);
-                    }
-                }
-
-                &__lether {
-                    position: absolute;
-                    left: -10vw;
-                    top: 30%;
-                    width: 120vw;
-                    height: 65%;
-                    background-image: url('../images/lether.png');
-                    background-size: cover;
-                    border-bottom-left-radius: 50%;
-                    border-bottom-right-radius: 50%;
-                    z-index: 1;
-                    filter: brightness(2.5);
-                }
-
-                &__carpet {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100vw;
-                    background-image: url('../images/carpet.jpg');
-                    background-size: cover;
-                }
-
-                .circles-container {
-                    position: absolute;
-                    margin: 0 1vw;
-                    bottom: 0;
-                    right: 0;
-                    height: 15vh;
-                    z-index: 99;
-
-                    &__circle {
-                        position: absolute;
-                        top: 4.5vh;
-                        right: 1vh;
-                        width: 6vh;
-                        height: 6vh;
-                        background-color: #fff;
-                        border-radius: 50%;
-                        border: 2px solid black;
-                        cursor: pointer;
-                        transition: .5s;
-
-                        &--main {
-                            top: 2.5vh;
-                            width: 10vh;
-                            height: 10vh;
-                            background-color: grey;
-                        }
-
-                        &--green {
-                            background-color: green;
-
-                            &-active {
-                                right: 13vh;
-                            }
-                        }
-
-                        &--red {
-                            background-color: rgb(163, 1, 1);
-
-                            &-active {
-                                right: 23vh;
-                            }
-                        }
-
-                        &--blue {
-                            background-color: blue;
-
-                            &-active {
-                                right: 33vh;
-                            }
-                        }
-                    }
-                }
-            }
 
             .game {
                 position: absolute;
@@ -256,7 +36,7 @@
                     border-left: 3px solid white;
 
                     &--start {
-                        left: 65vw;
+                        left: 70vw;
                         border: none;
                     }
                 }
@@ -342,6 +122,27 @@
                         &--pick {
                             margin-right: 1rem;
                         }
+                    }
+                }
+
+                &__circle-points {
+                    position: absolute;
+                    top: 20%;
+                    left: 30vw;
+                    width: 2rem;
+                    height: 2rem;
+                    border: 2px solid gold;
+                    border-radius: 50%;
+                    color: orangered;
+
+                    &--user {
+                        top: 35%;
+                    }
+
+                    .game__points {
+                        text-align: center;
+                        line-height: 2rem;
+                        font-size: 1.1rem;
                     }
                 }
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blackjack | Mini kasyno</title>
+    <title>Wojna | Mini kasyno</title>
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
@@ -19,8 +19,8 @@
         <p class="rotate-container__text">Aby zagrać, proszę obrócić ekran!</p>
     </div>
 
-    <div class="blackjack">
-        <div class="blackjack__navigation-box-left navigation-box-left">
+    <div class="war">
+        <div class="war__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
                 <ul class="navigation-box-left__item">
@@ -35,7 +35,7 @@
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
             </ul>
         </div>
-        <div class="blackjack__navigation-box-right navigation-box-right">
+        <div class="war__navigation-box-right navigation-box-right">
             <i class="fas fa-times navigation-box-right__cross"></i>
             <div class="navigation-box-right__sign-container sign-container">
                 <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
@@ -65,7 +65,7 @@
                 <button type="submit" class="sign-up-form__button">Zarejestruj</button>
             </form>
         </div>
-        <div class="blackjack__main main ">
+        <div class="war__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <h3 class="navbar__title">Mini kasyno</h3>
@@ -88,23 +88,13 @@
                 </div>
             </div>
             <div class="main__game game">
-                <img src="../images/cards/card.jpg" alt="" class="game__deck">
-                <img src="../images/cards/card.jpg" alt="" class="game__deck game__deck--start">
                 <p class="game__saldo">Twoje saldo: <span>100</span></p>
+                <img src="../images/cards/card.jpg" alt="" class="game__hand game__hand--computer">
+                <img src="../images/cards/card.jpg" alt="" class="game__hand game__hand--user">
                 <form action="" class="game__form form">
                     <label for="rate" class="form__text">Stawka: </label>
                     <input type="number" class="form__rate" id="rate"></form>
                 <button class="game__play-btn">Graj</button>
-                <div class="game__option-btns option-btns">
-                    <button class="option-btns__btn option-btns__btn--pick">Dobierz</button>
-                    <button class="option-btns__btn option-btns__btn--pass">Pasuj</button>
-                </div>
-                <div class="game__circle-points">
-                    <p class="game__points"></p>
-                </div>
-                <div class="game__circle-points game__circle-points--user">
-                    <p class="game__points"></p>
-                </div>
                 <div class="game__stats stats game__point">
                     <p class="stats__text">Statystyki z bieżącej gry:</p>
                     <p class="stats__wins">Wygrane: <span>10</span></p>
