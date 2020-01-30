@@ -24,12 +24,14 @@
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
                 <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="index.html">Strona Główna</a>
+                    <a class="navigation-box-left__link" href="../index.html">Strona Główna</a>
                 </ul>
                 <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="contact/index.html">Kontakt</a></ul>
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Blackjack</a></ul>
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Makao</a></ul>
+                    <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></ul>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="index.html">Blackjack</a></ul>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../war/index.html">War</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
@@ -87,25 +89,25 @@
                     <div class="circles-container__circle circles-container__circle--main"></div>
                 </div>
             </div>
-            <div class="main__game game">
-                <img src="../images/cards/card.jpg" alt="" class="game__deck">
-                <img src="../images/cards/card.jpg" alt="" class="game__deck game__deck--start">
-                <p class="game__saldo">Twoje saldo: <span>100</span></p>
-                <form action="" class="game__form form">
+            <div class="main__play play">
+                <img src="../images/cards/card.jpg" alt="" class="play__deck">
+                <img src="../images/cards/card.jpg" alt="" class="play__deck play__deck--start">
+                <p class="play__saldo">Twoje saldo: <span>100</span></p>
+                <form action="" class="play__form form">
                     <label for="rate" class="form__text">Stawka: </label>
                     <input type="number" class="form__rate" id="rate"></form>
-                <button class="game__play-btn">Graj</button>
-                <div class="game__option-btns option-btns">
+                <button class="play__play-btn">Graj</button>
+                <div class="play__option-btns option-btns">
                     <button class="option-btns__btn option-btns__btn--pick">Dobierz</button>
                     <button class="option-btns__btn option-btns__btn--pass">Pasuj</button>
                 </div>
-                <div class="game__circle-points">
-                    <p class="game__points"></p>
+                <div class="play__circle-points">
+                    <p class="play__points"></p>
                 </div>
-                <div class="game__circle-points game__circle-points--user">
-                    <p class="game__points"></p>
+                <div class="play__circle-points play__circle-points--user">
+                    <p class="play__points"></p>
                 </div>
-                <div class="game__stats stats game__point">
+                <div class="play__stats stats">
                     <p class="stats__text">Statystyki z bieżącej gry:</p>
                     <p class="stats__wins">Wygrane: <span>10</span></p>
                     <p class="stats__draws">Remisy: <span>20</span></p>

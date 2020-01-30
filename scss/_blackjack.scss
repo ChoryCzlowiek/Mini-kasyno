@@ -12,7 +12,7 @@
         .main {
             display: block;
 
-            .game {
+            .play {
                 position: absolute;
                 top: 11vh;
                 left: 0;
@@ -177,27 +177,6 @@
 
         .main {
             display: block;
-
-
-            .background {
-
-                &__wood {
-
-                    .background__pocket {
-                        bottom: 14%;
-                        transform: scale(1);
-
-                        &--right {
-                            bottom: 12%;
-                        }
-                    }
-
-                    .background__long-pocket {
-                        bottom: 2%;
-                        transform: translateX(-50%) scale(1.2);
-                    }
-                }
-            }
         }
     }
 }
@@ -211,27 +190,6 @@
 
         .main {
             display: block;
-
-
-            .background {
-
-                &__wood {
-
-                    .background__pocket {
-                        bottom: 14%;
-                        transform: scale(1);
-
-                        &--right {
-                            bottom: 12%;
-                        }
-                    }
-
-                    .background__long-pocket {
-                        bottom: 2%;
-                        transform: translateX(-50%) scale(1.2);
-                    }
-                }
-            }
         }
     }
 }

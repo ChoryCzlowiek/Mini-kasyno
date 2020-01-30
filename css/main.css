@@ -1524,7 +1524,7 @@ body {
 }
 
 @media only screen and (orientation: landscape) and (min-height: 360px) {
-  .game {
+  .play {
     position: absolute;
     top: 11vh;
     left: 0;
@@ -1536,21 +1536,21 @@ body {
     color: rgba(255, 217, 0, 0.7);
     font-size: .9rem;
   }
-  .game__saldo {
+  .play__saldo {
     position: absolute;
     top: 50%;
     left: 10vw;
   }
-  .game__saldo span {
+  .play__saldo span {
     font-size: 1.2rem;
     color: orangered;
   }
-  .game .form {
+  .play .form {
     position: absolute;
     top: 40%;
     left: 10vw;
   }
-  .game .form__rate {
+  .play .form__rate {
     background: transparent;
     border: 1px solid rgba(255, 217, 0, 0.7);
     -webkit-box-shadow: 0 0 2px gold;
@@ -1560,13 +1560,13 @@ body {
     width: 65px;
     padding: .1rem;
   }
-  .game .form__rate:focus {
+  .play .form__rate:focus {
     outline: none;
     border: 1px solid orangered;
     -webkit-box-shadow: 0 0 2px orangered;
             box-shadow: 0 0 2px orangered;
   }
-  .game__play-btn {
+  .play__play-btn {
     position: absolute;
     top: 55%;
     left: 45vw;
@@ -1584,23 +1584,23 @@ body {
             box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
     cursor: pointer;
   }
-  .game__play-btn:hover {
+  .play__play-btn:hover {
     background: orangered;
     -webkit-box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
             box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
   }
-  .game .stats {
+  .play .stats {
     position: absolute;
     top: 10%;
     left: 80vw;
     font-size: .8rem;
   }
-  .game .stats__text {
+  .play .stats__text {
     font-size: .9rem;
     margin-bottom: 1rem;
     text-shadow: 0 0 10px orangered, 0 0 30px orangered;
   }
-  .game .stats span {
+  .play .stats span {
     color: orangered;
     font-size: 1.1rem;
   }
@@ -1777,7 +1777,7 @@ body {
   .blackjack .main {
     display: block;
   }
-  .blackjack .main .game {
+  .blackjack .main .play {
     position: absolute;
     top: 11vh;
     left: 0;
@@ -1789,7 +1789,7 @@ body {
     color: rgba(255, 217, 0, 0.7);
     font-size: .9rem;
   }
-  .blackjack .main .game__deck {
+  .blackjack .main .play__deck {
     position: absolute;
     top: 5%;
     left: 15vw;
@@ -1800,25 +1800,25 @@ body {
     border-top: 3px solid white;
     border-left: 3px solid white;
   }
-  .blackjack .main .game__deck--start {
+  .blackjack .main .play__deck--start {
     left: 70vw;
     border: none;
   }
-  .blackjack .main .game__saldo {
+  .blackjack .main .play__saldo {
     position: absolute;
     top: 50%;
     left: 10vw;
   }
-  .blackjack .main .game__saldo span {
+  .blackjack .main .play__saldo span {
     font-size: 1.2rem;
     color: orangered;
   }
-  .blackjack .main .game .form {
+  .blackjack .main .play .form {
     position: absolute;
     top: 40%;
     left: 10vw;
   }
-  .blackjack .main .game .form__rate {
+  .blackjack .main .play .form__rate {
     background: transparent;
     border: 1px solid rgba(255, 217, 0, 0.7);
     -webkit-box-shadow: 0 0 2px gold;
@@ -1828,13 +1828,13 @@ body {
     width: 65px;
     padding: .1rem;
   }
-  .blackjack .main .game .form__rate:focus {
+  .blackjack .main .play .form__rate:focus {
     outline: none;
     border: 1px solid orangered;
     -webkit-box-shadow: 0 0 2px orangered;
             box-shadow: 0 0 2px orangered;
   }
-  .blackjack .main .game__play-btn {
+  .blackjack .main .play__play-btn {
     position: absolute;
     top: 55%;
     left: 45vw;
@@ -1852,12 +1852,12 @@ body {
             box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
     cursor: pointer;
   }
-  .blackjack .main .game__play-btn:hover {
+  .blackjack .main .play__play-btn:hover {
     background: orangered;
     -webkit-box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
             box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
   }
-  .blackjack .main .game .option-btns {
+  .blackjack .main .play .option-btns {
     position: absolute;
     top: 50%;
     left: 50vw;
@@ -1871,7 +1871,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .blackjack .main .game .option-btns__btn {
+  .blackjack .main .play .option-btns__btn {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
@@ -1881,14 +1881,14 @@ body {
     color: rgba(255, 217, 0, 0.7);
     border: 2px solid rgba(255, 217, 0, 0.7);
   }
-  .blackjack .main .game .option-btns__btn:hover {
+  .blackjack .main .play .option-btns__btn:hover {
     border: 4px solid rgba(255, 217, 0, 0.7);
     background: orangered;
   }
-  .blackjack .main .game .option-btns__btn--pick {
+  .blackjack .main .play .option-btns__btn--pick {
     margin-right: 1rem;
   }
-  .blackjack .main .game__circle-points {
+  .blackjack .main .play__circle-points {
     position: absolute;
     top: 20%;
     left: 30vw;
@@ -1898,26 +1898,26 @@ body {
     border-radius: 50%;
     color: orangered;
   }
-  .blackjack .main .game__circle-points--user {
+  .blackjack .main .play__circle-points--user {
     top: 35%;
   }
-  .blackjack .main .game__circle-points .game__points {
+  .blackjack .main .play__circle-points .game__points {
     text-align: center;
     line-height: 2rem;
     font-size: 1.1rem;
   }
-  .blackjack .main .game .stats {
+  .blackjack .main .play .stats {
     position: absolute;
     top: 10%;
     left: 80vw;
     font-size: .8rem;
   }
-  .blackjack .main .game .stats__text {
+  .blackjack .main .play .stats__text {
     font-size: .9rem;
     margin-bottom: 1rem;
     text-shadow: 0 0 10px orangered, 0 0 30px orangered;
   }
-  .blackjack .main .game .stats span {
+  .blackjack .main .play .stats span {
     color: orangered;
     font-size: 1.1rem;
   }
@@ -1930,19 +1930,6 @@ body {
   .blackjack .main {
     display: block;
   }
-  .blackjack .main .background__wood .background__pocket {
-    bottom: 14%;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  .blackjack .main .background__wood .background__pocket--right {
-    bottom: 12%;
-  }
-  .blackjack .main .background__wood .background__long-pocket {
-    bottom: 2%;
-    -webkit-transform: translateX(-50%) scale(1.2);
-            transform: translateX(-50%) scale(1.2);
-  }
 }
 
 @media only screen and (orientation: landscape) and (min-width: 1440px) {
@@ -1951,19 +1938,6 @@ body {
   }
   .blackjack .main {
     display: block;
-  }
-  .blackjack .main .background__wood .background__pocket {
-    bottom: 14%;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  .blackjack .main .background__wood .background__pocket--right {
-    bottom: 12%;
-  }
-  .blackjack .main .background__wood .background__long-pocket {
-    bottom: 2%;
-    -webkit-transform: translateX(-50%) scale(1.2);
-            transform: translateX(-50%) scale(1.2);
   }
 }
 
@@ -1978,14 +1952,14 @@ body {
   .war .main {
     display: block;
   }
-  .war .game__hand {
+  .war .play__hand {
     position: absolute;
     top: 8%;
     left: 30vw;
     width: 35px;
     height: 50px;
   }
-  .war .game__hand--user {
+  .war .play__hand--user {
     top: 40%;
     left: 65vw;
   }
