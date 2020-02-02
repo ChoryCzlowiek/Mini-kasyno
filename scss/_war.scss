@@ -11,34 +11,206 @@
 
         .main {
             display: block;
-        }
 
-        .play {
+            .play {
 
-            &__hand {
+                .points-container {
+                    position: absolute;
+                    top: 10%;
+                    left: 1vw;
+                    z-index: 99;
+                    display: none;
+
+                    &__text {
+                        margin-bottom: .5rem;
+                        font-size: .8rem;
+
+                        .points-container__points {
+                            color: orangered;
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+
+                &__hand {
+                    position: absolute;
+                    top: 8%;
+                    left: 30vw;
+                    width: 35px;
+                    height: 50px;
+                    display: none;
+
+                    &--user {
+                        top: 40%;
+                        left: 65vw;
+                    }
+                }
+
+                &__active-card {
+                    position: absolute;
+                    top: 8%;
+                    left: 30vw;
+                    width: 35px;
+                    height: 50px;
+                    display: none;
+
+                    &--user {
+                        top: 40%;
+                        left: 65vw;
+                    }
+                }
+
+                &__put-out {
+                    position: absolute;
+                    top: 50%;
+                    left: 35vw;
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    border-radius: 50%;
+                    background: rgba(255, 68, 0, 0.6);
+                    font-family: 'Bebas Neue';
+                    letter-spacing: 1px;
+                    color: rgba(255, 217, 0, 0.7);
+                    border: 2px solid rgba(255, 217, 0, 0.7);
+                    display: none;
+
+                    &:hover {
+                        border: 4px solid rgba(255, 217, 0, 0.7);
+                        background: orangered;
+                    }
+                }
+            }
+
+            .score-container {
                 position: absolute;
-                top: 8%;
-                left: 30vw;
-                width: 35px;
-                height: 50px;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 99;
+                display: none;
 
-                &--user {
-                    top: 40%;
-                    left: 65vw;
+                &__text {
+                    text-align: center;
+                    line-height: 100vh;
+                    font-size: 0rem;
+                    font-family: 'Bebas Neue';
+                    letter-spacing: 5px;
+                    color: gold;
+                    text-shadow: 0 0 10px orangered, 0 0 20px orangered,
+                        0 0 40px orangered, 0 0 30px orangered,
+                        0 0 50px orangered;
                 }
             }
         }
+    }
+}
 
-        @media only screen and (orientation: landscape) and (min-height: 768px) {
-            .rotate-container {
-                display: none;
-            }
-        }
+@media only screen and (orientation: landscape) and (min-height: 768px) {
+    .rotate-container {
+        display: none;
+    }
+}
 
-        @media only screen and (orientation: landscape) and (min-width: 1440px) {
-            .rotate-container {
-                display: none;
-            }
-        }
+@media only screen and (orientation: landscape) and (min-width: 1440px) {
+    .rotate-container {
+        display: none;
+    }
+}
+
+
+
+@keyframes showComputerActiveCard {
+    0% {
+        left: 30vw;
+    }
+
+    100% {
+        left: 47.5vw;
+    }
+}
+
+@keyframes showUserActiveCard {
+    0% {
+        left: 65vw;
+    }
+
+    100% {
+        left: 47.5vw;
+    }
+}
+
+@keyframes hideComputerActiveCard {
+    0% {
+        left: 47.5vw;
+    }
+
+    100% {
+        left: 30vw;
+    }
+}
+
+@keyframes hideUserActiveCard {
+    0% {
+        left: 47.5vw;
+    }
+
+    100% {
+        left: 65vw;
+    }
+}
+
+@keyframes hideComputerActiveCardToUser {
+    0% {
+        left: 47.5vw;
+        top: 8%
+    }
+
+    100% {
+        left: 65vw;
+        top: 40%;
+    }
+}
+
+@keyframes hideUserActiveCardToComputer {
+    0% {
+        left: 47.5vw;
+        top: 40%;
+    }
+
+    100% {
+        left: 30vw;
+        top: 8%;
+    }
+}
+
+@keyframes blurTable {
+
+    0%,
+    100% {
+        filter: blur(0);
+    }
+
+    1%,
+    99% {
+        filter: blur(3px) brightness(30%);
+    }
+}
+
+@keyframes growUpFont {
+    0% {
+        font-size: 0;
+    }
+
+    25% {
+        font-size: 5rem;
+    }
+
+    75% {
+        font-size: 5rem;
+    }
+
+    100% {
+        font-size: 0;
     }
 }

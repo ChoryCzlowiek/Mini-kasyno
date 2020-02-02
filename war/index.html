@@ -90,19 +90,30 @@
                 </div>
             </div>
             <div class="main__play play">
+                <div class="play__points-container points-container">
+                    <p class="points-container__text">Ilość kart komputera:
+                        <span class="points-container__points"></span></p>
+                    <p class="points-container__text">Ilość kart użytkownika:
+                        <span class="points-container__points"></span></p>
+                </div>
                 <p class="play__saldo">Twoje saldo: <span>100</span></p>
                 <img src="../images/cards/card.jpg" alt="" class="play__hand play__hand--computer">
                 <img src="../images/cards/card.jpg" alt="" class="play__hand play__hand--user">
+                <img src="" alt="" class="play__active-card play__active-card--computer">
+                <img src="" alt="" class="play__active-card play__active-card--user">
                 <form action="" class="play__form form">
                     <label for="rate" class="form__text">Stawka: </label>
                     <input type="number" class="form__rate" id="rate"></form>
                 <button class="play__play-btn">Graj</button>
+                <button class="play__put-out">Wystaw</button>
                 <div class="play__stats stats">
                     <p class="stats__text">Statystyki z bieżącej gry:</p>
-                    <p class="stats__wins">Wygrane: <span>10</span></p>
-                    <p class="stats__draws">Remisy: <span>20</span></p>
-                    <p class="stats__loses">Przegrane: <span>15</span></p>
+                    <p class="stats__option stats__option--wins">Wygrane: <span class="stats__number">0</span></p>
+                    <p class="stats__option stats__option--loses">Przegrane: <span class="stats__number">0</span></p>
                 </div>
+            </div>
+            <div class="main__score-container score-container">
+                <p class="score-container__text"></p>
             </div>
         </div>
         <script src="../js/nav.js"></script>
