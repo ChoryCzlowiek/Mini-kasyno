@@ -10,8 +10,6 @@ const putOutBtn = document.querySelector('.play__put-out');
 const statistics = document.querySelectorAll('.stats__number');
 const bid = document.querySelector('.form__rate');
 const hands = document.querySelectorAll('.play__hand');
-const imageActiveAiCard = document.querySelector('.play__active-card--computer');
-const imageActiveUserCard = document.querySelector('.play__active-card--user');
 const background = document.querySelector('.background');
 const tableText = document.querySelector('.play');
 const scoreBox = document.querySelector('.score-container');
@@ -19,8 +17,10 @@ const scoreInfo = document.querySelector('.score-container__text');
 const pointBox = document.querySelector('.points-container');
 let howCards = document.querySelectorAll('.points-container__points');
 
-let wins = 0;
-let loses = 0;
+let wins = 0,
+    loses = 0,
+    aiHand = [],
+    userHand = [];
 
 // Block refresh site
 
@@ -44,6 +44,8 @@ function prepareToPlay() {
     pointBox.style.display = 'block';
 }
 
+// Draw Cards for Ai and User
+
 function drawHand(cards) {
     const handCards = [];
     for (let i = 0; i < deck.length / 2; i++) {
@@ -54,14 +56,15 @@ function drawHand(cards) {
     return handCards;
 }
 
-const copyDeck = deck.slice();
-let aiHand = drawHand(copyDeck);
-let userHand = drawHand(copyDeck);
+// Main function of click Play Button
 
 function startGame() {
     if (bid.value != '' && Math.floor(bid.value) <= Math.floor(saldo.textContent) && Math.floor(bid.value) > 0) {
         bid.disabled = 'true';
         prepareToPlay();
+        const copyDeck = deck.slice();
+        aiHand = drawHand(copyDeck);
+        userHand = drawHand(copyDeck);
         howCards[0].textContent = aiHand.length;
         howCards[1].textContent = userHand.length;
     } else if (bid.value == '' || Math.floor(bid.value) == 0) alert('Nie wprowadzono stawki!');
@@ -78,6 +81,8 @@ function drawCard(handCards) {
     const card = handCards[randomCardIndex];
     return card;
 }
+
+// Add how points have cards
 
 function addPointsToCards(activeCard) {
     let points = 0
@@ -111,50 +116,115 @@ function addPointsToCards(activeCard) {
     return points;
 }
 
-function showCards(aiActiveCard, userActiveCard) {
-    imageActiveAiCard.style.display = 'block';
-    imageActiveAiCard.src = `../images/cards/${aiActiveCard}.jpg`;
-    imageActiveAiCard.style.animation = 'showComputerActiveCard .5s linear .5s both';
+// Show active cards from ai and user
 
-    imageActiveUserCard.style.display = 'block';
-    imageActiveUserCard.src = `../images/cards/${userActiveCard}.jpg`;
-    imageActiveUserCard.style.animation = 'showUserActiveCard .5s linear .5s both';
+function showCards(aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard) {
+    const imagesActiveAiCard = document.querySelectorAll('.play__active-card--computer');
+    const imagesActiveUserCard = document.querySelectorAll('.play__active-card--user');
+
+    imagesActiveAiCard[indexOfActiveAiCard].style.display = 'block';
+    imagesActiveAiCard[indexOfActiveAiCard].src = `../images/cards/${aiActiveCard[indexOfActiveAiCard]}.jpg`;
+    imagesActiveAiCard[indexOfActiveAiCard].style.animation = 'showComputerActiveCard .5s linear .5s both';
+
+    imagesActiveUserCard[indexOfActiveUserCard].style.display = 'block';
+    imagesActiveUserCard[indexOfActiveUserCard].src = `../images/cards/${userActiveCard[indexOfActiveUserCard]}.jpg`;
+    imagesActiveUserCard[indexOfActiveUserCard].style.animation = 'showUserActiveCard .5s linear .5s both';
 }
 
-function checkWinPointAndHideCards(aiPoints, userPoints, aiActiveCard, userActiveCard) {
+function drawInBattle(aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard, aiPoints, userPoints) {
+    let counter = 0;
+    const warCards = [document.createElement('img'), document.createElement('img'), document.createElement('img'), document.createElement('img')];
+    warCards.forEach(card => {
+        card.classList.add('play__active-card');
+        if (counter < 2) {
+            card.classList.add('play__active-card--computer');
+        } else {
+            card.classList.add('play__active-card--user');
+        }
+        counter++;
+        tableText.appendChild(card);
+    })
+
+
+    setTimeout(() => {
+        aiActiveCard.push(drawCard(aiHand));
+        userActiveCard.push(drawCard(userHand));
+
+        indexOfActiveAiCard = aiActiveCard.length - 1;
+        indexOfActiveUserCard = userActiveCard.length - 1;
+
+        showCards(aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard);
+    }, 1500);
+
+    setTimeout(() => {
+        aiActiveCard.push(drawCard(aiHand));
+        userActiveCard.push(drawCard(userHand));
+
+        indexOfActiveAiCard = aiActiveCard.length - 1;
+        indexOfActiveUserCard = userActiveCard.length - 1;
+
+        showCards(aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard);
+    }, 3000);
+
+    console.log(aiActiveCard);
+    console.log(userActiveCard);
+    console.log(indexOfActiveAiCard);
+    console.log(indexOfActiveUserCard);
+
+    // checkWinPointAndHideCards(aiPoints, userPoints, aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard);
+
+    // warCards.forEach(card => {
+    //     tableText.removeChild(card);
+    // })
+}
+
+// Check who have more points and hide active cards
+
+function checkWinPointAndHideCards(aiPoints, userPoints, aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard) {
+    const imagesActiveAiCard = document.querySelectorAll('.play__active-card--computer');
+    const imagesActiveUserCard = document.querySelectorAll('.play__active-card--user');
+
     if (aiPoints > userPoints) {
-        const indexOfSpliceCard = userHand.indexOf(aiActiveCard);
-        userHand.splice(indexOfSpliceCard, 1);
-        aiHand.push(userActiveCard);
+        userActiveCard.forEach((card) => {
+            const indexOfSpliceCard = userHand.indexOf(card);
+            userHand.splice(indexOfSpliceCard, 1);
+        })
+        aiHand.push(...userActiveCard);
         setTimeout(() => {
-            imageActiveAiCard.style.animation = 'hideComputerActiveCard .5s linear both';
-            imageActiveUserCard.style.animation = 'hideUserActiveCardToComputer .5s linear both';
-            imageActiveAiCard.src = '../images/cards/card.jpg';
-            imageActiveUserCard.src = '../images/cards/card.jpg';
+            imagesActiveAiCard[indexOfActiveAiCard].style.animation = 'hideComputerActiveCard .5s linear both';
+            imagesActiveUserCard[indexOfActiveUserCard].style.animation = 'hideUserActiveCardToComputer .5s linear both';
+            imagesActiveAiCard[indexOfActiveAiCard].src = '../images/cards/card.jpg';
+            imagesActiveUserCard[indexOfActiveUserCard].src = '../images/cards/card.jpg';
             setTimeout(() => {
-                imageActiveAiCard.style.display = 'none';
-                imageActiveUserCard.style.display = 'none';
+                imagesActiveAiCard[indexOfActiveAiCard].style.display = 'none';
+                imagesActiveUserCard[indexOfActiveUserCard].style.display = 'none';
             }, 1000);
         }, 2000)
     } else if (aiPoints < userPoints) {
-        const indexOfSpliceCard = aiHand.indexOf(userActiveCard);
-        aiHand.splice(indexOfSpliceCard, 1);
-        userHand.push(userActiveCard);
+        aiActiveCard.forEach((card) => {
+            const indexOfSpliceCard = aiHand.indexOf(card);
+            aiHand.splice(indexOfSpliceCard, 1);
+        })
+        userHand.push(...aiActiveCard);
         setTimeout(() => {
-            imageActiveAiCard.style.animation = 'hideComputerActiveCardToUser .5s linear both';
-            imageActiveUserCard.style.animation = 'hideUserActiveCard .5s linear both';
-            imageActiveAiCard.src = '../images/cards/card.jpg';
-            imageActiveUserCard.src = '../images/cards/card.jpg';
+            imagesActiveAiCard[indexOfActiveAiCard].style.animation = 'hideComputerActiveCardToUser .5s linear both';
+            imagesActiveUserCard[indexOfActiveUserCard].style.animation = 'hideUserActiveCard .5s linear both';
+            imagesActiveAiCard[indexOfActiveAiCard].src = '../images/cards/card.jpg';
+            imagesActiveUserCard[indexOfActiveUserCard].src = '../images/cards/card.jpg';
             setTimeout(() => {
-                imageActiveAiCard.style.display = 'none';
-                imageActiveUserCard.style.display = 'none';
+                imagesActiveAiCard[indexOfActiveAiCard].style.display = 'none';
+                imagesActiveUserCard[indexOfActiveUserCard].style.display = 'none';
             }, 1000);
         }, 2000)
+    } else {
+        drawInBattle(aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard);
     }
 }
 
+// Check does somebody win battle and update statistics
+
 function checkWinnerAndUpdateStats(aiHand, userHand) {
-    if (aiHand == []) {
+    if (aiHand.length == 0) {
         scoreBox.style.display = 'block';
         background.style.animation = 'blurTable 5s linear 2s';
         tableText.style.animation = 'blurTable 5s linear 2s';
@@ -166,7 +236,7 @@ function checkWinnerAndUpdateStats(aiHand, userHand) {
 
         wins++;
         statistics[0].textContent = wins;
-    } else if (userHand == []) {
+    } else if (userHand.length == 0) {
         scoreBox.style.display = 'block';
         background.style.animation = 'blurTable 5s linear 2s';
         tableText.style.animation = 'blurTable 5s linear 2s';
@@ -181,26 +251,31 @@ function checkWinnerAndUpdateStats(aiHand, userHand) {
     }
 }
 
+// Main function of Put out Button
+
 function goCards() {
     this.disabled = true;
 
-    const aiActiveCard = drawCard(aiHand);
-    const userActiveCard = drawCard(userHand);
-    showCards(aiActiveCard, userActiveCard)
+    const aiActiveCard = [drawCard(aiHand)];
+    const userActiveCard = [drawCard(userHand)];
+    let indexOfActiveAiCard = aiActiveCard.length - 1;
+    let indexOfActiveUserCard = userActiveCard.length - 1;
+    showCards(aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard);
 
-    const aiPoints = addPointsToCards(aiActiveCard);
-    const userPoints = addPointsToCards(userActiveCard);
+    const aiPoints = addPointsToCards(aiActiveCard[indexOfActiveAiCard]);
+    const userPoints = addPointsToCards(userActiveCard[indexOfActiveUserCard]);
 
-    checkWinPointAndHideCards(aiPoints, userPoints, aiActiveCard, userActiveCard);
+    checkWinPointAndHideCards(aiPoints, userPoints, aiActiveCard, userActiveCard, indexOfActiveAiCard, indexOfActiveUserCard);
 
     checkWinnerAndUpdateStats(aiHand, userHand);
 
-    howCards[0].textContent = aiHand.length;
-    howCards[1].textContent = userHand.length;
+    setTimeout(() => {
+        howCards[0].textContent = aiHand.length;
+        howCards[1].textContent = userHand.length;
+    }, 1500);
 
     setTimeout(() => {
         putOutBtn.disabled = false;
-        console.log(this);
     }, 3000);
 }
 

@@ -1782,7 +1782,7 @@ body {
     top: 11vh;
     left: 0;
     height: 89vh;
-    width: 100vw;
+    width: 100%;
     z-index: 98;
     font-family: 'Bebas Neue';
     letter-spacing: 1px;
@@ -1792,22 +1792,26 @@ body {
   .blackjack .main .play__deck {
     position: absolute;
     top: 5%;
-    left: 15vw;
-    width: 43px;
-    height: 58px;
+    left: 15%;
+    width: 47px;
+    height: 62px;
     z-index: 99;
     padding: 4px;
     border-top: 3px solid white;
     border-left: 3px solid white;
   }
   .blackjack .main .play__deck--start {
-    left: 70vw;
+    top: 5%;
+    padding: 0;
+    width: 35px;
+    height: 50px;
+    left: 70%;
     border: none;
   }
   .blackjack .main .play__saldo {
     position: absolute;
     top: 50%;
-    left: 10vw;
+    left: 10%;
   }
   .blackjack .main .play__saldo span {
     font-size: 1.2rem;
@@ -1816,7 +1820,7 @@ body {
   .blackjack .main .play .form {
     position: absolute;
     top: 40%;
-    left: 10vw;
+    left: 10%;
   }
   .blackjack .main .play .form__rate {
     background: transparent;
@@ -1837,7 +1841,7 @@ body {
   .blackjack .main .play__play-btn {
     position: absolute;
     top: 55%;
-    left: 45vw;
+    left: 45%;
     padding: .2rem .6rem;
     color: rgba(255, 217, 0, 0.7);
     font-family: 'Bebas Neue';
@@ -1860,12 +1864,10 @@ body {
   .blackjack .main .play .option-btns {
     position: absolute;
     top: 50%;
-    left: 30vw;
+    left: 45%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -1890,18 +1892,19 @@ body {
   }
   .blackjack .main .play__circle-points {
     position: absolute;
-    top: 20%;
-    left: 30vw;
+    top: 5%;
+    left: 30%;
     width: 2rem;
     height: 2rem;
     border: 2px solid gold;
     border-radius: 50%;
     color: orangered;
+    display: none;
   }
   .blackjack .main .play__circle-points--user {
     top: 35%;
   }
-  .blackjack .main .play__circle-points .game__points {
+  .blackjack .main .play__circle-points .play__points {
     text-align: center;
     line-height: 2rem;
     font-size: 1.1rem;
@@ -1909,7 +1912,7 @@ body {
   .blackjack .main .play .stats {
     position: absolute;
     top: 10%;
-    left: 80vw;
+    left: 80%;
     font-size: .8rem;
   }
   .blackjack .main .play .stats__text {
@@ -1920,6 +1923,13 @@ body {
   .blackjack .main .play .stats span {
     color: orangered;
     font-size: 1.1rem;
+  }
+  .blackjack .main .play__active-card {
+    position: absolute;
+    width: 35px;
+    height: 50px;
+    top: 5%;
+    left: 70%;
   }
 }
 
