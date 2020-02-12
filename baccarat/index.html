@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wojna | Mini kasyno</title>
+    <title>Baccarat | Mini kasyno</title>
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
@@ -19,8 +19,8 @@
         <p class="rotate-container__text">Aby zagrać, proszę obrócić ekran!</p>
     </div>
 
-    <div class="war">
-        <div class="war__navigation-box-left navigation-box-left">
+    <div class="baccarat">
+        <div class="baccarat__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
                 <ul class="navigation-box-left__item">
@@ -30,15 +30,15 @@
                     <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></ul>
                 <ul class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../blackjack/index.html">Blackjack</a></ul>
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="index.html">Wojna</a>
-                </ul>
                 <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></ul>
+                    <a class="navigation-box-left__link" href="../war/index.html">Wojna</a></ul>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="index.html">Baccarat</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
             </ul>
         </div>
-        <div class="war__navigation-box-right navigation-box-right">
+        <div class="baccarat__navigation-box-right navigation-box-right">
             <i class="fas fa-times navigation-box-right__cross"></i>
             <div class="navigation-box-right__sign-container sign-container">
                 <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
@@ -68,7 +68,7 @@
                 <button type="submit" class="sign-up-form__button">Zarejestruj</button>
             </form>
         </div>
-        <div class="war__main main ">
+        <div class="baccarat__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <h3 class="navbar__title">Mini kasyno</h3>
@@ -91,28 +91,29 @@
                 </div>
             </div>
             <div class="main__play play">
-                <div class="play__points-container points-container">
-                    <p class="points-container__text">Ilość kart komputera:
-                        <span class="points-container__points"></span></p>
-                    <p class="points-container__text">Ilość kart użytkownika:
-                        <span class="points-container__points"></span></p>
-                </div>
+                <img src="../images/cards/card.jpg" alt="" class="play__deck">
+                <img src="../images/cards/card.jpg" alt="" class="play__deck play__deck--start">
                 <p class="play__saldo">Twoje saldo: <span>100</span></p>
-                <img src="../images/cards/card.jpg" alt="" class="play__hand play__hand--computer">
-                <img src="../images/cards/card.jpg" alt="" class="play__hand play__hand--user">
                 <form action="" class="play__form form">
                     <label for="rate" class="form__text">Stawka: </label>
                     <input type="number" class="form__rate" id="rate"></form>
                 <button class="play__play-btn">Graj</button>
-                <button class="play__put-out">Wystaw</button>
+                <div class="play__option-btns option-btns">
+                    <button class="option-btns__btn option-btns__btn--pick">Dobierz</button>
+                    <button class="option-btns__btn option-btns__btn--pass">Pasuj</button>
+                </div>
+                <div class="play__circle-points">
+                    <p class="play__points">0</p>
+                </div>
+                <div class="play__circle-points play__circle-points--user">
+                    <p class="play__points">0</p>
+                </div>
                 <div class="play__stats stats">
                     <p class="stats__text">Statystyki z bieżącej gry:</p>
-                    <p class="stats__option stats__option--wins">Wygrane: <span class="stats__number">0</span></p>
-                    <p class="stats__option stats__option--loses">Przegrane: <span class="stats__number">0</span></p>
+                    <p class="stats__wins">Wygrane: <span>0</span></p>
+                    <p class="stats__draws">Remisy: <span>0</span></p>
+                    <p class="stats__loses">Przegrane: <span>0</span></p>
                 </div>
-            </div>
-            <div class="main__score-container score-container">
-                <p class="score-container__text"></p>
             </div>
         </div>
         <script src="../js/nav.js"></script>
