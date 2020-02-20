@@ -1,4 +1,4 @@
-.blackjack__main {
+.poker__main {
     display: none;
 }
 
@@ -7,7 +7,7 @@
         display: none;
     }
 
-    .blackjack {
+    .poker {
 
         .main {
             display: block;
@@ -26,7 +26,7 @@
 
                 &__deck {
                     position: absolute;
-                    top: calc(5% - 7px);
+                    top: 5%;
                     left: 15%;
                     width: 47px;
                     height: 62px;
@@ -103,7 +103,7 @@
                 .option-btns {
                     position: absolute;
                     top: 50%;
-                    left: 45%;
+                    left: 50%;
                     transform: translateX(-50%);
                     display: none;
                     flex-direction: row;
@@ -123,31 +123,9 @@
                             background: orangered;
                         }
 
-                        &--pick {
-                            margin-right: 1rem;
+                        &--raise {
+                            margin-left: .3rem;
                         }
-                    }
-                }
-
-                &__circle-points {
-                    position: absolute;
-                    top: 5%;
-                    left: 30%;
-                    width: 2rem;
-                    height: 2rem;
-                    border: 2px solid gold;
-                    border-radius: 50%;
-                    color: orangered;
-                    display: none;
-
-                    &--user {
-                        top: 35%;
-                    }
-
-                    .play__points {
-                        text-align: center;
-                        line-height: 2rem;
-                        font-size: 1.1rem;
                     }
                 }
 
@@ -168,56 +146,17 @@
                         font-size: 1.1rem;
                     }
                 }
+
+                &__active-card {
+                    position: absolute;
+                    width: 35px;
+                    height: 50px;
+                    top: 5%;
+                    left: 70%;
+                }
+
             }
         }
-    }
-}
-
-@keyframes showAiCard {
-    0% {
-        top: 5%;
-        left: 70%;
-    }
-
-    100% {
-        top: 5%;
-        left: 45%
-    }
-}
-
-@keyframes showUserCard {
-    0% {
-        top: 5%;
-        left: 70%;
-    }
-
-    100% {
-        top: 30%;
-        left: 45%
-    }
-}
-
-@keyframes hideAiCard {
-    0% {
-        top: 5%;
-        left: 45%
-    }
-
-    100% {
-        top: 5%;
-        left: 15%
-    }
-}
-
-@keyframes hideUserCard {
-    0% {
-        top: 30%;
-        left: 45%
-    }
-
-    100% {
-        top: 5%;
-        left: 15%
     }
 }
 
@@ -226,7 +165,7 @@
         display: none;
     }
 
-    .blackjack {
+    .poker {
 
         .main {
             display: block;
@@ -239,7 +178,7 @@
         display: none;
     }
 
-    .blackjack {
+    .poker {
 
         .main {
             display: block;

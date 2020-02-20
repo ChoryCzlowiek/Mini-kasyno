@@ -1791,7 +1791,7 @@ body {
   }
   .blackjack .main .play__deck {
     position: absolute;
-    top: 5%;
+    top: calc(5% - 7px);
     left: 15%;
     width: 47px;
     height: 62px;
@@ -1924,12 +1924,93 @@ body {
     color: orangered;
     font-size: 1.1rem;
   }
-  .blackjack .main .play__active-card {
-    position: absolute;
-    width: 35px;
-    height: 50px;
+}
+
+@-webkit-keyframes showAiCard {
+  0% {
     top: 5%;
     left: 70%;
+  }
+  100% {
+    top: 5%;
+    left: 45%;
+  }
+}
+
+@keyframes showAiCard {
+  0% {
+    top: 5%;
+    left: 70%;
+  }
+  100% {
+    top: 5%;
+    left: 45%;
+  }
+}
+
+@-webkit-keyframes showUserCard {
+  0% {
+    top: 5%;
+    left: 70%;
+  }
+  100% {
+    top: 30%;
+    left: 45%;
+  }
+}
+
+@keyframes showUserCard {
+  0% {
+    top: 5%;
+    left: 70%;
+  }
+  100% {
+    top: 30%;
+    left: 45%;
+  }
+}
+
+@-webkit-keyframes hideAiCard {
+  0% {
+    top: 5%;
+    left: 45%;
+  }
+  100% {
+    top: 5%;
+    left: 15%;
+  }
+}
+
+@keyframes hideAiCard {
+  0% {
+    top: 5%;
+    left: 45%;
+  }
+  100% {
+    top: 5%;
+    left: 15%;
+  }
+}
+
+@-webkit-keyframes hideUserCard {
+  0% {
+    top: 30%;
+    left: 45%;
+  }
+  100% {
+    top: 5%;
+    left: 15%;
+  }
+}
+
+@keyframes hideUserCard {
+  0% {
+    top: 30%;
+    left: 45%;
+  }
+  100% {
+    top: 5%;
+    left: 15%;
   }
 }
 
@@ -2404,6 +2485,172 @@ body {
     display: none;
   }
   .baccarat .main {
+    display: block;
+  }
+}
+
+.poker__main {
+  display: none;
+}
+
+@media only screen and (orientation: landscape) and (min-height: 360px) {
+  .rotate-container {
+    display: none;
+  }
+  .poker .main {
+    display: block;
+  }
+  .poker .main .play {
+    position: absolute;
+    top: 11vh;
+    left: 0;
+    height: 89vh;
+    width: 100%;
+    z-index: 98;
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    color: rgba(255, 217, 0, 0.7);
+    font-size: .9rem;
+  }
+  .poker .main .play__deck {
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 47px;
+    height: 62px;
+    z-index: 99;
+    padding: 4px;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+  }
+  .poker .main .play__deck--start {
+    top: 5%;
+    padding: 0;
+    width: 35px;
+    height: 50px;
+    left: 70%;
+    border: none;
+  }
+  .poker .main .play__saldo {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+  }
+  .poker .main .play__saldo span {
+    font-size: 1.2rem;
+    color: orangered;
+  }
+  .poker .main .play .form {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+  }
+  .poker .main .play .form__rate {
+    background: transparent;
+    border: 1px solid rgba(255, 217, 0, 0.7);
+    -webkit-box-shadow: 0 0 2px gold;
+            box-shadow: 0 0 2px gold;
+    font-size: 1rem;
+    color: orangered;
+    width: 65px;
+    padding: .1rem;
+  }
+  .poker .main .play .form__rate:focus {
+    outline: none;
+    border: 1px solid orangered;
+    -webkit-box-shadow: 0 0 2px orangered;
+            box-shadow: 0 0 2px orangered;
+  }
+  .poker .main .play__play-btn {
+    position: absolute;
+    top: 55%;
+    left: 45%;
+    padding: .2rem .6rem;
+    color: rgba(255, 217, 0, 0.7);
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    overflow: hidden;
+    -webkit-transition: .2s;
+    transition: .2s;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+            box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+    cursor: pointer;
+  }
+  .poker .main .play__play-btn:hover {
+    background: orangered;
+    -webkit-box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+            box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+  }
+  .poker .main .play .option-btns {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    display: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .poker .main .play .option-btns__btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgba(255, 68, 0, 0.6);
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    color: rgba(255, 217, 0, 0.7);
+    border: 2px solid rgba(255, 217, 0, 0.7);
+  }
+  .poker .main .play .option-btns__btn:hover {
+    border: 4px solid rgba(255, 217, 0, 0.7);
+    background: orangered;
+  }
+  .poker .main .play .option-btns__btn--raise {
+    margin-left: .3rem;
+  }
+  .poker .main .play .stats {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    font-size: .8rem;
+  }
+  .poker .main .play .stats__text {
+    font-size: .9rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px orangered, 0 0 30px orangered;
+  }
+  .poker .main .play .stats span {
+    color: orangered;
+    font-size: 1.1rem;
+  }
+  .poker .main .play__active-card {
+    position: absolute;
+    width: 35px;
+    height: 50px;
+    top: 5%;
+    left: 70%;
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-height: 768px) {
+  .rotate-container {
+    display: none;
+  }
+  .poker .main {
+    display: block;
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 1440px) {
+  .rotate-container {
+    display: none;
+  }
+  .poker .main {
     display: block;
   }
 }

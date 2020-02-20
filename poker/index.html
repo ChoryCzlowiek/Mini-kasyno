@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blackjack | Mini kasyno</title>
+    <title>Poker | Mini kasyno</title>
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
@@ -19,8 +19,8 @@
         <p class="rotate-container__text">Aby zagrać, proszę obrócić ekran!</p>
     </div>
 
-    <div class="blackjack">
-        <div class="blackjack__navigation-box-left navigation-box-left">
+    <div class="poker">
+        <div class="poker__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
                 <ul class="navigation-box-left__item">
@@ -29,16 +29,17 @@
                 <ul class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></ul>
                 <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="index.html">Blackjack</a></ul>
+                    <a class="navigation-box-left__link" href="../blackjack/index.html">Blackjack</a></ul>
                 <ul class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../war/index.html">Wojna</a></ul>
                 <ul class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></ul>
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="index.html">Poker</a>
+                </ul>
                 <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
             </ul>
         </div>
-        <div class="blackjack__navigation-box-right navigation-box-right">
+        <div class="poker__navigation-box-right navigation-box-right">
             <i class="fas fa-times navigation-box-right__cross"></i>
             <div class="navigation-box-right__sign-container sign-container">
                 <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
@@ -68,7 +69,7 @@
                 <button type="submit" class="sign-up-form__button">Zarejestruj</button>
             </form>
         </div>
-        <div class="blackjack__main main ">
+        <div class="poker__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <h3 class="navbar__title">Mini kasyno</h3>
@@ -99,14 +100,10 @@
                     <input type="number" class="form__rate" id="rate"></form>
                 <button class="play__play-btn">Graj</button>
                 <div class="play__option-btns option-btns">
-                    <button class="option-btns__btn option-btns__btn--pick">Dobierz</button>
-                    <button class="option-btns__btn option-btns__btn--pass">Pasuj</button>
-                </div>
-                <div class="play__circle-points">
-                    <p class="play__points">0</p>
-                </div>
-                <div class="play__circle-points play__circle-points--user">
-                    <p class="play__points">0</p>
+                    <button class="option-btns__btn option-btns__btn--check">Czekaj</button>
+                    <button class="option-btns__btn option-btns__btn--raise">Podbij <span></span></button>
+                    <button class="option-btns__btn option-btns__btn--raise">Podbij <span></span></button>
+                    <button class="option-btns__btn option-btns__btn--raise">Podbij <span></span></button>
                 </div>
                 <div class="play__stats stats">
                     <p class="stats__text">Statystyki z bieżącej gry:</p>
@@ -118,7 +115,6 @@
         </div>
         <script src="../js/nav.js"></script>
         <script src="../js/table-color.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
         <script src="script.js"></script>
 </body>
 

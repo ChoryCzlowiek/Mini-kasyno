@@ -23,7 +23,7 @@ let wins = 0,
     userPoints = 0,
     saldoCounter = 100,
     aiCards = [],
-    UserCards = [],
+    userCards = [],
     endGame = false;
 
 const copyDeck = deck.slice();
