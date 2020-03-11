@@ -1,22 +1,52 @@
 {
+<<<<<<< HEAD
   "name": "projekt",
   "version": "1.0.0",
   "description": "https://choryczlowiek.github.io/Mini-kasyno/",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+  "name": "mini-kasyno",
+  "version": "1.0.0",
+  "description": "SSR app with gambling games",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+>>>>>>> d9d22ad72cc4e0ed720f2d2acf4db7a3fd6f8d40
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChoryCzlowiek/Mini-kasyno.git"
   },
+<<<<<<< HEAD
   "author": "",
+=======
+  "author": "Daniel Choros",
+>>>>>>> d9d22ad72cc4e0ed720f2d2acf4db7a3fd6f8d40
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ChoryCzlowiek/Mini-kasyno/issues"
   },
   "homepage": "https://github.com/ChoryCzlowiek/Mini-kasyno#readme",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.1"
+=======
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mongoose": "^5.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "optionalDependencies": {
+    "argon2": "^0.26.1"
+>>>>>>> d9d22ad72cc4e0ed720f2d2acf4db7a3fd6f8d40
   }
 }
