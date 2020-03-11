@@ -6,7 +6,12 @@ const bodyParser = require('body-parser'); // middleware, które służy do
 // zapisywania i odczywytania headera body z zapytań
 const cookieParser = require('cookie-parser');  //  odczytywanie cookie z req.
 
-const { PORT, DB_CONNECTION_STRING, AUTH_SECRET } = process.env;
+const {
+  PORT,
+  DB_CONNECTION_STRING,
+  AUTH_SECRET,
+  COOKIE_AUTH_SECRET
+} = process.env;
 // DESTRUKTURYZACJA (const { propA: propB } = obj;)
 /* równoważny zapis:
   const PORT = process.env.PORT;
@@ -27,21 +32,28 @@ db.once('open', function() {
 });
 
 const loggerMiddleware = (req, res, next) => {
-  console.log('hostname = ', req.hostname);
+  console.log(req.protocol + '://' + req.get('host') + req.originalUrl);
   next();
 };
 
 const app = express();
 const api = express.Router();
+const auth = require('./middleware/auth');
 
 api.use('/user', require('./api/user/controller'));
+
+app.get('/protected', auth, (req, res) => {
+  res.send('protected resource')
+});
+app.get('/login', (req, res) => {
+  res.send('login page');
+});
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(COOKIE_AUTH_SECRET));
 app.use(loggerMiddleware);
-app.use(require('./middleware/auth'));
 app.use('/api', api);
 
 app.listen(PORT, () => {

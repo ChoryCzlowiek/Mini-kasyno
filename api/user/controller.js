@@ -64,8 +64,13 @@ function logIn(req, res) {
       const user = users[0];
       const { hash } = user;
       if(user.validatePassword(hash, password)) {
-        const token = jwt.sign({ login }, process.env.AUTH_SECRET);
-        res.cookie('token', token, { signed: true });
+        const token = jwt.sign(
+          { login },
+          process.env.AUTH_SECRET,
+          { expiresIn: '1h' }
+        );
+        //res.cookie('token', token, { signed: true });
+        res.header('Authorization', `Bearer ${token}`);
         res.send('success');
       } else {
         errors.user = `Username or password is not valid`;
@@ -73,12 +78,6 @@ function logIn(req, res) {
       }
     }
   })
-}
-
-function logOut(req, res) {
-  delete req.session.login;
-  delete req.session._id;
-  res.send('success');
 }
 
 function get(req, res) {
@@ -95,6 +94,5 @@ function get(req, res) {
 controller.get('/', get);
 controller.post('/register', register);
 controller.post('/login', logIn);
-controller.post('/logout', logOut);
 
 module.exports = controller;
