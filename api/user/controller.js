@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('./model');
+const jwt = require('jsonwebtoken');
 
 const controller = express.Router();
 
@@ -49,7 +50,35 @@ function register(req, res) {
   })
 }
 
-function login(req, res) {
+function logIn(req, res) {
+  let errors = {};
+  const { login, password } = req.body;
+  User.find({ login }, (err, users) => {
+    if (err) {
+      errors.user = err;
+      res.status(500).json(errors);
+    } else if (!users.length){
+      errors.user = `User ${login} doesn't exist`;
+      res.status(404).json(errors);
+    } else {
+      const user = users[0];
+      const { hash } = user;
+      if(user.validatePassword(hash, password)) {
+        const token = jwt.sign({ login }, process.env.AUTH_SECRET);
+        res.cookie('token', token, { signed: true });
+        res.send('success');
+      } else {
+        errors.user = `Username or password is not valid`;
+        res.status(404).json(errors);
+      }
+    }
+  })
+}
+
+function logOut(req, res) {
+  delete req.session.login;
+  delete req.session._id;
+  res.send('success');
 }
 
 function get(req, res) {
@@ -65,6 +94,7 @@ function get(req, res) {
 
 controller.get('/', get);
 controller.post('/register', register);
-controller.post('/login', login);
+controller.post('/login', logIn);
+controller.post('/logout', logOut);
 
 module.exports = controller;

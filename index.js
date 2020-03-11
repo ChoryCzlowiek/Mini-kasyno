@@ -5,8 +5,6 @@ const mongoose = require('mongoose'); // ORM do korzystania z bazy danych Mongo
 const bodyParser = require('body-parser'); // middleware, które służy do
 // zapisywania i odczywytania headera body z zapytań
 const cookieParser = require('cookie-parser');  //  odczytywanie cookie z req.
-const session = require('express-session'); // zarządzanie sesją użytkownika
-
 
 const { PORT, DB_CONNECTION_STRING, AUTH_SECRET } = process.env;
 // DESTRUKTURYZACJA (const { propA: propB } = obj;)
@@ -42,12 +40,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({
-    secret: AUTH_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
 app.use(loggerMiddleware);
+app.use(require('./middleware/auth'));
 app.use('/api', api);
 
 app.listen(PORT, () => {
