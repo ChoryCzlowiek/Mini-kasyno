@@ -1,0 +1,22 @@
+{
+  "name": "projekt",
+  "version": "1.0.0",
+  "description": "https://choryczlowiek.github.io/Mini-kasyno/",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoryCzlowiek/Mini-kasyno.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChoryCzlowiek/Mini-kasyno/issues"
+  },
+  "homepage": "https://github.com/ChoryCzlowiek/Mini-kasyno#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

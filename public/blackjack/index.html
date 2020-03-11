@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blackjack | Mini kasyno</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="rotate-container">
+        <div class="rotate-container__border"></div>
+        <h1 class="rotate-container__name">Mini Kasyno</h1>
+        <i class="fas fa-mobile-alt rotate-container__phone"></i>
+        <p class="rotate-container__text">Aby zagrać, proszę obrócić ekran!</p>
+    </div>
+
+    <div class="blackjack">
+        <div class="blackjack__navigation-box-left navigation-box-left">
+            <i class="fas fa-times navigation-box-left__cross"></i>
+            <ul class="navigation-box-left__list">
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../index.html">Strona Główna</a>
+                </ul>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></ul>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="index.html">Blackjack</a></ul>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../war/index.html">Wojna</a></ul>
+                <ul class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
+                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
+            </ul>
+        </div>
+        <div class="blackjack__navigation-box-right navigation-box-right">
+            <i class="fas fa-times navigation-box-right__cross"></i>
+            <div class="navigation-box-right__sign-container sign-container">
+                <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
+                <h3 class="sign-container__text sign-container__text--sign-up">Rejestracja</h3>
+            </div>
+            <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
+            <form action="" method='post' class="navigation-box-right__sign-in-form sign-in-form">
+                <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login">
+                <input type="password" placeholder="Hasło" class="sign-in-form__input sign-in-form__input--password">
+                <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
+                <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
+                <button type="submit" class="sign-in-form__button">Zaloguj</button>
+            </form>
+            <form action="" method='post' class="navigation-box-right__sign-up-form sign-up-form">
+                <input type="text" placeholder="Imię" class="sign-up-form__input sign-up-form__input--name">
+                <input type="text" placeholder="Nazwisko" class="sign-up-form__input sign-up-form__input--surname">
+                <input type="text" placeholder="Rok urodzenia" class="sign-up-form__input sign-up-form__input--year">
+                <input type="text" placeholder="E-mail" class="sign-up-form__input sign-up-form__input--email">
+                <input type="text" placeholder="Login" class="sign-up-form__input sign-up-form__input--login">
+                <input type="password" placeholder="Hasło" class="sign-up-form__input sign-up-form__input--password">
+                <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--name"></i>
+                <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--surname"></i>
+                <i class="fas fa-birthday-cake sign-up-form__icon sign-up-form__icon--year"></i>
+                <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
+                <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
+                <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
+                <button type="submit" class="sign-up-form__button">Zarejestruj</button>
+            </form>
+        </div>
+        <div class="blackjack__main main ">
+            <div class="main__navbar navbar">
+                <i class="fas fa-bars navbar__icon"></i>
+                <h3 class="navbar__title">Mini kasyno</h3>
+                <i class="far fa-user navbar__icon navbar__icon--login"></i>
+            </div>
+            <div class="main__background background">
+                <div class="background__table"></div>
+                <div class="background__wood">
+                    <img src="../images/pocket.png" alt="" class="background__pocket">
+                    <img src="../images/pocket.png" alt="" class="background__pocket background__pocket--right">
+                    <img src="../images/long-pocket.png" alt="" class="background__long-pocket">
+                </div>
+                <div class="background__lether"></div>
+                <div class="background__carpet"></div>
+                <div class="background__circles-container circles-container">
+                    <div class="circles-container__circle circles-container__circle--blue" id="blue"></div>
+                    <div class="circles-container__circle circles-container__circle--red" id="red"></div>
+                    <div class="circles-container__circle circles-container__circle--green" id="green"></div>
+                    <div class="circles-container__circle circles-container__circle--main"></div>
+                </div>
+            </div>
+            <div class="main__play play">
+                <img src="../images/cards/card.jpg" alt="" class="play__deck">
+                <img src="../images/cards/card.jpg" alt="" class="play__deck play__deck--start">
+                <p class="play__saldo">Twoje saldo: <span>100</span></p>
+                <form action="" class="play__form form">
+                    <label for="rate" class="form__text">Stawka: </label>
+                    <input type="number" class="form__rate" id="rate" min="0"></form>
+                <button class="play__play-btn">Graj</button>
+                <div class="play__option-btns option-btns">
+                    <button class="option-btns__btn option-btns__btn--pick">Dobierz</button>
+                    <button class="option-btns__btn option-btns__btn--pass">Pasuj</button>
+                </div>
+                <div class="play__circle-points">
+                    <p class="play__points">0</p>
+                </div>
+                <div class="play__circle-points play__circle-points--user">
+                    <p class="play__points">0</p>
+                </div>
+                <div class="play__stats stats">
+                    <p class="stats__text">Statystyki z bieżącej gry:</p>
+                    <p class="stats__wins">Wygrane: <span>0</span></p>
+                    <p class="stats__draws">Remisy: <span>0</span></p>
+                    <p class="stats__loses">Przegrane: <span>0</span></p>
+                </div>
+            </div>
+        </div>
+        <script src="../js/nav.js"></script>
+        <script src="../js/table-color.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
