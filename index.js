@@ -5,6 +5,7 @@ const mongoose = require('mongoose'); // ORM do korzystania z bazy danych Mongo
 const bodyParser = require('body-parser'); // middleware, które służy do
 // zapisywania i odczywytania headera body z zapytań
 const cookieParser = require('cookie-parser');  //  odczytywanie cookie z req.
+const path = require('path') // moduł do operacji na ścieżkach
 
 const {
   PORT,
@@ -45,9 +46,12 @@ api.use('/user', require('./api/user/controller'));
 app.get('/protected', auth, (req, res) => {
   res.send('protected resource')
 });
-app.get('/login', (req, res) => {
-  res.send('login page');
-});
+
+// /api express.Router('/api', api)
+// /api/users express.Router('/users', usersController)
+// /api/users/register (endpoint = function (req, res))
+// /api/users/login    (endpoint = function (req, res))
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -55,6 +59,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(COOKIE_AUTH_SECRET));
 app.use(loggerMiddleware);
 app.use('/api', api);
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+});
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`); // template literal

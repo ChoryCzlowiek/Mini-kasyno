@@ -26,3 +26,23 @@ function goToSignInBox() {
 }
 
 signInBtn.addEventListener('click', goToSignInBox);
+
+function register(e) {
+  e.preventDefault();
+  let body = {};
+  body.login = document.getElementById('login').value;
+  body.password = document.getElementById('password').value;
+  body.name = document.getElementById('name').value;
+  body.surname = document.getElementById('surname').value;
+  body.dateOfBirth = document.getElementById('dateOfBirth').value;
+  body.email = document.getElementById('email').value;
+  console.log('register', body);
+}
+
+function login(e) {
+  e.preventDefault();
+  let body = {};
+  body.login = document.getElementById('login').value;
+  body.password = document.getElementById('password').value;
+  console.log('login', body);
+}

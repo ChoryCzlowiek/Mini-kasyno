@@ -5,6 +5,12 @@ const jwt = require('jsonwebtoken');
 const controller = express.Router();
 
 //        AUTHORIZATION
+//  JWT token = string, which has three parts separated with two dots, e.g.
+// 1. eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+// 2. eyJsb2dpbiI6InV0dGVyb3R0ZXIiLCJpYXQiOjE1ODQxMDQzOTYsImV4cCI6MTU4NDEwNzk5Nn0.
+// 3. y20lq-HuqwRTnDjyZ7BZ37CCqRyo9bBaEtiVW2BR_9E
+//  JWT token string can be decoded to get header, payload and signature
+
 //        [REGISTER]
 // BACK-END         FRONT-END
 //            <--   register(login, password)
@@ -69,8 +75,12 @@ function logIn(req, res) {
           process.env.AUTH_SECRET,
           { expiresIn: '1h' }
         );
-        //res.cookie('token', token, { signed: true });
+        // we can send JWT token using:
+        // 1. cookie: res.cookie('token', token, { signed: true });
+        // 2. auth header: res.header('Authorization', `Bearer ${token}`);
+        // 3. any other way
         res.header('Authorization', `Bearer ${token}`);
+
         res.send('success');
       } else {
         errors.user = `Username or password is not valid`;
