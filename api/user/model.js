@@ -3,7 +3,7 @@ const crypto = require('crypto');
 
 const schema = new mongoose.Schema({
   login: { type: String, required: true, unique: true },
-  hash: { type: String, required: true, unique: true },
+  hash: { type: String, required: true },
   name: { type: String, required: true },
   surname: { type: String, required: true },
   dateOfBirth: Date,

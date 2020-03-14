@@ -39,9 +39,8 @@ function register(req, res) {
       errors.login = `User ${login} already exists`;
       res.status(404).json({ errors });
     } else {
-      const newUser = new User({
-        login
-      });
+      const newUser = new User(req.body);
+      delete newUser.password;
       const hash = newUser.getHash(password);
       newUser.hash = hash;
       newUser.save((err, user) => {
@@ -57,6 +56,8 @@ function register(req, res) {
 }
 
 function logIn(req, res) {
+  res.clearCookie('token')
+  res.clearCookie('auth')
   let errors = {};
   const { login, password } = req.body;
   User.find({ login }, (err, users) => {
@@ -79,9 +80,18 @@ function logIn(req, res) {
         // 1. cookie: res.cookie('token', token, { signed: true });
         // 2. auth header: res.header('Authorization', `Bearer ${token}`);
         // 3. any other way
-        res.header('Authorization', `Bearer ${token}`);
 
-        res.send('success');
+        // send cookie in response with base64 encoded token string
+        const buff = Buffer.from(token);
+        const base64token = buff.toString('base64');
+        res.cookie(
+          'auth', base64token,
+//          { signed: true, httpOnly: true }
+        );
+
+        // send authorization header in response with bearer token string
+        res.header('Authorization', `Bearer ${token}`);
+        res.json({ success: true });
       } else {
         errors.user = `Username or password is not valid`;
         res.status(404).json(errors);

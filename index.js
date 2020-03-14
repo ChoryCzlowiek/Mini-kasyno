@@ -39,12 +39,12 @@ const loggerMiddleware = (req, res, next) => {
 
 const app = express();
 const api = express.Router();
-const auth = require('./middleware/auth');
+const authRequired = require('./middleware/auth');
 
 api.use('/user', require('./api/user/controller'));
 
-app.get('/protected', auth, (req, res) => {
-  res.send('protected resource')
+app.get('/protected-path', authRequired, (req, res) => {
+  res.send('success');
 });
 
 // /api express.Router('/api', api)
@@ -54,11 +54,15 @@ app.get('/protected', auth, (req, res) => {
 
 
 app.use(cors());
+app.use(cookieParser(COOKIE_AUTH_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser(COOKIE_AUTH_SECRET));
 app.use(loggerMiddleware);
 app.use('/api', api);
+
+app.get('/protected', authRequired, (req, res) => {
+  res.send('protected resource');
+})
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
