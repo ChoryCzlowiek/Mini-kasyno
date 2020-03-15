@@ -63,10 +63,6 @@
         cursor: pointer;
     }
 
-    .navigation-box-right__forms {
-        display: none;
-    }
-
     .sign-container {
         display: flex;
         width: 100%;
@@ -261,6 +257,7 @@
     .user-stats {
         margin: 3rem 0 0;
         padding: 0 .5rem;
+        display: none;
 
         &__title {
             color: rgb(207, 207, 207);
