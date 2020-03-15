@@ -3,6 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   z-index: 1;
+  display: none;
 }
 
 .curtain__site {
@@ -314,6 +316,10 @@ body {
   cursor: pointer;
 }
 
+.navigation-box-right .navigation-box-right__forms {
+  display: none;
+}
+
 .navigation-box-right .sign-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -427,7 +433,6 @@ body {
 
 .navigation-box-right .sign-up-form {
   position: relative;
-  display: none;
 }
 
 .navigation-box-right .sign-up-form__input {
@@ -537,6 +542,48 @@ body {
 }
 
 .navigation-box-right .sign-up-form__button:hover {
+  background-color: orangered;
+  color: gold;
+}
+
+.navigation-box-right .user-stats {
+  margin: 3rem 0 0;
+  padding: 0 .5rem;
+}
+
+.navigation-box-right .user-stats__title {
+  color: #cfcfcf;
+  font-size: .9rem;
+  opacity: .8;
+  padding-bottom: 2rem;
+  font-family: 'Bebas Neue';
+  letter-spacing: 2px;
+}
+
+.navigation-box-right .user-stats__data {
+  font-size: .7rem;
+  color: gold;
+  margin: .5rem 0;
+}
+
+.navigation-box-right .user-stats__data span {
+  color: orangered;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.navigation-box-right .user-stats__button {
+  font-size: .6rem;
+  margin-top: 2rem;
+  padding: .3rem .8rem;
+  border-radius: 2rem;
+  border: none;
+  border: 2px solid orangered;
+  background-color: transparent;
+  color: orangered;
+}
+
+.navigation-box-right .user-stats__button:hover {
   background-color: orangered;
   color: gold;
 }
@@ -674,6 +721,24 @@ body {
     border: 4px solid orangered;
     font-size: 1.2rem;
   }
+  .navigation-box-right .user-stats {
+    margin: 4rem 0;
+    padding: 0 1rem;
+  }
+  .navigation-box-right .user-stats__title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  .navigation-box-right .user-stats__data {
+    font-size: 1.1rem;
+  }
+  .navigation-box-right .user-stats__data span {
+    font-size: 1.2rem;
+  }
+  .navigation-box-right .user-stats__button {
+    font-size: .9rem;
+    padding: .5rem 1rem;
+  }
   .main .navbar__icon {
     font-size: 2.5rem;
   }
@@ -805,6 +870,9 @@ body {
     padding: .5rem 1rem;
     border: 2px solid orangered;
     font-size: .8rem;
+  }
+  .navigation-box-right .user-stats {
+    margin: 2rem 0 0;
   }
   .main .navbar {
     height: 11vh;

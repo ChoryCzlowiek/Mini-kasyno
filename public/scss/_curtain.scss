@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif,
 }
 
 body {
@@ -19,6 +20,7 @@ body {
     overflow: hidden;
     display: flex;
     z-index: 1;
+    display: none;
 
     &__site {
         flex-basis: 50%;

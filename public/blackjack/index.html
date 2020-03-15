@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blackjack | Mini kasyno</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,33 +40,48 @@
         </div>
         <div class="blackjack__navigation-box-right navigation-box-right">
             <i class="fas fa-times navigation-box-right__cross"></i>
-            <div class="navigation-box-right__sign-container sign-container">
-                <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
-                <h3 class="sign-container__text sign-container__text--sign-up">Rejestracja</h3>
+            <div class="navigation-box-right__forms">
+                <div class="navigation-box-right__sign-container sign-container">
+                    <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
+                    <h3 class="sign-container__text sign-container__text--sign-up">Rejestracja</h3>
+                </div>
+                <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
+                <form action="" method='post' class="navigation-box-right__sign-in-form sign-in-form">
+                    <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login">
+                    <input type="password" placeholder="Hasło"
+                        class="sign-in-form__input sign-in-form__input--password">
+                    <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
+                    <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
+                    <button type="submit" class="sign-in-form__button">Zaloguj</button>
+                </form>
+                <form action="" method='post' class="navigation-box-right__sign-up-form sign-up-form">
+                    <input type="text" placeholder="Imię" class="sign-up-form__input sign-up-form__input--name">
+                    <input type="text" placeholder="Nazwisko" class="sign-up-form__input sign-up-form__input--surname">
+                    <input type="text" placeholder="Rok urodzenia"
+                        class="sign-up-form__input sign-up-form__input--year">
+                    <input type="text" placeholder="E-mail" class="sign-up-form__input sign-up-form__input--email">
+                    <input type="text" placeholder="Login" class="sign-up-form__input sign-up-form__input--login">
+                    <input type="password" placeholder="Hasło"
+                        class="sign-up-form__input sign-up-form__input--password">
+                    <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--name"></i>
+                    <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--surname"></i>
+                    <i class="fas fa-birthday-cake sign-up-form__icon sign-up-form__icon--year"></i>
+                    <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
+                    <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
+                    <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
+                    <button type="submit" class="sign-up-form__button">Zarejestruj</button>
+                </form>
             </div>
-            <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
-            <form action="" method='post' class="navigation-box-right__sign-in-form sign-in-form">
-                <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login">
-                <input type="password" placeholder="Hasło" class="sign-in-form__input sign-in-form__input--password">
-                <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
-                <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
-                <button type="submit" class="sign-in-form__button">Zaloguj</button>
-            </form>
-            <form action="" method='post' class="navigation-box-right__sign-up-form sign-up-form">
-                <input type="text" placeholder="Imię" class="sign-up-form__input sign-up-form__input--name">
-                <input type="text" placeholder="Nazwisko" class="sign-up-form__input sign-up-form__input--surname">
-                <input type="text" placeholder="Rok urodzenia" class="sign-up-form__input sign-up-form__input--year">
-                <input type="text" placeholder="E-mail" class="sign-up-form__input sign-up-form__input--email">
-                <input type="text" placeholder="Login" class="sign-up-form__input sign-up-form__input--login">
-                <input type="password" placeholder="Hasło" class="sign-up-form__input sign-up-form__input--password">
-                <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--name"></i>
-                <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--surname"></i>
-                <i class="fas fa-birthday-cake sign-up-form__icon sign-up-form__icon--year"></i>
-                <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
-                <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
-                <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
-                <button type="submit" class="sign-up-form__button">Zarejestruj</button>
-            </form>
+            <div class="navigation-box-right__user-stats user-stats">
+                <h3 class="user-stats__title">Witaj, poniżej znajdziesz kilka statystyk z Twoich dotychczasowych gier
+                </h3>
+                <p class="user-stats__data user-stats__data--games">Ilość gier: <span>0</span></p>
+                <p class="user-stats__data user-stats__data--wins">Wygrane: <span>0</span></p>
+                <p class="user-stats__data user-stats__data--draws">Remisy: <span>0</span></p>
+                <p class="user-stats__data user-stats__data--losses">Przegrane: <span>0</span></p>
+                <p class="user-stats__data user-stats__data--balance">Twoje saldo: <span>0</span></p>
+                <button type="submit" class="user-stats__button">Wyloguj się</button>
+            </div>
         </div>
         <div class="blackjack__main main ">
             <div class="main__navbar navbar">

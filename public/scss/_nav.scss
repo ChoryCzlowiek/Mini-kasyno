@@ -63,6 +63,10 @@
         cursor: pointer;
     }
 
+    .navigation-box-right__forms {
+        display: none;
+    }
+
     .sign-container {
         display: flex;
         width: 100%;
@@ -159,7 +163,6 @@
 
     .sign-up-form {
         position: relative;
-        display: none;
 
         &__input {
             min-height: 4vh;
@@ -242,6 +245,48 @@
         &__button {
             margin: 2rem 1rem;
             padding: .5rem 1rem;
+            border-radius: 2rem;
+            border: none;
+            border: 2px solid orangered;
+            background-color: transparent;
+            color: orangered;
+
+            &:hover {
+                background-color: orangered;
+                color: gold;
+            }
+        }
+    }
+
+    .user-stats {
+        margin: 3rem 0 0;
+        padding: 0 .5rem;
+
+        &__title {
+            color: rgb(207, 207, 207);
+            font-size: .9rem;
+            opacity: .8;
+            padding-bottom: 2rem;
+            font-family: 'Bebas Neue';
+            letter-spacing: 2px;
+        }
+
+        &__data {
+            font-size: .7rem;
+            color: gold;
+            margin: .5rem 0;
+
+            span {
+                color: orangered;
+                font-size: .8rem;
+                font-weight: bold;
+            }
+        }
+
+        &__button {
+            font-size: .6rem;
+            margin-top: 2rem;
+            padding: .3rem .8rem;
             border-radius: 2rem;
             border: none;
             border: 2px solid orangered;
@@ -390,6 +435,29 @@
                 font-size: 1.2rem;
             }
         }
+
+        .user-stats {
+            margin: 4rem 0;
+            padding: 0 1rem;
+
+            &__title {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+
+            &__data {
+                font-size: 1.1rem;
+
+                span {
+                    font-size: 1.2rem;
+                }
+            }
+
+            &__button {
+                font-size: .9rem;
+                padding: .5rem 1rem;
+            }
+        }
     }
 
     .main {
@@ -535,6 +603,10 @@
                 border: 2px solid orangered;
                 font-size: .8rem;
             }
+        }
+
+        .user-stats {
+            margin: 2rem 0 0;
         }
     }
 
