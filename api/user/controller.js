@@ -139,8 +139,8 @@ function get(req, res) {
 }
 
 function logOut(req, res) {
-  res.clearCookie('token')
-  res.clearCookie('auth')
+  res.clearCookie('auth', { path: '/'});
+  res.end();
 }
 
 controller.get('/', get);
