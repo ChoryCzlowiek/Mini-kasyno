@@ -4,7 +4,7 @@ const cors = require('cors'); // CROSS ORIGIN RESOURCE SHARING
 const mongoose = require('mongoose'); // ORM do korzystania z bazy danych Mongo
 const bodyParser = require('body-parser'); // middleware, które służy do
 // zapisywania i odczywytania headera body z zapytań
-const cookieParser = require('cookie-parser');  //  odczytywanie cookie z req.
+const cookieParser = require('cookie-parser'); //  odczytywanie cookie z req.
 const path = require('path') // moduł do operacji na ścieżkach
 
 const {
@@ -20,15 +20,18 @@ const {
 */
 
 mongoose.connect(
-  DB_CONNECTION_STRING,
-  {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+  DB_CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  }
 );
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Connection error:'));
-db.once('open', function() {
+db.once('open', function () {
   console.log(
-  `Successfully connected to the MongoDB at ${process.env.DB_CONNECTION_STRING}`
+    `Successfully connected to the MongoDB at ${process.env.DB_CONNECTION_STRING}`
   );
 });
 
@@ -42,6 +45,7 @@ const api = express.Router();
 const authRequired = require('./middleware/auth');
 
 api.use('/user', require('./api/user/controller'));
+// api.use('/balance', renpm quire('./api/balance/controller.js'));
 
 app.get('/protected-path', authRequired, (req, res) => {
   res.send('success');
@@ -56,7 +60,9 @@ app.get('/protected-path', authRequired, (req, res) => {
 app.use(cors());
 app.use(cookieParser(COOKIE_AUTH_SECRET));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(loggerMiddleware);
 app.use('/api', api);
 
