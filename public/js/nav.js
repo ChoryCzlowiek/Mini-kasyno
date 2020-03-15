@@ -121,7 +121,7 @@ function login(e) {
 
 function setStatistics() {
   const user = JSON.parse(localStorage.getItem('user'));
-  console.log('USER = ', user);
+  // JSON.parse(string) = string => obj / JSON.stringify(obj) = obj => stg
   document.getElementById('balance').innerHTML = user.balance || 0;
   document.getElementById('nOfGames').innerHTML = user.nOfGames || 0;
   document.getElementById('nOfWonGames').innerHTML = user.nOfWonGames || 0;

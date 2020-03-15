@@ -57,7 +57,8 @@ app.get('/protected-path', authRequired, (req, res) => {
 // /api/users/login    (endpoint = function (req, res))
 
 
-app.use(cors());
+/* .1 middleware */
+// app.use(cors());
 app.use(cookieParser(COOKIE_AUTH_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -65,10 +66,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(loggerMiddleware);
 app.use('/api', api);
-
-app.get('/protected', authRequired, (req, res) => {
-  res.send('protected resource');
-})
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {

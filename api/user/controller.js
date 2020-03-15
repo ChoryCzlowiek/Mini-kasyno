@@ -49,7 +49,14 @@ function register(req, res) {
         errors
       });
     } else {
-      const newUser = new User(req.body);
+      const newUser = new User({
+        ...req.body,
+        balance: 0,
+        nOfGames: 0,
+        nOfWonGames: 0,
+        nOfDraws: 0,
+        nOfLosses: 0
+      });
       newUser.balance = 1000;
       delete newUser.password;
       const hash = newUser.getHash(password);
@@ -69,7 +76,6 @@ function register(req, res) {
 }
 
 function logIn(req, res) {
-  res.clearCookie('token')
   res.clearCookie('auth')
   let errors = {};
   const {
@@ -145,7 +151,10 @@ function logOut(req, res) {
 
 function post(req, res) {
   let errors = {};
-  User.findByIdAndUpdate(req.query.id, req.body, { new: true}, (err, user) => {
+  // method POST http://localhost:5000/api/user?id=${id_usera} (body: zmiany)
+
+  User.findByIdAndUpdate(req.query.id, req.body, { new: true }, (err, user) => {
+    console.log(req.body);
     if (err) {
       errors.users = err;
       res.status(404).json({
@@ -161,7 +170,7 @@ function post(req, res) {
 }
 
 controller.get('/', get);
-controller.post('/', post);
+controller.post('/', require('../../middleware/auth'), post);
 controller.post('/register', register);
 controller.post('/login', logIn);
 controller.post('/logout', logOut)

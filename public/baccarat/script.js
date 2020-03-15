@@ -113,10 +113,13 @@ function updatePoints() {
 
 // If game is end, reset game interface
 
-async function resetGame() {
+async function resetGame(win, draw, loss) {
     await new Promise(() => {
         setTimeout(() => {
+            console.log('setTimeout')
             if (endGame) {
+                console.log('endgame')
+
                 saldo.textContent = saldoCounter;
 
                 bid.value = '';
@@ -128,6 +131,21 @@ async function resetGame() {
                 statistics[0].textContent = wins;
                 statistics[1].textContent = draws;
                 statistics[2].textContent = losses;
+
+                const user = JSON.parse(localStorage.getItem('user'));
+                const body = {};
+
+                body.nOfGames = user.nOfGames + 1;
+                body.nOfWonGames = win ? user.nOfWonGames + 1 : user.nOfWonGames
+                body.nOfLosses = loss ? user.nOfLosses + 1 : user.nOfLosses;
+                body.nOfDraws = draw ? user.nOfDraws + 1 : user.nOfDraws;
+
+                console.log(win, loss, draw, '\nbody = ', body, '\nuser = ', user);
+                fetch(`/api/user?id=${user._id}`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(body)
+                }).then(res => res.json()).then(res => console.log('res = ', res));
             }
         }, 2000);
     })
@@ -136,23 +154,27 @@ async function resetGame() {
 // Check if somebody have 8 or 9
 
 function checkIfEightOrNine() {
+    let win, draw, loss;
     updatePoints();
 
     if (8 <= aiPoints || 8 <= userPoints) {
         if (userPoints > aiPoints) {
+            win = true;
             // Win
             wins++;
             saldoCounter += bid.value * 2;
         } else if (userPoints == aiPoints) {
+            draw = true;
             // Draw
             draws++;
             saldoCounter += Math.floor(bid.value);
         } else {
+            loss = true;
             // Lose
             losses++;
         }
         endGame = true;
-        resetGame();
+        resetGame(win, draw, loss);
     }
 }
 
@@ -188,22 +210,26 @@ function aiPlay() {
 // Check who win
 
 function checkWinner() {
+    let win, draw, loss;
     updatePoints();
 
     if (userPoints > aiPoints) {
         // Win
+        win = true;
         wins++;
         saldoCounter += bid.value * 2;
     } else if (userPoints == aiPoints) {
         // Draw
+        draw = true;
         draws++;
         saldoCounter += Math.floor(bid.value);
     } else {
+        loss = true;
         losses++;
     }
 
     endGame = true;
-    resetGame();
+    resetGame(win, draw, loss);
 }
 
 pickBtn.addEventListener('click', function pickCard() {
