@@ -109,13 +109,24 @@ function login(e) {
         .then(res => res.json())
         .then(res => {
             if (res.success) {
-                fetch('/protected-path');
                 userStatsBox.style.display = 'block';
                 navForms.style.display = 'none';
+                localStorage.setItem('user', JSON.stringify(res));
+                setStatistics();
             } else {
                 alert('Invalid login or password');
             }
         });
+}
+
+function setStatistics() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  console.log('USER = ', user);
+  document.getElementById('balance').innerHTML = user.balance || 0;
+  document.getElementById('nOfGames').innerHTML = user.nOfGames || 0;
+  document.getElementById('nOfWonGames').innerHTML = user.nOfWonGames || 0;
+  document.getElementById('nOfDraws').innerHTML = user.nOfDraws || 0;
+  document.getElementById('nOfLosses').innerHTML = user.nOfLosses || 0;
 }
 
 
@@ -123,6 +134,7 @@ function login(e) {
 
 logOutBtn.addEventListener('click', function () {
     let body = {};
+    localStorage.removeItem('user');
     fetch('/api/user/logout', {
         method: 'POST',
         headers: {

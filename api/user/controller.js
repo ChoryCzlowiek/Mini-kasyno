@@ -113,10 +113,10 @@ function logIn(req, res) {
 
         // send authorization header in response with bearer token string
         res.header('Authorization', `Bearer ${token}`);
-        res.json({
-          success: true
-        });
-        console.log(token, buff, base64token);
+
+        const resData = { ...user['_doc'], success: true };
+        delete resData.hash;
+        res.json(resData);
       } else {
         errors.user = `Username or password is not valid`;
         res.status(404).json(errors);
@@ -143,7 +143,25 @@ function logOut(req, res) {
   res.end();
 }
 
+function post(req, res) {
+  let errors = {};
+  User.findByIdAndUpdate(req.query.id, req.body, { new: true}, (err, user) => {
+    if (err) {
+      errors.users = err;
+      res.status(404).json({
+        errors
+      });
+    } else if(!user) {
+      errors.user = 'User not found';
+      res.status(404).json({ errors });
+    } else {
+      res.json(user);
+    }
+  });
+}
+
 controller.get('/', get);
+controller.post('/', post);
 controller.post('/register', register);
 controller.post('/login', logIn);
 controller.post('/logout', logOut)

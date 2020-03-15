@@ -21,7 +21,11 @@ const schema = new mongoose.Schema({
   },
   dateOfBirth: Date,
   email: String,
-  balance: String
+  balance: Number,
+  nOfGames: Number,
+  nOfWonGames: Number,
+  nOfDraws: Number,
+  nOfLosses: Number
 }, {
   strict: true
 });
