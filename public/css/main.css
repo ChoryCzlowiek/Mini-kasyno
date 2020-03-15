@@ -316,10 +316,6 @@ body {
   cursor: pointer;
 }
 
-.navigation-box-right .navigation-box-right__forms {
-  display: none;
-}
-
 .navigation-box-right .sign-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -549,6 +545,7 @@ body {
 .navigation-box-right .user-stats {
   margin: 3rem 0 0;
   padding: 0 .5rem;
+  display: none;
 }
 
 .navigation-box-right .user-stats__title {
