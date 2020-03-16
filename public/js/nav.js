@@ -82,15 +82,34 @@ function register(e) {
     body.dateOfBirth = document.getElementById('dateOfBirth').value;
     body.email = document.getElementById('email').value;
 
-    fetch('/api/user/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        })
-        .then(res => res.json())
-        .then(res => alert('Success'))
+
+    if (validateRegister()) {
+        fetch('/api/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            })
+            .then(res => res.json())
+            .then(res => {
+                if (res.errors) {
+                    alert(`Login ${body.login} jest już zajęty`)
+                } else {
+                    alert('Udało Ci się zarejestrować!')
+                }
+            })
+    } else {
+        alert('Nie wprowadziłeś wszystkich potrzebnych danych!')
+    }
+
+    function validateRegister() {
+        if (body.login && body.password && body.name && body.surname != '') {
+            return true
+        } else {
+            return false;
+        };
+    }
 }
 
 function login(e) {
@@ -114,19 +133,19 @@ function login(e) {
                 localStorage.setItem('user', JSON.stringify(res));
                 setStatistics();
             } else {
-                alert('Invalid login or password');
+                alert('Nieprawidłowy login lub hasło');
             }
         });
 }
 
 function setStatistics() {
-  const user = JSON.parse(localStorage.getItem('user'));
-  // JSON.parse(string) = string => obj / JSON.stringify(obj) = obj => stg
-  document.getElementById('balance').innerHTML = user.balance || 0;
-  document.getElementById('nOfGames').innerHTML = user.nOfGames || 0;
-  document.getElementById('nOfWonGames').innerHTML = user.nOfWonGames || 0;
-  document.getElementById('nOfDraws').innerHTML = user.nOfDraws || 0;
-  document.getElementById('nOfLosses').innerHTML = user.nOfLosses || 0;
+    const user = JSON.parse(localStorage.getItem('user'));
+    // JSON.parse(string) = string => obj / JSON.stringify(obj) = obj => stg
+    document.getElementById('balance').innerHTML = user.balance || 0;
+    document.getElementById('nOfGames').innerHTML = user.nOfGames || 0;
+    document.getElementById('nOfWonGames').innerHTML = user.nOfWonGames || 0;
+    document.getElementById('nOfDraws').innerHTML = user.nOfDraws || 0;
+    document.getElementById('nOfLosses').innerHTML = user.nOfLosses || 0;
 }
 
 

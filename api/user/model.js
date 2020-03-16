@@ -23,7 +23,7 @@ const schema = new mongoose.Schema({
   email: String,
   balance: Number,
   nOfGames: Number,
-  nOfWonGames: Number,
+  nOfWins: Number,
   nOfDraws: Number,
   nOfLosses: Number
 }, {

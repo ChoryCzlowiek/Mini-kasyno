@@ -44,7 +44,7 @@ function register(req, res) {
         errors
       });
     } else if (users.length) {
-      errors.login = `User ${login} already exists`;
+      errors.login = `Użytkownik ${login} już istnieje`;
       res.status(404).json({
         errors
       });
@@ -89,7 +89,7 @@ function logIn(req, res) {
       errors.user = err;
       res.status(500).json(errors);
     } else if (!users.length) {
-      errors.user = `User ${login} doesn't exist`;
+      errors.user = `Użytkownik ${login} nie istnieje`;
       res.status(404).json(errors);
     } else {
       const user = users[0];
@@ -118,9 +118,12 @@ function logIn(req, res) {
         );
 
         // send authorization header in response with bearer token string
-        res.header('Authorization', `Bearer ${token}`);
+        // res.header('Authorization', `Bearer ${token}`);
 
-        const resData = { ...user['_doc'], success: true };
+        const resData = {
+          ...user['_doc'],
+          success: true
+        };
         delete resData.hash;
         res.json(resData);
       } else {
@@ -145,7 +148,9 @@ function get(req, res) {
 }
 
 function logOut(req, res) {
-  res.clearCookie('auth', { path: '/'});
+  res.clearCookie('auth', {
+    path: '/'
+  });
   res.end();
 }
 
@@ -153,16 +158,19 @@ function post(req, res) {
   let errors = {};
   // method POST http://localhost:5000/api/user?id=${id_usera} (body: zmiany)
 
-  User.findByIdAndUpdate(req.query.id, req.body, { new: true }, (err, user) => {
-    console.log(req.body);
+  User.findByIdAndUpdate(req.query.id, req.body, {
+    new: true
+  }, (err, user) => {
     if (err) {
       errors.users = err;
       res.status(404).json({
         errors
       });
-    } else if(!user) {
+    } else if (!user) {
       errors.user = 'User not found';
-      res.status(404).json({ errors });
+      res.status(404).json({
+        errors
+      });
     } else {
       res.json(user);
     }

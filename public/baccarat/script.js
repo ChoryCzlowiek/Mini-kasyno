@@ -136,15 +136,17 @@ async function resetGame(win, draw, loss) {
                 const body = {};
 
                 body.nOfGames = user.nOfGames + 1;
-                body.nOfWonGames = win ? user.nOfWonGames + 1 : user.nOfWonGames
+                body.nOfWonGames = win ? user.nOfWins + 1 : user.nOfWins;
                 body.nOfLosses = loss ? user.nOfLosses + 1 : user.nOfLosses;
                 body.nOfDraws = draw ? user.nOfDraws + 1 : user.nOfDraws;
 
                 console.log(win, loss, draw, '\nbody = ', body, '\nuser = ', user);
                 fetch(`/api/user?id=${user._id}`, {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(body)
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
                 }).then(res => res.json()).then(res => console.log('res = ', res));
             }
         }, 2000);
