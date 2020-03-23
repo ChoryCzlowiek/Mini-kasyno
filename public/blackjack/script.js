@@ -224,27 +224,45 @@ function aiPlay() {
 
 function checkGameOver() {
     updatePoints();
+    const body = {};
+    const user = JSON.parse(localStorage.getItem('user'));
 
     if (aiPoints > 21) {
         // Win
         console.log('win');
         saldoCounter += bid.value * 2;
         wins++;
+        body.nOfWins = user.nOfWins + 1;
+        body.nOfGames = user.nOfGames + 1;
     } else if (userPoints == aiPoints) {
         // Draw
         console.log('draw')
         saldoCounter += Math.floor(bid.value);
         draws++;
+        body.nOfDraws = user.nOfDraws + 1;
+        body.nOfGames = user.nOfGames + 1;
     } else if (userPoints > aiPoints) {
         // Win
         console.log('win');
         saldoCounter += bid.value * 2;
         wins++;
+        body.nOfWins = user.nOfWins + 1;
+        body.nOfGames = user.nOfGames + 1;
     } else if (userPoints < aiPoints) {
         // Lose
         console.log('loss');
         losses++;
+        body.nOfLosses = user.nOfLosses + 1;
+        body.nOfGames = user.nOfGames + 1;
     }
+
+    fetch(`/api/user?id=${user._id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    }).then(res => res.json()).then(res => console.log('res = ', res));
 
     endGame = true;
 }

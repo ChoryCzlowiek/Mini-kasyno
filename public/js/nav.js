@@ -164,3 +164,12 @@ logOutBtn.addEventListener('click', function () {
     userStatsBox.style.display = 'none';
     navForms.style.display = 'block';
 })
+
+// check loggin user
+
+function checkIfLogin() {
+    fetch('/api/me')
+        .then(res => console.log(res));
+}
+
+checkIfLogin();

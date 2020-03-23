@@ -51,6 +51,33 @@ app.get('/protected-path', authRequired, (req, res) => {
   res.send('success');
 });
 
+api.get('/me', authRequired, (req, res) => {
+  let errors = {};
+  User.findOne({
+      login: getJWTFromCookie(req.headers.cookie).login
+    },
+    (err, user) => {
+      if (err) {
+        errors.me = err;
+        res.status(500).json({
+          errors
+        });
+      } else if (!user) {
+        errors.me = 'User not found';
+        res.status(404).json({
+          errors
+        });
+      } else {
+        const resUser = {
+          ...user._doc
+        };
+        delete resUser.hash;
+        console.log(req.user);
+        res.json(resUser);
+      }
+    });
+});
+
 // /api express.Router('/api', api)
 // /api/users express.Router('/users', usersController)
 // /api/users/register (endpoint = function (req, res))

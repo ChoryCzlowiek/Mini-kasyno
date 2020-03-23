@@ -116,9 +116,7 @@ function updatePoints() {
 async function resetGame(win, draw, loss) {
     await new Promise(() => {
         setTimeout(() => {
-            console.log('setTimeout')
             if (endGame) {
-                console.log('endgame')
 
                 saldo.textContent = saldoCounter;
 
@@ -131,23 +129,6 @@ async function resetGame(win, draw, loss) {
                 statistics[0].textContent = wins;
                 statistics[1].textContent = draws;
                 statistics[2].textContent = losses;
-
-                const user = JSON.parse(localStorage.getItem('user'));
-                const body = {};
-
-                body.nOfGames = user.nOfGames + 1;
-                body.nOfWonGames = win ? user.nOfWins + 1 : user.nOfWins;
-                body.nOfLosses = loss ? user.nOfLosses + 1 : user.nOfLosses;
-                body.nOfDraws = draw ? user.nOfDraws + 1 : user.nOfDraws;
-
-                console.log(win, loss, draw, '\nbody = ', body, '\nuser = ', user);
-                fetch(`/api/user?id=${user._id}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(body)
-                }).then(res => res.json()).then(res => console.log('res = ', res));
             }
         }, 2000);
     })
