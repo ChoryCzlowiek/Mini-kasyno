@@ -46,7 +46,7 @@
                     <h3 class="sign-container__text sign-container__text--sign-up">Rejestracja</h3>
                 </div>
                 <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
-                <form action="" method='post' class="navigation-box-right__sign-in-form sign-in-form">
+                <form onsubmit="login(event)" class="navigation-box-right__sign-in-form sign-in-form">
                     <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login">
                     <input type="password" placeholder="Hasło"
                         class="sign-in-form__input sign-in-form__input--password">
@@ -54,7 +54,7 @@
                     <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
                     <button type="submit" class="sign-in-form__button">Zaloguj</button>
                 </form>
-                <form action="" method='post' class="navigation-box-right__sign-up-form sign-up-form">
+                <form onsubmit="register(event)" class="navigation-box-right__sign-up-form sign-up-form">
                     <input type="text" placeholder="Imię" class="sign-up-form__input sign-up-form__input--name">
                     <input type="text" placeholder="Nazwisko" class="sign-up-form__input sign-up-form__input--surname">
                     <input type="text" placeholder="Rok urodzenia"
