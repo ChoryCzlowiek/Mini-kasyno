@@ -6,6 +6,9 @@ const bodyParser = require('body-parser'); // middleware, które służy do
 // zapisywania i odczywytania headera body z zapytań
 const cookieParser = require('cookie-parser'); //  odczytywanie cookie z req.
 const path = require('path') // moduł do operacji na ścieżkach
+const User = require('./api/user/model');
+const { getTokenFromCookie } = require('./middleware/auth');
+const jwt = require('jsonwebtoken');
 
 const {
   PORT,
@@ -53,12 +56,19 @@ app.get('/protected-path', authRequired, (req, res) => {
 
 api.get('/me', authRequired, (req, res) => {
   let errors = {};
+  const token = getTokenFromCookie(req.headers.cookie.slice(5));
+  const verified = jwt.verify(token, process.env.AUTH_SECRET);
+
+  if (!verified.login) {
+    return res.status(404).json({ errors: `Unauthorized user`});
+  }
+
   User.findOne({
-      login: getJWTFromCookie(req.headers.cookie).login
+      login: verified.login
     },
     (err, user) => {
       if (err) {
-        errors.me = err;
+        errors.me = err.message;
         res.status(500).json({
           errors
         });
@@ -72,7 +82,6 @@ api.get('/me', authRequired, (req, res) => {
           ...user._doc
         };
         delete resUser.hash;
-        console.log(req.user);
         res.json(resUser);
       }
     });

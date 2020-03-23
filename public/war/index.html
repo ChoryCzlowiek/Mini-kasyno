@@ -75,11 +75,11 @@
             <div class="navigation-box-right__user-stats user-stats">
                 <h3 class="user-stats__title">Witaj, poniżej znajdziesz kilka statystyk z Twoich dotychczasowych gier
                 </h3>
-                <p class="user-stats__data user-stats__data--games">Ilość gier: <span>0</span></p>
-                <p class="user-stats__data user-stats__data--wins">Wygrane: <span>0</span></p>
-                <p class="user-stats__data user-stats__data--draws">Remisy: <span>0</span></p>
-                <p class="user-stats__data user-stats__data--losses">Przegrane: <span>0</span></p>
-                <p class="user-stats__data user-stats__data--balance">Twoje saldo: <span>0</span></p>
+                <p class="user-stats__data user-stats__data--games">Ilość gier: <span id="nOfGames">0</span></p>
+                <p class="user-stats__data user-stats__data--wins">Wygrane: <span id="nOfWonGames">0</span></p>
+                <p class="user-stats__data user-stats__data--draws">Remisy: <span id="nOfDraws">0</span></p>
+                <p class="user-stats__data user-stats__data--losses">Przegrane: <span id="nOfLosses">0</span></p>
+                <p class="user-stats__data user-stats__data--balance">Twoje saldo: <span id="balance">0</span></p>
                 <button type="submit" class="user-stats__button">Wyloguj się</button>
             </div>
         </div>
@@ -87,7 +87,7 @@
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <h3 class="navbar__title">Mini kasyno</h3>
-                <i class="far fa-user navbar__icon navbar__icon--login"></i>
+                <i id="user-icon" class="far fa-user navbar__icon navbar__icon--login"></i>
             </div>
             <div class="main__background background">
                 <div class="background__table"></div>

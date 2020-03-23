@@ -11,7 +11,8 @@ module.exports = function(req, res, next) {
       if (verified.login) {
         next();
       } else {
-        res.redirect(redirectPath);
+        res.status(404).json({ error: 'User not logged in'})
+        // res.redirect(redirectPath);
       }
       //////////////////////////////////////////////////////////////////////////
       // IF AUTH COOKIE PRESENT
@@ -21,19 +22,22 @@ module.exports = function(req, res, next) {
       if (verified.login) {
         next();
       } else {
-        res.redirect(redirectPath);
-        response.writeHead(301,
-          {Location: process.env.URL + redirectPath }
-        );
-        response.end();
+        res.status(404).json({ error: 'User not logged in'})
+        // res.redirect(redirectPath);
+        // response.writeHead(301,
+        //   {Location: process.env.URL + redirectPath }
+        // );
+        // response.end();
       }
     } else {
-      res.redirect(redirectPath);
+      res.status(404).json({ error: 'User not logged in'})
+      // res.redirect(redirectPath);
     }
 
   } catch (err) {
     console.error(err);
-    res.redirect(redirectPath);
+    res.status(404).json({ error: 'User not logged in'})
+    //res.redirect(redirectPath);
   }
 }
 
@@ -46,3 +50,5 @@ function getTokenFromCookie(cookie) {
   const str = buff.toString();
   return str;
 }
+
+module.exports.getTokenFromCookie = getTokenFromCookie;
