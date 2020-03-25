@@ -629,6 +629,8 @@ body {
 }
 
 .main .navbar__title {
+  text-decoration: none;
+  color: #cfcfcf;
   -ms-flex-preferred-size: 60%;
       flex-basis: 60%;
   line-height: 8vh;
@@ -970,7 +972,7 @@ body {
     font-size: 1.2rem;
   }
   .main .navbar__title {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 }
 

@@ -28,6 +28,33 @@ let wins = 0,
 
 const copyDeck = deck.slice();
 
+// Block right navigation
+
+document.querySelector('.navbar__icon--login').style.display = 'none';
+
+// Show if user is logged or no
+
+function ifUserLogged() {
+    const user = localStorage.getItem('user');
+    if (user) alert('Grasz jako zalogowany gracz!')
+    else alert('Grasz jako gość!');
+}
+
+ifUserLogged();
+
+// Check if user is logged and show balance
+
+function setBalance() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        saldoCounter = user.balance;
+    }
+
+    saldo.textContent = saldoCounter;
+}
+
+setBalance();
+
 // Block refresh site
 
 bid.addEventListener('keydown', (e) => {
@@ -111,6 +138,23 @@ function updatePoints() {
     console.log(aiPoints, userPoints)
 }
 
+// Set localStorage of user stats
+
+function updateUserLocalStorage() {
+    fetch('/api/me')
+        .then(res => res.json())
+        .then(res => {
+            if (res.error) {
+                console.error(res.error);
+            } else {
+                localStorage.setItem('user', JSON.stringify(res));
+            }
+        })
+        .catch(err => {
+            console.error('ERROR = ', err);
+        });
+}
+
 // If game is end, reset game interface
 
 async function resetGame(win, draw, loss) {
@@ -129,6 +173,8 @@ async function resetGame(win, draw, loss) {
                 statistics[0].textContent = wins;
                 statistics[1].textContent = draws;
                 statistics[2].textContent = losses;
+
+                updateUserLocalStorage();
             }
         }, 2000);
     })
@@ -137,27 +183,50 @@ async function resetGame(win, draw, loss) {
 // Check if somebody have 8 or 9
 
 function checkIfEightOrNine() {
-    let win, draw, loss;
     updatePoints();
+    const body = {};
+    const user = JSON.parse(localStorage.getItem('user'));
 
     if (8 <= aiPoints || 8 <= userPoints) {
         if (userPoints > aiPoints) {
-            win = true;
             // Win
             wins++;
             saldoCounter += bid.value * 2;
+            if (user) {
+                body.nOfWins = user.nOfWins + 1;
+                body.nOfGames = user.nOfGames + 1;
+                body.balance = saldoCounter;
+            }
         } else if (userPoints == aiPoints) {
-            draw = true;
             // Draw
             draws++;
-            saldoCounter += Math.floor(bid.value);
+            saldoCounter += bid.value;
+            if (user) {
+                body.nOfDraws = user.nOfDraws + 1;
+                body.nOfGames = user.nOfGames + 1;
+                body.balance = saldoCounter;
+            }
         } else {
-            loss = true;
             // Lose
             losses++;
+            if (user) {
+                body.nOfLosses = user.nOfLosses + 1;
+                body.nOfGames = user.nOfGames + 1;
+                body.balance = saldoCounter;
+            }
+        }
+
+        if (user) {
+            fetch(`/api/user?id=${user._id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            }).then(res => res.json()).then(res => console.log('res = ', res));
         }
         endGame = true;
-        resetGame(win, draw, loss);
+        resetGame();
     }
 }
 
@@ -187,36 +256,61 @@ playBtn.addEventListener('click', prepareToPlay);
 function aiPlay() {
     updatePoints();
 
-    if (aiPoints < userPoints && aiPoints < 7) aiCards.push(drawCard(copyDeck))
+    if (aiPoints < userPoints && aiPoints < 7) aiCards.push(drawCard(copyDeck));
 }
 
 // Check who win
 
 function checkWinner() {
-    let win, draw, loss;
     updatePoints();
+    const body = {};
+    const user = JSON.parse(localStorage.getItem('user'));
 
     if (userPoints > aiPoints) {
         // Win
-        win = true;
         wins++;
         saldoCounter += bid.value * 2;
+        if (user) {
+            body.nOfWins = user.nOfWins + 1;
+            body.nOfGames = user.nOfGames + 1;
+            body.balance = saldoCounter;
+        }
     } else if (userPoints == aiPoints) {
         // Draw
-        draw = true;
         draws++;
-        saldoCounter += Math.floor(bid.value);
+        saldoCounter += bid.value;
+        if (user) {
+            body.nOfDraws = user.nOfDraws + 1;
+            body.nOfGames = user.nOfGames + 1;
+            body.balance = saldoCounter;
+        }
     } else {
-        loss = true;
         losses++;
+        if (user) {
+            body.nOfLosses = user.nOfLosses + 1;
+            body.nOfGames = user.nOfGames + 1;
+            body.balance = saldoCounter;
+        }
+    }
+
+    if (user) {
+        fetch(`/api/user?id=${user._id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        }).then(res => res.json()).then(res => console.log('res = ', res));
     }
 
     endGame = true;
-    resetGame(win, draw, loss);
+    resetGame();
 }
 
 pickBtn.addEventListener('click', function pickCard() {
     userCards.push(drawCard(copyDeck));
+    console.log(userCards);
     aiPlay();
+    console.log(userCards);
     checkWinner();
 });

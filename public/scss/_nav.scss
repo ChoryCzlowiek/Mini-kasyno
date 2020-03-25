@@ -334,6 +334,8 @@
         }
 
         &__title {
+            text-decoration: none;
+            color: rgb(207, 207, 207);
             flex-basis: 60%;
             line-height: 8vh;
             font-family: 'Bebas Neue';
@@ -725,7 +727,7 @@
         .navbar {
 
             &__title {
-                font-size: 3.5rem;
+                font-size: 4rem;
             }
         }
 

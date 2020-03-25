@@ -47,21 +47,26 @@
                 </div>
                 <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
                 <form onsubmit="login(event)" class="navigation-box-right__sign-in-form sign-in-form">
-                    <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login">
-                    <input type="password" placeholder="Hasło"
-                        class="sign-in-form__input sign-in-form__input--password">
+                    <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login"
+                        id="login_login">
+                    <input type="password" placeholder="Hasło" class="sign-in-form__input sign-in-form__input--password"
+                        id="loigin_password">
                     <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
                     <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
                     <button type="submit" class="sign-in-form__button">Zaloguj</button>
                 </form>
                 <form onsubmit="register(event)" class="navigation-box-right__sign-up-form sign-up-form">
-                    <input type="text" placeholder="Imię" class="sign-up-form__input sign-up-form__input--name">
-                    <input type="text" placeholder="Nazwisko" class="sign-up-form__input sign-up-form__input--surname">
-                    <input type="text" placeholder="Rok urodzenia"
+                    <input type="text" id="name" placeholder="Imię"
+                        class="sign-up-form__input sign-up-form__input--name">
+                    <input type="text" id="surname" placeholder="Nazwisko"
+                        class="sign-up-form__input sign-up-form__input--surname">
+                    <input type="text" id="dateOfBirth" placeholder="Rok urodzenia"
                         class="sign-up-form__input sign-up-form__input--year">
-                    <input type="text" placeholder="E-mail" class="sign-up-form__input sign-up-form__input--email">
-                    <input type="text" placeholder="Login" class="sign-up-form__input sign-up-form__input--login">
-                    <input type="password" placeholder="Hasło"
+                    <input type="text" id="email" placeholder="E-mail"
+                        class="sign-up-form__input sign-up-form__input--email">
+                    <input type="text" id="register_login" placeholder="Login"
+                        class="sign-up-form__input sign-up-form__input--login">
+                    <input type="password" id="register_password" placeholder="Hasło"
                         class="sign-up-form__input sign-up-form__input--password">
                     <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--name"></i>
                     <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--surname"></i>
@@ -86,7 +91,7 @@
         <div class="baccarat__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
-                <h3 class="navbar__title">Mini kasyno</h3>
+                <a href="../index.html"class="navbar__title">Mini kasyno</a>
                 <i id="user-icon" class="far fa-user navbar__icon navbar__icon--login"></i>
             </div>
             <div class="main__background background">
@@ -108,7 +113,7 @@
             <div class="main__play play">
                 <img src="../images/cards/card.jpg" alt="" class="play__deck">
                 <img src="../images/cards/card.jpg" alt="" class="play__deck play__deck--start">
-                <p class="play__saldo">Twoje saldo: <span>100</span></p>
+                <p class="play__saldo">Twoje saldo: <span></span></p>
                 <form action="" class="play__form form">
                     <label for="rate" class="form__text">Stawka: </label>
                     <input type="number" class="form__rate" id="rate"></form>

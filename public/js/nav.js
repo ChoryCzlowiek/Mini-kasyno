@@ -136,17 +136,17 @@ function login(e) {
 }
 
 function updateLoggedInView(user) {
-  userStatsBox.style.display = 'block';
-  navForms.style.display = 'none';
-  localStorage.setItem('user', JSON.stringify(user));
-  setStatistics(user);
-  document.getElementById('user-icon').className="fas fa-user navbar__icon navbar__icon--login"
+    userStatsBox.style.display = 'block';
+    navForms.style.display = 'none';
+    localStorage.setItem('user', JSON.stringify(user));
+    setStatistics(user);
+    document.getElementById('user-icon').className = "fas fa-user navbar__icon navbar__icon--login"
 }
 
 function updateLoggedOutView() {
-  userStatsBox.style.display = 'none';
-  navForms.style.display = 'block';
-  document.getElementById('user-icon').className="far fa-user navbar__icon navbar__icon--login"
+    userStatsBox.style.display = 'none';
+    navForms.style.display = 'block';
+    document.getElementById('user-icon').className = "far fa-user navbar__icon navbar__icon--login"
 }
 
 function setStatistics() {
@@ -178,18 +178,18 @@ logOutBtn.addEventListener('click', function () {
 // check loggin user
 
 function checkIfLogin() {
-  fetch('/api/me')
-  .then(res => res.json())
-  .then(res => {
-    if (res.error) {
-      console.error(res.error);
-    } else {
-      updateLoggedInView(res)
-    }
-  })
-  .catch(err => {
-    console.error('ERROR = ', err);
-  });
+    fetch('/api/me')
+        .then(res => res.json())
+        .then(res => {
+            if (res.error) {
+                console.error(res.error);
+            } else {
+                updateLoggedInView(res)
+            }
+        })
+        .catch(err => {
+            console.error('ERROR = ', err);
+        });
 }
 
 checkIfLogin();
