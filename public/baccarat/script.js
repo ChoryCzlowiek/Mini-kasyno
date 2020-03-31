@@ -200,7 +200,7 @@ function checkIfEightOrNine() {
         } else if (userPoints == aiPoints) {
             // Draw
             draws++;
-            saldoCounter += bid.value;
+            saldoCounter += Math.floor(bid.value);
             if (user) {
                 body.nOfDraws = user.nOfDraws + 1;
                 body.nOfGames = user.nOfGames + 1;
@@ -278,7 +278,7 @@ function checkWinner() {
     } else if (userPoints == aiPoints) {
         // Draw
         draws++;
-        saldoCounter += bid.value;
+        saldoCounter += Math.floor(bid.value);
         if (user) {
             body.nOfDraws = user.nOfDraws + 1;
             body.nOfGames = user.nOfGames + 1;

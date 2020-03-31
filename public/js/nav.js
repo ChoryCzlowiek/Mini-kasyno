@@ -154,7 +154,7 @@ function setStatistics() {
     // JSON.parse(string) = string => obj / JSON.stringify(obj) = obj => stg
     document.getElementById('balance').innerHTML = user.balance || 0;
     document.getElementById('nOfGames').innerHTML = user.nOfGames || 0;
-    document.getElementById('nOfWonGames').innerHTML = user.nOfWonGames || 0;
+    document.getElementById('nOfWonGames').innerHTML = user.nOfWins || 0;
     document.getElementById('nOfDraws').innerHTML = user.nOfDraws || 0;
     document.getElementById('nOfLosses').innerHTML = user.nOfLosses || 0;
 }

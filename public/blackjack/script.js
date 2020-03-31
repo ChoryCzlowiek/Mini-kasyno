@@ -203,6 +203,8 @@ function updateUserLocalStorage() {
         });
 }
 
+updateUserLocalStorage();
+
 // If game is end, reset game interface
 
 async function resetGame() {
@@ -266,7 +268,7 @@ function checkGameOver() {
     } else if (userPoints == aiPoints) {
         // Draw
         console.log('draw')
-        saldoCounter += bid.value;
+        saldoCounter += Math.floor(bid.value);
         draws++;
         if (user) {
             body.nOfDraws = user.nOfDraws + 1;

@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('./model');
 // const Balance = require('../balance/model.js');
 const jwt = require('jsonwebtoken');
+const base64 = require('js-base64');
 
 const controller = express.Router();
 
@@ -101,22 +102,25 @@ function logIn(req, res) {
             login
           },
           process.env.AUTH_SECRET, {
-            expiresIn: '1h'
+            expiresIn: 60 * 60 * 1000
           }
         );
+        console.log(token)
+        console.log(Base64.encode(token))
         // we can send JWT token using:
         // 1. cookie: res.cookie('token', token, { signed: true });
         // 2. auth header: res.header('Authorization', `Bearer ${token}`);
         // 3. any other way
 
         // send cookie in response with base64 encoded token string
-        const buff = Buffer.from(token);
-        const base64token = buff.toString('base64');
+        // const buff = Buffer.from(token);
+        // const base64token = buff.toString('base64');
         res.cookie(
-          'auth', base64token,
+          'auth', Base64.encode(token), {
+            overwrite: true
+          }
           //          { signed: true, httpOnly: true }
         );
-
         // send authorization header in response with bearer token string
         // res.header('Authorization', `Bearer ${token}`);
 

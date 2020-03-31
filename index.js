@@ -7,7 +7,9 @@ const bodyParser = require('body-parser'); // middleware, które służy do
 const cookieParser = require('cookie-parser'); //  odczytywanie cookie z req.
 const path = require('path') // moduł do operacji na ścieżkach
 const User = require('./api/user/model');
-const { getTokenFromCookie } = require('./middleware/auth');
+const {
+  getTokenFromCookie
+} = require('./middleware/auth');
 const jwt = require('jsonwebtoken');
 
 const {
@@ -48,7 +50,6 @@ const api = express.Router();
 const authRequired = require('./middleware/auth');
 
 api.use('/user', require('./api/user/controller'));
-// api.use('/balance', renpm quire('./api/balance/controller.js'));
 
 app.get('/protected-path', authRequired, (req, res) => {
   res.send('success');
@@ -60,7 +61,9 @@ api.get('/me', authRequired, (req, res) => {
   const verified = jwt.verify(token, process.env.AUTH_SECRET);
 
   if (!verified.login) {
-    return res.status(404).json({ errors: `Unauthorized user`});
+    return res.status(404).json({
+      errors: `Unauthorized user`
+    });
   }
 
   User.findOne({

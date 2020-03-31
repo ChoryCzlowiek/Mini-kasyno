@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const base64 = require('js-base64');
 
-module.exports = function(req, res, next) {
+module.exports = function (req, res, next) {
   const redirectPath = '/login';
   try {
     // IF AUTH HEADER PRESENT //////////////////////////////////////////////////
@@ -11,18 +12,23 @@ module.exports = function(req, res, next) {
       if (verified.login) {
         next();
       } else {
-        res.status(404).json({ error: 'User not logged in'})
+        res.status(404).json({
+          error: 'User not logged in'
+        })
         // res.redirect(redirectPath);
       }
       //////////////////////////////////////////////////////////////////////////
       // IF AUTH COOKIE PRESENT
-  } else if(req.headers.cookie) {
+    } else if (req.headers.cookie) {
       const token = getTokenFromCookie(req.headers.cookie.slice(5));
       const verified = jwt.verify(token, process.env.AUTH_SECRET);
+      console.log('verfied token', verified);
       if (verified.login) {
         next();
       } else {
-        res.status(404).json({ error: 'User not logged in'})
+        res.status(404).json({
+          error: 'User not logged in'
+        })
         // res.redirect(redirectPath);
         // response.writeHead(301,
         //   {Location: process.env.URL + redirectPath }
@@ -30,13 +36,17 @@ module.exports = function(req, res, next) {
         // response.end();
       }
     } else {
-      res.status(404).json({ error: 'User not logged in'})
+      res.status(404).json({
+        error: 'User not logged in'
+      })
       // res.redirect(redirectPath);
     }
 
   } catch (err) {
     console.error(err);
-    res.status(404).json({ error: 'User not logged in'})
+    res.status(404).json({
+      error: 'User not logged in'
+    })
     //res.redirect(redirectPath);
   }
 }
@@ -46,8 +56,9 @@ function getTokenFromAuthHeader(header) {
 }
 
 function getTokenFromCookie(cookie) {
-  const buff = Buffer.from(cookie, 'base64')
-  const str = buff.toString();
+  console.log(cookie);
+  const str = Base64.decode(cookie);
+  console.log(str);
   return str;
 }
 

@@ -5,7 +5,7 @@
         top: 11vh;
         left: 0;
         height: 89vh;
-        width: 100vw;
+        width: 100%;
         z-index: 98;
         font-family: 'Bebas Neue';
         letter-spacing: 1px;
@@ -15,10 +15,10 @@
         &__saldo {
             position: absolute;
             top: 50%;
-            left: 10vw;
+            left: 10%;
 
             span {
-                font-size: 1.2rem;
+                font-size: 2.2rem;
                 color: orangered;
             }
         }
@@ -26,7 +26,7 @@
         .form {
             position: absolute;
             top: 40%;
-            left: 10vw;
+            left: 10%;
 
             &__rate {
                 background: transparent;
@@ -48,7 +48,7 @@
         &__play-btn {
             position: absolute;
             top: 55%;
-            left: 45vw;
+            left: 45%;
             padding: .2rem .6rem;
             color: rgba(255, 217, 0, 0.7);
             font-family: 'Bebas Neue';
@@ -70,7 +70,7 @@
         .stats {
             position: absolute;
             top: 10%;
-            left: 80vw;
+            left: 80%;
             font-size: .8rem;
 
             &__text {
@@ -82,6 +82,110 @@
             span {
                 color: orangered;
                 font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-height: 768px) {
+
+    .play {
+        font-size: 2rem;
+
+        &__saldo {
+            left: 6%;
+
+            span {
+                font-size: 2.2rem;
+            }
+        }
+
+        .form {
+            position: absolute;
+            top: 40%;
+            left: 6%;
+
+            &__rate {
+                font-size: 2rem;
+                width: 115px;
+            }
+        }
+
+        &__play-btn {
+            position: absolute;
+            top: 55%;
+            left: 45%;
+            letter-spacing: 3px;
+            font-size: 2.5rem;
+        }
+
+        .stats {
+            position: absolute;
+            top: 10%;
+            left: 80%;
+            font-size: 1.8rem;
+
+            &__text {
+                font-size: 1.9rem;
+                margin-bottom: 1rem;
+                text-shadow: 0 0 10px orangered, 0 0 30px orangered;
+            }
+
+            span {
+                color: orangered;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 1440px) {
+
+    .play {
+        font-size: 2rem;
+
+        &__saldo {
+            left: 6%;
+
+            span {
+                font-size: 2.2rem;
+            }
+        }
+
+        .form {
+            position: absolute;
+            top: 40%;
+            left: 6%;
+
+            &__rate {
+                font-size: 2rem;
+                width: 115px;
+            }
+        }
+
+        &__play-btn {
+            position: absolute;
+            top: 55%;
+            left: 45%;
+            letter-spacing: 3px;
+            font-size: 2.5rem;
+        }
+
+        .stats {
+            position: absolute;
+            top: 10%;
+            left: 80%;
+            font-size: 1.8rem;
+
+            &__text {
+                font-size: 1.9rem;
+                margin-bottom: 1rem;
+                text-shadow: 0 0 10px orangered, 0 0 30px orangered;
+            }
+
+            span {
+                color: orangered;
+                font-size: 2rem;
             }
         }
     }
