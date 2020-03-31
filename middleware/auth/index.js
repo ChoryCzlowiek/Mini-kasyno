@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
-const cookieParser = require('cookie-parser');
-const base64 = require('js-base64');
+const {
+  getJWTFromCookie,
+  getTokenFromCookie,
+  getTokenFromAuthHeader
+} = require('../../helpers/getToken');
 
 module.exports = function (req, res, next) {
   const redirectPath = '/login';
@@ -20,10 +23,8 @@ module.exports = function (req, res, next) {
       //////////////////////////////////////////////////////////////////////////
       // IF AUTH COOKIE PRESENT
     } else if (req.headers.cookie) {
-      const token = getTokenFromCookie(req.headers.cookie.slice(5));
-      const verified = jwt.verify(token, process.env.AUTH_SECRET);
-      console.log('verfied token', verified);
-      if (verified.login) {
+      const verified = getJWTFromCookie(req.headers.cookie);
+      if (verified && verified.login) {
         next();
       } else {
         res.status(404).json({
@@ -50,16 +51,3 @@ module.exports = function (req, res, next) {
     //res.redirect(redirectPath);
   }
 }
-
-function getTokenFromAuthHeader(header) {
-  return header.slice(7);
-}
-
-function getTokenFromCookie(cookie) {
-  console.log(cookie);
-  const str = Base64.decode(cookie);
-  console.log(str);
-  return str;
-}
-
-module.exports.getTokenFromCookie = getTokenFromCookie;
