@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
 const {
   getJWTFromCookie,
-  getTokenFromCookie,
   getTokenFromAuthHeader
-} = require('../../helpers/getToken');
+} = require('./getToken');
 
 module.exports = function (req, res, next) {
   const redirectPath = '/login';

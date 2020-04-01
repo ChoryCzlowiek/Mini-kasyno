@@ -8,8 +8,8 @@ const cookieParser = require('cookie-parser'); //  odczytywanie cookie z req.
 const path = require('path') // moduł do operacji na ścieżkach
 const User = require('./api/user/model');
 const {
-  getTokenFromCookie
-} = require('./middleware/auth');
+  getJWTFromCookie
+} = require('./middleware/auth/getToken');
 const jwt = require('jsonwebtoken');
 
 const {
@@ -57,8 +57,7 @@ app.get('/protected-path', authRequired, (req, res) => {
 
 api.get('/me', authRequired, (req, res) => {
   let errors = {};
-  const token = getTokenFromCookie(req.headers.cookie.slice(5));
-  const verified = jwt.verify(token, process.env.AUTH_SECRET);
+  const verified = getJWTFromCookie(req.headers.cookie);
 
   if (!verified.login) {
     return res.status(404).json({
