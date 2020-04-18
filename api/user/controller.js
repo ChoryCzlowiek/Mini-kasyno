@@ -1,6 +1,5 @@
 const express = require('express');
 const User = require('./model');
-// const Balance = require('../balance/model.js');
 const jwt = require('jsonwebtoken');
 const base64 = require('js-base64');
 
@@ -54,7 +53,7 @@ function register(req, res) {
         ...req.body,
         balance: 0,
         nOfGames: 0,
-        nOfWonGames: 0,
+        nOfWins: 0,
         nOfDraws: 0,
         nOfLosses: 0
       });
@@ -105,8 +104,6 @@ function logIn(req, res) {
             expiresIn: 60 * 60 * 1000
           }
         );
-        console.log(token)
-        console.log(Base64.encode(token))
         // we can send JWT token using:
         // 1. cookie: res.cookie('token', token, { signed: true });
         // 2. auth header: res.header('Authorization', `Bearer ${token}`);
@@ -138,19 +135,6 @@ function logIn(req, res) {
   })
 }
 
-function get(req, res) {
-  User.find((err, users) => {
-    if (err) {
-      errors.users = err;
-      res.status(404).json({
-        errors
-      });
-    } else {
-      res.json(users);
-    }
-  });
-}
-
 function logOut(req, res) {
   res.clearCookie('auth', {
     path: '/'
@@ -179,12 +163,181 @@ function post(req, res) {
       res.json(user);
     }
   });
+};
+
+function mostwins(req, res) {
+  let errors = {};
+
+  User.find().sort({
+    nOfWins: -1
+  }).exec((err, users) => {
+    if (err) {
+      errors.users = err;
+      res.status(404).json({
+        errors
+      });
+    } else if (!users) {
+      errors.users = 'Users not found';
+      res.status(404).json({
+        errors
+      });
+    } else {
+      res.json(users);
+    }
+  });
+};
+
+function mostgames(req, res) {
+  let errors = {};
+
+  User.find().sort({
+    nOfGames: -1
+  }).exec((err, users) => {
+    if (err) {
+      errors.users = err;
+      res.status(404).json({
+        errors
+      });
+    } else if (!users) {
+      errors.users = 'Users not found';
+      res.status(404).json({
+        errors
+      });
+    } else {
+      res.json(users);
+    }
+  });
+};
+
+function mostdraws(req, res) {
+  let errors = {};
+
+  User.find().sort({
+    nOfDraws: -1
+  }).exec((err, users) => {
+    if (err) {
+      errors.users = err;
+      res.status(404).json({
+        errors
+      });
+    } else if (!users) {
+      errors.users = 'Users not found';
+      res.status(404).json({
+        errors
+      });
+    } else {
+      res.json(users);
+    }
+  });
+};
+
+function mostlosses(req, res) {
+  let errors = {};
+
+  User.find().sort({
+    nOfLosses: -1
+  }).exec((err, users) => {
+    if (err) {
+      errors.users = err;
+      res.status(404).json({
+        errors
+      });
+    } else if (!users) {
+      errors.users = 'Users not found';
+      res.status(404).json({
+        errors
+      });
+    } else {
+      res.json(users);
+    }
+  });
+};
+
+function resetbalance(req, res) {
+  const login = {
+    login: req.body.login
+  };
+  const balance = {
+    balance: req.body.balance
+  };
+
+  User.findOneAndUpdate(login, balance, {
+    new: true
+  }, (err, user) => {
+    if (err) {
+      errors.users = err;
+      res.status(404).json({
+        errors
+      });
+    } else if (!user) {
+      errors.user = 'User not found';
+      res.status(404).json({
+        errors
+      });
+    } else {
+      res.json(user);
+    }
+  });
+};
+
+function changedata(req, res) {
+  let errors = {};
+  // method POST http://localhost:5000/api/user?id=${id_usera} (body: zmiany)
+
+  if (req.body.password) {
+    User.find({
+      _id: req.query.id
+    }, {
+      new: true
+    }, (err, user) => {
+      if (err) {
+        errors.users = err;
+        res.status(404).json({
+          errors
+        });
+      } else if (!user) {
+        errors.user = 'User not found';
+        res.status(404).json({
+          errors
+        });
+      } else {
+        const hash = User.getHash(req.body.password);
+        User.hash = hash;
+        res.json(user);
+      }
+    })
+  } else {
+    User.findByIdAndUpdate(req.query.id, req.body, {
+      new: true
+    }, (err, user) => {
+      console.log(user, req.body, req.query)
+      if (err) {
+        errors.users = err;
+        res.status(404).json({
+          errors
+        });
+      } else if (!user) {
+        errors.user = 'User not found';
+        res.status(404).json({
+          errors
+        });
+      } else {
+        res.json(user);
+      }
+    });
+  }
 }
 
-controller.get('/', get);
 controller.post('/', require('../../middleware/auth'), post);
 controller.post('/register', register);
 controller.post('/login', logIn);
-controller.post('/logout', logOut)
+controller.post('/logout', logOut);
+controller.get('/mostwins', mostwins);
+controller.get('/mostgames', mostgames);
+controller.get('/mostdraws', mostdraws);
+controller.get('/mostlosses', mostlosses);
+controller.post('/resetbalance', resetbalance);
+controller.post('/changedata', changedata)
+
 
 module.exports = controller;

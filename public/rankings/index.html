@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kontakt | Mini kasyno</title>
+    <title>Rankingi | Mini kasyno</title>
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="contact">
-        <div class="contact__navigation-box-left navigation-box-left">
+
+    <div class="rankings">
+        <div class="rankings__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../index.html">Strona Główna</a>
                 </li>
-                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="index.html">Kontakt</a>
-                </li>
                 <li class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="../rankings/index.html">Rankingi</a></li>
+                    <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></li>
+                <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="index.html">Rankingi</a></li>
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../blackjack/index.html">Blackjack</a></li>
                 <li class="navigation-box-left__item">
@@ -33,7 +34,7 @@
                 <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
             </ul>
         </div>
-        <div class="contact__navigation-box-right navigation-box-right">
+        <div class="rankings__navigation-box-right navigation-box-right">
             <i class="fas fa-times navigation-box-right__cross"></i>
             <div class="navigation-box-right__forms">
                 <div class="navigation-box-right__sign-container sign-container">
@@ -45,7 +46,7 @@
                     <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login"
                         id="login_login">
                     <input type="password" placeholder="Hasło" class="sign-in-form__input sign-in-form__input--password"
-                        id="login_password">
+                        id="loigin_password">
                     <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
                     <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
                     <button type="submit" class="sign-in-form__button sign-in-form__button--log">Zaloguj</button>
@@ -85,72 +86,57 @@
                 <button type="submit" class="user-stats__button user-stats__button--log">Wyloguj się</button>
             </div>
         </div>
-        <div class="contact__main main ">
+        <div class="rankings__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <a href="../index.html"class="navbar__title">Mini kasyno</a>
                 <i id="user-icon" class="far fa-user navbar__icon navbar__icon--login"></i>
             </div>
-            <div class="main__contact-box contact-box">
-                <h1 class="contact-box__title">Skontaktuj się z nami</h1>
-                <p class="contact-box__subtitle">Napisz lub zadzwoń do nas!</p>
-                <div class="contact-box__data-container data-container">
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-map-marker-alt data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">ADRES</p>
-                        <p class="data-box__text">Mini Kasyno<br>Aleja Żołnierzy Wyklętych 62,<br>08-111 Marynowice</p>
-                    </div>
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-phone-alt data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">TELEFON</p>
-                        <p class="data-box__text">+48 762 081 418</p>
-                    </div>
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-at data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">E-MAIL</p>
-                        <p class="data-box__text">kontakt@minikasyno.pl</p>
-                    </div>
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-clock data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">GODZINY OTWARCIA</p>
-                        <p class="data-box__text data-box__text--today"></p>
-                        <i class="fas fa-sort-down data-box__icon data-box__icon--open"></i>
-                        <i class="fas fa-sort-up data-box__icon data-box__icon--close"></i>
-                        <ul class="data-box__list">
-                            <li class="data-box__text data-box__text--day">Poniedziałek:
-                                <span class="data-box__text data-box__text--hours" id="1">08:00-16:00</span></li>
-                            <li class="data-box__text data-box__text--day">Wtorek:
-                                <span class="data-box__text data-box__text--hours" id="2">08:00-16:00</span></li>
-                            <li class="data-box__text data-box__text--day">Środa:
-                                <span class="data-box__text data-box__text--hours" id="3">08:00-16:00</span>
-                            </li>
-                            <li class="data-box__text data-box__text--day">Czwartek:
-                                <span class="data-box__text data-box__text--hours" id="4">08:00-16:00</span></li>
-                            <li class="data-box__text data-box__text--day">Piątek:
-                                <span class="data-box__text data-box__text--hours" id="5">08:00-16:00</span>
-                            </li>
-                            <li class="data-box__text data-box__text--day">Sobota:
-                                <span class="data-box__text data-box__text--hours" id="6">10:00-14:00</span>
-                            </li>
-                            <li class="data-box__text data-box__text--day">Niedziela:
-                                <span class="data-box__text data-box__text--hours" id="0">Zamknięte</span> </li>
-                        </ul>
-                    </div>
-                </div>
+            <h1 class="main__title">Rankingi najlepszych graczy</h1>
+            <div class="main__rankings-container rankings-container">
+                <table class="rankings-container__ranking ranking" id="games">
+                    <tr class="ranking__row">
+                        <th class="ranking__title" colspan="3">Ranking rozegranych gier</th>
+                    </tr>
+                    <tr class="ranking__row">
+                        <th class="ranking__category">Miejsce</th>
+                        <th class="ranking__category">Użytkownik</th>
+                        <th class="ranking__category">Liczba gier</th>
+                    </tr>
+                </table>
+                <table class="rankings-container__ranking ranking" id="wins">
+                    <tr class="ranking__row">
+                        <th class="ranking__title" colspan="3">Ranking wygranych gier</th>
+                    </tr>
+                    <tr class="ranking__row">
+                        <th class="ranking__category">Miejsce</th>
+                        <th class="ranking__category">Użytkownik</th>
+                        <th class="ranking__category">Liczba zwycięstw</th>
+                    </tr>
+                </table>
+                <table class="rankings-container__ranking ranking" id="draws">
+                    <tr class="ranking__row">
+                        <th class="ranking__title" colspan="3">Ranking zremisowanych gier</th>
+                    </tr>
+                    <tr class="ranking__row">
+                        <th class="ranking__category">Miejsce</th>
+                        <th class="ranking__category">Użytkownik</th>
+                        <th class="ranking__category">Liczba remisów</th>
+                    </tr>
+                </table>
+                <table class="rankings-container__ranking ranking" id="losses">
+                    <tr class="ranking__row">
+                        <th class="ranking__title" colspan="3">Ranking przegranych gier</th>
+                    </tr>
+                    <tr class="ranking__row">
+                        <th class="ranking__category">Miejsce</th>
+                        <th class="ranking__category">Użytkownik</th>
+                        <th class="ranking__category">Liczba porażek</th>
+                    </tr>
+                </table>
             </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    <script src="../js/nav.js"></script>
+            <script src="../js/nav.js"></script>
+            <script src="script.js"></script>
 </body>
 
 </html>

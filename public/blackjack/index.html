@@ -23,72 +23,24 @@
         <div class="blackjack__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
-                <ul class="navigation-box-left__item">
+                <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../index.html">Strona Główna</a>
-                </ul>
-                <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></ul>
-                <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="index.html">Blackjack</a></ul>
-                <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="../war/index.html">Wojna</a></ul>
-                <ul class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></ul>
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
-                <ul class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></ul>
+                </li>
+                <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></li>
+                <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../rankings/index.html">Rankingi</a></li>
+                <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="index.html">Blackjack</a></li>
+                <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../war/index.html">Wojna</a></li>
+                <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></li>
+                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
+                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
             </ul>
         </div>
-        <div class="blackjack__navigation-box-right navigation-box-right">
-            <i class="fas fa-times navigation-box-right__cross"></i>
-            <div class="navigation-box-right__forms">
-                <div class="navigation-box-right__sign-container sign-container">
-                    <h3 class="sign-container__text sign-container__text--active">Logowanie</h3>
-                    <h3 class="sign-container__text sign-container__text--sign-up">Rejestracja</h3>
-                </div>
-                <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
-                <form onsubmit="login(event)" class="navigation-box-right__sign-in-form sign-in-form">
-                    <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login"
-                        id="login_login">
-                    <input type="password" placeholder="Hasło" id="login_password"
-                        class="sign-in-form__input sign-in-form__input--password">
-                    <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
-                    <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
-                    <button type="submit" class="sign-in-form__button">Zaloguj</button>
-                </form>
-                <form onsubmit="register(event)" class="navigation-box-right__sign-up-form sign-up-form">
-                    <input type="text" id="name" placeholder="Imię"
-                        class="sign-up-form__input sign-up-form__input--name">
-                    <input type="text" id="surname" placeholder="Nazwisko"
-                        class="sign-up-form__input sign-up-form__input--surname">
-                    <input type="text" id="dateOfBirth" placeholder="Rok urodzenia"
-                        class="sign-up-form__input sign-up-form__input--year">
-                    <input type="text" id="email" placeholder="E-mail"
-                        class="sign-up-form__input sign-up-form__input--email">
-                    <input type="text" id="register_login" placeholder="Login"
-                        class="sign-up-form__input sign-up-form__input--login">
-                    <input type="password" id="register_password" placeholder="Hasło"
-                        class="sign-up-form__input sign-up-form__input--password">
-                    <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--name"></i>
-                    <i class="fas fa-signature sign-up-form__icon sign-up-form__icon--surname"></i>
-                    <i class="fas fa-birthday-cake sign-up-form__icon sign-up-form__icon--year"></i>
-                    <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
-                    <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
-                    <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
-                    <button type="submit" class="sign-up-form__button">Zarejestruj</button>
-                </form>
-            </div>
-            <div class="navigation-box-right__user-stats user-stats">
-                <h3 class="user-stats__title">Witaj, poniżej znajdziesz kilka statystyk z Twoich dotychczasowych gier
-                </h3>
-                <p class="user-stats__data user-stats__data--games">Ilość gier: <span id="nOfGames">0</span></p>
-                <p class="user-stats__data user-stats__data--wins">Wygrane: <span id="nOfWonGames">0</span></p>
-                <p class="user-stats__data user-stats__data--draws">Remisy: <span id="nOfDraws">0</span></p>
-                <p class="user-stats__data user-stats__data--losses">Przegrane: <span id="nOfLosses">0</span></p>
-                <p class="user-stats__data user-stats__data--balance">Twoje saldo: <span id="balance">0</span></p>
-                <button type="submit" class="user-stats__button">Wyloguj się</button>
-            </div>
-        </div>
-        <div class="blackjack__main main ">
+        <div class="blackjack__main main">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <a href="../index.html"class="navbar__title">Mini kasyno</a>
@@ -134,6 +86,16 @@
                     <p class="stats__draws">Remisy: <span id="nOfDraws">0</span></p>
                     <p class="stats__loses">Przegrane: <span id="nOfLosses">0</span></p>
                 </div>
+            </div>
+        </div>
+
+        <h1 class="score-info"></h1>
+
+        <div class="user-info">
+            <div class="user-info__border"></div>
+            <h3 class="user-info__text"></h3>
+            <div class="user-info__bgc">
+                <i class="fas fa-times user-info__exit"></i>
             </div>
         </div>
         <script src="../js/nav.js"></script>

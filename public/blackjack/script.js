@@ -13,6 +13,9 @@ const statistics = document.querySelectorAll('.stats span');
 const pointsContainers = document.querySelectorAll('.play__circle-points');
 const optionBtnsContainer = document.querySelector('.option-btns');
 const playContainer = document.querySelector('.play');
+const scoreInfo = document.querySelector('.score-info');
+const playWindow = document.querySelector('.main');
+const exitUserInfo = document.querySelector('.user-info__exit');
 
 // Variables
 
@@ -23,7 +26,7 @@ let wins = 0,
     userPoints = 0,
     saldoCounter = 100,
     aiCards = [],
-    UserCards = [],
+    userCards = [],
     endGame = false;
 
 const copyDeck = deck.slice();
@@ -35,12 +38,22 @@ document.querySelector('.navbar__icon--login').style.display = 'none';
 // Show if user is logged or no
 
 function ifUserLogged() {
-    const user = localStorage.getItem('user');
-    if (user) alert('Grasz jako zalogowany gracz!')
-    else alert('Grasz jako gość!');
+    const userLogInfo = document.querySelector('.user-info__text');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) userLogInfo.innerHTML = `Witaj ${user.login}!`;
+    else userLogInfo.innerHTML = 'Grasz jako gość!';
 }
 
 ifUserLogged();
+
+// Close Info about log user or guest
+
+exitUserInfo.addEventListener('click', () => {
+    document.querySelector('.user-info').style.display = 'none';
+    playWindow.style.filter = 'blur(0)';
+    playWindow.style.pointerEvents = 'auto';
+})
 
 // Check if user is logged and show balance
 
@@ -68,10 +81,10 @@ bid.addEventListener('keydown', (e) => {
 // Check if we can play
 
 function checkCanPlay() {
-    if (bid.value != '' && Math.floor(bid.value) <= Math.floor(saldo.textContent) && Math.floor(bid.value) > 0) return true;
-    else if (bid.value == '' || Math.floor(bid.value) == 0) alert('Nie wprowadzono stawki!');
-    else if (bid.value < 0) alert('Wprowadzono błedną stawkę!');
-    else alert('Wprowadzona stawka jest większa niż Twoje saldo!');
+    if (bid.value == '' || Math.floor(bid.value) == 0) alert('Nie wprowadzono stawki!');
+    else if (bid.value < 0 || Math.floor(bid.value[0]) == 0) alert('Wprowadzono błedną stawkę!');
+    else if (Math.floor(bid.value) > saldoCounter) alert('Wprowadzona stawka jest większa niż Twoje saldo!');
+    else return true;
 }
 
 // Draw hand for user and ai
@@ -106,7 +119,7 @@ function addPointsToCard(activeCard) {
     } else if (activeCard.includes('10') || activeCard.includes('J') || activeCard.includes('D') || activeCard.includes('K')) {
         points = 10;
     } else if (activeCard.includes('A')) {
-        points = 11;
+        points = 1;
     }
     return points;
 }
@@ -115,9 +128,17 @@ function addPointsToCard(activeCard) {
 
 function calculatePoints(cards) {
     let points = 0;
+    let hasAce = false;
+
     cards.forEach(card => {
         points += addPointsToCard(card);
-    })
+        if (card.includes('A')) {
+            hasAce = true;
+        }
+    });
+    if (hasAce === true && points + 10 <= 21) {
+        return points += 10;
+    }
 
     return points;
 }
@@ -139,14 +160,13 @@ function prepareToPlay() {
         this.style.display = 'none';
         optionBtnsContainer.style.display = 'flex';
         pointsContainers.forEach(container => container.style.display = 'block');
+        pickBtn.disabled = '';
+        passBtn.disabled = '';
         saldoCounter -= bid.value;
         saldo.textContent = saldoCounter;
 
         userCards = [drawCard(copyDeck), drawCard(copyDeck)];
         aiCards = [drawCard(copyDeck), drawCard(copyDeck)];
-
-        // showHandsCards(userCards, aiCards);
-        // console.log(userCards, aiCards);
 
         updatePoints();
     }
@@ -178,10 +198,13 @@ function checkUserOverPoints() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(body)
-            }).then(res => res.json()).then(res => console.log('res = ', res));
+            }).then(res => res.json());
         }
+        scoreInfo.innerHTML = `Przegrałeś ${bid.value}`;
+        pickBtn.disabled = 'true';
 
         endGame = true;
+        showScoreInfo();
         resetGame();
     }
 }
@@ -205,6 +228,13 @@ function updateUserLocalStorage() {
 
 updateUserLocalStorage();
 
+// Clear animations
+
+function clearAnimations() {
+    scoreInfo.classList.remove('score-info--animate');
+    playWindow.classList.remove('main--blured');
+}
+
 // If game is end, reset game interface
 
 async function resetGame() {
@@ -218,14 +248,19 @@ async function resetGame() {
                 playBtn.style.display = 'block';
                 optionBtnsContainer.style.display = 'none';
                 pointsContainers.forEach(container => container.style.display = 'none');
+                pickBtn.disabled = '';
 
                 statistics[0].textContent = wins;
                 statistics[1].textContent = draws;
                 statistics[2].textContent = losses;
 
                 updateUserLocalStorage();
+
+                setTimeout(() => {
+                    clearAnimations();
+                }, 1000)
             }
-        }, 1000);
+        }, 2000);
     })
 }
 
@@ -254,7 +289,28 @@ function checkGameOver() {
     const body = {};
     const user = JSON.parse(localStorage.getItem('user'));
 
-    if (aiPoints > 21) {
+    if (userPoints == 21 && userCards.length == 2 && aiPoints != 21) {
+        // Blackjack win
+        console.log('blackjack win');
+        saldoCounter += bid.value * 2;
+        wins++;
+        if (user) {
+            body.nOfWins = user.nOfWins + 1;
+            body.nOfGames = user.nOfGames + 1;
+            body.balance = saldoCounter;
+        }
+        scoreInfo.innerHTML = `BLACKJACK    Wygrałeś ${bid.value*2}`;
+    } else if (aiPoints == 21 && userCards.length == 2 && userPoints != 21) {
+        // Blackjack loss
+        console.log('blackjack loss');
+        losses++;
+        if (user) {
+            body.nOfLosses = user.nOfLosses + 1;
+            body.nOfGames = user.nOfGames + 1;
+            body.balance = saldoCounter;
+        }
+        scoreInfo.innerHTML = `BLACKJACK    Przegrałeś ${bid.value}`;
+    } else if (aiPoints > 21 && userPoints <= 21) {
         // Win
         console.log('win');
         saldoCounter += bid.value * 2;
@@ -264,7 +320,7 @@ function checkGameOver() {
             body.nOfGames = user.nOfGames + 1;
             body.balance = saldoCounter;
         }
-
+        scoreInfo.innerHTML = `Wygrałeś ${bid.value*2}`;
     } else if (userPoints == aiPoints) {
         // Draw
         console.log('draw')
@@ -275,8 +331,8 @@ function checkGameOver() {
             body.nOfGames = user.nOfGames + 1;
             body.balance = saldoCounter;
         }
-
-    } else if (userPoints > aiPoints) {
+        scoreInfo.innerHTML = `Remis`;
+    } else if (userPoints > aiPoints && userPoints <= 21) {
         // Win
         console.log('win');
         saldoCounter += bid.value * 2;
@@ -286,8 +342,8 @@ function checkGameOver() {
             body.nOfGames = user.nOfGames + 1;
             body.balance = saldoCounter;
         }
-
-    } else if (userPoints < aiPoints) {
+        scoreInfo.innerHTML = `Wygrałeś ${bid.value*2}`;
+    } else if (userPoints < aiPoints && aiPoints <= 21) {
         // Lose
         console.log('loss');
         losses++;
@@ -296,6 +352,7 @@ function checkGameOver() {
             body.nOfGames = user.nOfGames + 1;
             body.balance = saldoCounter;
         }
+        scoreInfo.innerHTML = `Przegrałeś ${bid.value}`;
     }
 
     if (user) {
@@ -311,8 +368,21 @@ function checkGameOver() {
     endGame = true;
 }
 
+// Show score information
+
+function showScoreInfo() {
+    if (endGame) {
+        scoreInfo.classList.add('score-info--animate');
+        playWindow.classList.add('main--blured');
+    }
+}
+
 passBtn.addEventListener('click', function pass() {
+    pickBtn.disabled = 'true';
+    this.disabled = 'true';
+
     aiPlay();
     checkGameOver();
+    showScoreInfo();
     resetGame();
 })

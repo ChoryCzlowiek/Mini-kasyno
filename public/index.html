@@ -35,6 +35,8 @@
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="contact/index.html">Kontakt</a></li>
                 <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="rankings/index.html">Rankingi</a></li>
+                <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="blackjack/index.html">Blackjack</a></li>
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="war/index.html">Wojna</a>
@@ -60,7 +62,7 @@
                         class="sign-in-form__input sign-in-form__input--password">
                     <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
                     <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
-                    <button type="submit" class="sign-in-form__button">Zaloguj</button>
+                    <button type="submit" class="sign-in-form__button sign-in-form__button--log">Zaloguj</button>
                 </form>
                 <form onsubmit="register(event)" class="navigation-box-right__sign-up-form sign-up-form">
                     <input type="text" id="name" placeholder="Imię"
@@ -81,18 +83,20 @@
                     <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
                     <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
                     <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
-                    <button type="submit" class="sign-up-form__button">Zarejestruj</button>
+                    <button type="submit" class="sign-up-form__button sign-up-form__button--log">Zarejestruj</button>
                 </form>
             </div>
             <div class="navigation-box-right__user-stats user-stats">
                 <h3 class="user-stats__title">Witaj, poniżej znajdziesz kilka statystyk z Twoich dotychczasowych gier
                 </h3>
                 <p class="user-stats__data user-stats__data--games">Ilość gier: <span id="nOfGames">0</span></p>
-                <p class="user-stats__data user-stats__data--wins">Wygrane: <span id="nOfWonGames">0</span></p>
+                <p class="user-stats__data user-stats__data--wins">Wygrane: <span id="nOfWins">0</span></p>
                 <p class="user-stats__data user-stats__data--draws">Remisy: <span id="nOfDraws">0</span></p>
                 <p class="user-stats__data user-stats__data--losses">Przegrane: <span id="nOfLosses">0</span></p>
                 <p class="user-stats__data user-stats__data--balance">Twoje saldo: <span id="balance">0</span></p>
-                <button type="submit" class="user-stats__button">Wyloguj się</button>
+                <button class="user-stats__button user-stats__log-button--reset">Zresetuj saldo</button>
+                <a href="./account/index.html"><button class="user-stats__button user-stats__button--edit">Edytuj profil</button></a>
+                <button type="submit" class="user-stats__button user-stats__button--log">Wyloguj się</button>
             </div>
         </div>
         <div class="home__main main ">
@@ -131,6 +135,14 @@
                         <div class="game__background game__background--fifth"></div>
                         <h4 class="game__name">Game</h4>
                     </a>
+                </div>
+            </div>
+            <div class="main__footer footer">
+                <div class="footer__name-box">
+                    <p class="footer__name">Mini Kasyno</p>
+                </div>
+                <div class="footer__copyright-box">
+                    <p class="footer__copyright">© 2020 ChoryCzłowiek All Rights Reserved.</p>
                 </div>
             </div>
         </div>

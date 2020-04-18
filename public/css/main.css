@@ -420,6 +420,7 @@ body {
   border: 2px solid orangered;
   background-color: transparent;
   color: orangered;
+  cursor: pointer;
 }
 
 .navigation-box-right .sign-in-form__button:hover {
@@ -535,6 +536,7 @@ body {
   border: 2px solid orangered;
   background-color: transparent;
   color: orangered;
+  cursor: pointer;
 }
 
 .navigation-box-right .sign-up-form__button:hover {
@@ -737,6 +739,9 @@ body {
   .navigation-box-right .user-stats__button {
     font-size: .9rem;
     padding: .5rem 1rem;
+  }
+  .navigation-box-right .user-stats__button--log {
+    display: block;
   }
   .main .navbar__icon {
     font-size: 2.5rem;
@@ -1255,6 +1260,275 @@ body {
   }
 }
 
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #141414;
+  color: gold;
+}
+
+.footer__name-box {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  padding: .5rem 0 .5rem .5rem;
+  text-align: center;
+}
+
+.footer__name-box .footer__name {
+  font-size: 1.5rem;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+}
+
+.footer__copyright-box {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+  padding: .5rem .5rem .5rem;
+  text-align: center;
+}
+
+.footer__copyright-box .footer__copyright {
+  font-size: .8rem;
+  color: orangered;
+}
+
+@media (min-width: 768px) {
+  .footer__name-box {
+    padding: .8rem 0 .8rem .8rem;
+  }
+  .footer__name-box .footer__name {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .footer__copyright-box {
+    padding: .8rem .8rem .8rem;
+  }
+  .footer__copyright-box .footer__copyright {
+    font-size: 1.5rem;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 360px) {
+  .footer__name-box {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+  .footer__name-box .footer__name {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+  .footer__copyright-box {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+  .footer__copyright-box .footer__copyright {
+    font-size: .8rem;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 768px) {
+  .footer__name-box .footer__name {
+    font-size: 1.8rem;
+  }
+  .footer__copyright-box .footer__copyright {
+    font-size: 1.3rem;
+  }
+}
+
+.account__main {
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+.account__main .data-container {
+  margin: 2rem 1rem;
+  background-color: #141414;
+  border-radius: 10px;
+  padding: 2rem 2rem;
+}
+
+.account__main .data-container__title {
+  text-align: center;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+  font-size: 2rem;
+  color: gold;
+  text-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+}
+
+.account__main .data-container__name {
+  margin: 2rem 0 .3rem;
+  color: orangered;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+.account__main .data-container__data {
+  color: gold;
+  font-weight: bold;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.account__main .data-container__button {
+  float: right;
+  padding: .1rem .6rem;
+  background-color: orangered;
+  color: gold;
+  border: 1px solid orangered;
+  -webkit-box-shadow: 0 0 3px 1px gold;
+          box-shadow: 0 0 3px 1px gold;
+}
+
+.edit-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #222222;
+  border: 3px solid red;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  display: none;
+}
+
+.edit-popup__title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  color: gold;
+  text-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+}
+
+.edit-popup__name {
+  margin-bottom: .5rem;
+  color: orangered;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+.edit-popup__data {
+  min-height: 4vh;
+  width: 100%;
+  background-color: #464646;
+  border: none;
+  border-top: 1px solid #646464;
+  border-bottom: 1px solid #646464;
+  padding-left: .5rem;
+  color: gold;
+}
+
+.edit-popup__data:focus {
+  outline: none;
+}
+
+.edit-popup__button {
+  float: right;
+  margin-top: 1rem;
+  padding: .1rem .6rem;
+  background-color: orangered;
+  color: gold;
+  border: 1px solid orangered;
+  -webkit-box-shadow: 0 0 3px 1px gold;
+          box-shadow: 0 0 3px 1px gold;
+}
+
+@media (min-width: 768px) {
+  .account__main .data-container {
+    margin: 4rem 8rem;
+    padding: 4rem 3rem;
+  }
+  .account__main .data-container__title {
+    letter-spacing: 3px;
+    font-size: 3rem;
+  }
+  .account__main .data-container__name {
+    margin: 4rem 0 .5rem;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+  }
+  .account__main .data-container__data {
+    font-size: 1.5rem;
+  }
+  .account__main .data-container__button {
+    padding: .3rem 1rem;
+    border: 2px solid orangered;
+    font-size: 1.1rem;
+  }
+  .edit-popup {
+    width: 60%;
+    padding: 2rem 3rem;
+  }
+  .edit-popup__title {
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    font-size: 2rem;
+  }
+  .edit-popup__name {
+    margin-bottom: .7rem;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+  }
+  .edit-popup__data {
+    padding-left: .5rem;
+    font-size: 1.5rem;
+  }
+  .edit-popup__button {
+    padding: .3rem 1rem;
+    border: 2px solid orangered;
+    font-size: 1.1rem;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 360px) {
+  .account__main .data-container {
+    margin: 2rem 8rem;
+    padding: 2rem 3rem;
+  }
+  .edit-popup {
+    width: 60%;
+  }
+  .edit-popup__data {
+    padding-left: 0;
+    padding: .2rem .5rem;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 768px) {
+  .account__main .data-container {
+    margin: 4rem 12rem;
+    padding: 4rem 3rem;
+  }
+  .edit-popup {
+    width: 60%;
+  }
+  .edit-popup__data {
+    padding-left: 0;
+    padding: .2rem .5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .account__main .data-container {
+    margin: 4rem 30rem;
+    padding: 4rem 3rem;
+  }
+  .edit-popup {
+    width: 60%;
+  }
+  .edit-popup__data {
+    padding-left: 0;
+    padding: .2rem .5rem;
+  }
+}
+
 .contact .main {
   min-height: 100vh;
   background-color: #141414;
@@ -1494,6 +1768,153 @@ body {
   }
   .contact .main .contact-box .data-container .data-box__icon {
     font-size: 1.1rem;
+  }
+}
+
+.rankings__main {
+  max-width: 100vw;
+  min-height: 100vh;
+  background-color: #141414;
+}
+
+.rankings__main .main__title {
+  text-align: center;
+  margin: 2rem 1rem;
+  font-family: 'Bebas Neue';
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: whitesmoke;
+  text-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+  position: relative;
+}
+
+.rankings__main .main__title:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  margin-top: 1rem;
+  width: 40%;
+  height: 2px;
+  background-color: orangered;
+}
+
+.rankings__main .rankings-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.rankings__main .rankings-container .ranking {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  margin: 3rem 15%;
+  border: 4px solid orangered;
+  border-collapse: collapse;
+  -webkit-box-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered;
+          box-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered;
+  text-align: center;
+}
+
+.rankings__main .rankings-container .ranking__row--active {
+  background-color: red;
+}
+
+.rankings__main .rankings-container .ranking__title {
+  border: 2px solid orangered;
+  padding: .5rem .5rem;
+  color: orangered;
+  font-family: 'Bebas Neue';
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.rankings__main .rankings-container .ranking__category {
+  border: 2px solid orangered;
+  padding: .5rem .3rem;
+  font-size: .9rem;
+  color: gold;
+  font-family: 'Bebas Neue';
+  font-size: .9rem;
+  letter-spacing: 1px;
+}
+
+.rankings__main .rankings-container .ranking__item {
+  border: 2px solid orangered;
+  padding: .5rem .3rem;
+  font-size: .9rem;
+  color: white;
+}
+
+.rankings__main .rankings-container .ranking__item--active {
+  font-weight: bold;
+  color: gold;
+}
+
+@media (min-height: 768px) {
+  .rankings__main .main__title {
+    margin: 3rem 1rem;
+    font-size: 3.2rem;
+    letter-spacing: 3px;
+  }
+  .rankings__main .rankings-container .ranking {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    margin: 4rem 25%;
+    border: 6px solid orangered;
+  }
+  .rankings__main .rankings-container .ranking__title {
+    border: 3px solid orangered;
+    padding: .5rem .5rem;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  .rankings__main .rankings-container .ranking__category {
+    border: 3px solid orangered;
+    padding: .5rem .3rem;
+    font-size: 2rem;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 360px) {
+  .rankings__main .rankings-container {
+    padding: 0 2rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .rankings__main .rankings-container .ranking {
+    -ms-flex-preferred-size: 45%;
+        flex-basis: 45%;
+    margin: 3rem 0;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 768px) {
+  .rankings__main .rankings-container {
+    padding: 0 6rem;
+  }
+  .rankings__main .rankings-container .ranking {
+    -ms-flex-preferred-size: 45%;
+        flex-basis: 45%;
+    margin: 3rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .rankings__main .rankings-container {
+    padding: 0 12rem;
+  }
+  .rankings__main .rankings-container .ranking {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+    margin: 3rem 0;
   }
 }
 
@@ -1758,10 +2179,17 @@ body {
   .rotate-container {
     display: none;
   }
-  .blackjack .main {
+  .blackjack__main {
     display: block;
+    -webkit-filter: blur(1px);
+            filter: blur(1px);
+    pointer-events: none;
   }
-  .blackjack .main .play__deck {
+  .blackjack__main .main--blured {
+    -webkit-animation: blurWindow 2s linear 1s both;
+            animation: blurWindow 2s linear 1s both;
+  }
+  .blackjack__main .play__deck {
     position: absolute;
     top: calc(5% - 7px);
     left: 15%;
@@ -1772,7 +2200,7 @@ body {
     border-top: 3px solid white;
     border-left: 3px solid white;
   }
-  .blackjack .main .play__deck--start {
+  .blackjack__main .play__deck--start {
     top: 5%;
     padding: 0;
     width: 35px;
@@ -1780,7 +2208,7 @@ body {
     left: 70%;
     border: none;
   }
-  .blackjack .main .play .option-btns {
+  .blackjack__main .play .option-btns {
     position: absolute;
     top: 50%;
     left: 45%;
@@ -1792,7 +2220,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .blackjack .main .play .option-btns__btn {
+  .blackjack__main .play .option-btns__btn {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
@@ -1802,14 +2230,14 @@ body {
     color: rgba(255, 217, 0, 0.7);
     border: 2px solid rgba(255, 217, 0, 0.7);
   }
-  .blackjack .main .play .option-btns__btn:hover {
+  .blackjack__main .play .option-btns__btn:hover {
     border: 4px solid rgba(255, 217, 0, 0.7);
     background: orangered;
   }
-  .blackjack .main .play .option-btns__btn--pick {
+  .blackjack__main .play .option-btns__btn--pick {
     margin-right: 1rem;
   }
-  .blackjack .main .play__circle-points {
+  .blackjack__main .play__circle-points {
     position: absolute;
     top: 5%;
     left: 30%;
@@ -1820,101 +2248,45 @@ body {
     color: orangered;
     display: none;
   }
-  .blackjack .main .play__circle-points--user {
+  .blackjack__main .play__circle-points--user {
     top: 35%;
   }
-  .blackjack .main .play__circle-points .play__points {
+  .blackjack__main .play__circle-points .play__points {
     text-align: center;
     line-height: 2rem;
     font-size: 1.1rem;
   }
 }
 
-@-webkit-keyframes showAiCard {
+@-webkit-keyframes blurWindow {
   0% {
-    top: 5%;
-    left: 70%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  30%,
+  99% {
+    -webkit-filter: blur(20px);
+            filter: blur(20px);
   }
   100% {
-    top: 5%;
-    left: 45%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
   }
 }
 
-@keyframes showAiCard {
+@keyframes blurWindow {
   0% {
-    top: 5%;
-    left: 70%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  30%,
+  99% {
+    -webkit-filter: blur(20px);
+            filter: blur(20px);
   }
   100% {
-    top: 5%;
-    left: 45%;
-  }
-}
-
-@-webkit-keyframes showUserCard {
-  0% {
-    top: 5%;
-    left: 70%;
-  }
-  100% {
-    top: 30%;
-    left: 45%;
-  }
-}
-
-@keyframes showUserCard {
-  0% {
-    top: 5%;
-    left: 70%;
-  }
-  100% {
-    top: 30%;
-    left: 45%;
-  }
-}
-
-@-webkit-keyframes hideAiCard {
-  0% {
-    top: 5%;
-    left: 45%;
-  }
-  100% {
-    top: 5%;
-    left: 15%;
-  }
-}
-
-@keyframes hideAiCard {
-  0% {
-    top: 5%;
-    left: 45%;
-  }
-  100% {
-    top: 5%;
-    left: 15%;
-  }
-}
-
-@-webkit-keyframes hideUserCard {
-  0% {
-    top: 30%;
-    left: 45%;
-  }
-  100% {
-    top: 5%;
-    left: 15%;
-  }
-}
-
-@keyframes hideUserCard {
-  0% {
-    top: 30%;
-    left: 45%;
-  }
-  100% {
-    top: 5%;
-    left: 15%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
   }
 }
 
@@ -1922,8 +2294,175 @@ body {
   .rotate-container {
     display: none;
   }
-  .blackjack .main {
+  .blackjack__main {
     display: block;
+  }
+  .blackjack__main .play__deck {
+    width: 67px;
+    height: 82px;
+  }
+  .blackjack__main .play__deck--start {
+    width: 55px;
+    height: 70px;
+  }
+  .blackjack__main .play .option-btns__btn {
+    width: 6.5rem;
+    height: 6.5rem;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+  }
+  .blackjack__main .play__circle-points {
+    width: 3rem;
+    height: 3rem;
+  }
+  .blackjack__main .play .play__points {
+    line-height: 3rem;
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 1200px) {
+  .rotate-container {
+    display: none;
+  }
+  .blackjack__main {
+    display: block;
+  }
+  .blackjack__main .play__deck {
+    width: 77px;
+    height: 92px;
+  }
+  .blackjack__main .play__deck--start {
+    width: 65px;
+    height: 80px;
+  }
+  .blackjack__main .play .option-btns__btn {
+    width: 6.5rem;
+    height: 6.5rem;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+  }
+  .blackjack__main .play__circle-points {
+    width: 3rem;
+    height: 3rem;
+  }
+  .blackjack__main .play .play__points {
+    line-height: 3rem;
+    font-size: 1.6rem;
+  }
+}
+
+.war__main {
+  display: none;
+}
+
+@media only screen and (orientation: landscape) and (min-height: 360px) {
+  .rotate-container {
+    display: none;
+  }
+  .war .main {
+    display: block;
+  }
+  .war .main--blured {
+    -webkit-animation: blurWindow 2s linear 1s both;
+            animation: blurWindow 2s linear 1s both;
+  }
+  .war .main .play .points-container {
+    position: absolute;
+    top: 10%;
+    left: 1vw;
+    z-index: 99;
+    display: none;
+  }
+  .war .main .play .points-container__text {
+    margin-bottom: .5rem;
+    font-size: .8rem;
+  }
+  .war .main .play .points-container__text .points-container__points {
+    color: orangered;
+    font-size: 1.1rem;
+  }
+  .war .main .play__hand {
+    position: absolute;
+    top: 8%;
+    left: 30vw;
+    width: 35px;
+    height: 50px;
+    display: none;
+  }
+  .war .main .play__hand--user {
+    top: 40%;
+    left: 65vw;
+  }
+  .war .main .play__active-card {
+    position: absolute;
+    top: 8%;
+    left: 30vw;
+    width: 35px;
+    height: 50px;
+    display: none;
+  }
+  .war .main .play__active-card--user {
+    top: 40%;
+    left: 65vw;
+  }
+  .war .main .play__put-out {
+    position: absolute;
+    top: 50%;
+    left: 35vw;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgba(255, 68, 0, 0.6);
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    color: rgba(255, 217, 0, 0.7);
+    border: 2px solid rgba(255, 217, 0, 0.7);
+    display: none;
+  }
+  .war .main .play__put-out:hover {
+    border: 4px solid rgba(255, 217, 0, 0.7);
+    background: orangered;
+  }
+  .war .main .score-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    display: none;
+  }
+  .war .main .score-container__text {
+    text-align: center;
+    line-height: 100vh;
+    font-size: 0rem;
+    font-family: 'Bebas Neue';
+    letter-spacing: 5px;
+    color: gold;
+    text-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+  }
+}
+
+@keyframes blurWindow {
+  0% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  30%,
+  99% {
+    -webkit-filter: blur(20px);
+            filter: blur(20px);
+  }
+  100% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-height: 768px) {
+  .rotate-container {
+    display: none;
   }
 }
 
@@ -1931,8 +2470,177 @@ body {
   .rotate-container {
     display: none;
   }
-  .blackjack .main {
-    display: block;
+}
+
+@-webkit-keyframes showComputerActiveCard {
+  0% {
+    left: 30vw;
+  }
+  100% {
+    left: 47.5vw;
+  }
+}
+
+@keyframes showComputerActiveCard {
+  0% {
+    left: 30vw;
+  }
+  100% {
+    left: 47.5vw;
+  }
+}
+
+@-webkit-keyframes showUserActiveCard {
+  0% {
+    left: 65vw;
+  }
+  100% {
+    left: 47.5vw;
+  }
+}
+
+@keyframes showUserActiveCard {
+  0% {
+    left: 65vw;
+  }
+  100% {
+    left: 47.5vw;
+  }
+}
+
+@-webkit-keyframes hideComputerActiveCard {
+  0% {
+    left: 47.5vw;
+  }
+  100% {
+    left: 30vw;
+  }
+}
+
+@keyframes hideComputerActiveCard {
+  0% {
+    left: 47.5vw;
+  }
+  100% {
+    left: 30vw;
+  }
+}
+
+@-webkit-keyframes hideUserActiveCard {
+  0% {
+    left: 47.5vw;
+  }
+  100% {
+    left: 65vw;
+  }
+}
+
+@keyframes hideUserActiveCard {
+  0% {
+    left: 47.5vw;
+  }
+  100% {
+    left: 65vw;
+  }
+}
+
+@-webkit-keyframes hideComputerActiveCardToUser {
+  0% {
+    left: 47.5vw;
+    top: 8%;
+  }
+  100% {
+    left: 65vw;
+    top: 40%;
+  }
+}
+
+@keyframes hideComputerActiveCardToUser {
+  0% {
+    left: 47.5vw;
+    top: 8%;
+  }
+  100% {
+    left: 65vw;
+    top: 40%;
+  }
+}
+
+@-webkit-keyframes hideUserActiveCardToComputer {
+  0% {
+    left: 47.5vw;
+    top: 40%;
+  }
+  100% {
+    left: 30vw;
+    top: 8%;
+  }
+}
+
+@keyframes hideUserActiveCardToComputer {
+  0% {
+    left: 47.5vw;
+    top: 40%;
+  }
+  100% {
+    left: 30vw;
+    top: 8%;
+  }
+}
+
+@-webkit-keyframes blurTable {
+  0%,
+  100% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  1%,
+  99% {
+    -webkit-filter: blur(3px) brightness(30%);
+            filter: blur(3px) brightness(30%);
+  }
+}
+
+@keyframes blurTable {
+  0%,
+  100% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  1%,
+  99% {
+    -webkit-filter: blur(3px) brightness(30%);
+            filter: blur(3px) brightness(30%);
+  }
+}
+
+@-webkit-keyframes growUpFont {
+  0% {
+    font-size: 0;
+  }
+  25% {
+    font-size: 5rem;
+  }
+  75% {
+    font-size: 5rem;
+  }
+  100% {
+    font-size: 0;
+  }
+}
+
+@keyframes growUpFont {
+  0% {
+    font-size: 0;
+  }
+  25% {
+    font-size: 5rem;
+  }
+  75% {
+    font-size: 5rem;
+  }
+  100% {
+    font-size: 0;
   }
 }
 
@@ -1944,10 +2652,17 @@ body {
   .rotate-container {
     display: none;
   }
-  .baccarat .main {
+  .baccarat__main {
     display: block;
+    -webkit-filter: blur(1px);
+            filter: blur(1px);
+    pointer-events: none;
   }
-  .baccarat .main .play__deck {
+  .baccarat__main .main--blured {
+    -webkit-animation: blurWindow 2s linear 1s both;
+            animation: blurWindow 2s linear 1s both;
+  }
+  .baccarat__main .play__deck {
     position: absolute;
     top: 5%;
     left: 15%;
@@ -1958,7 +2673,7 @@ body {
     border-top: 3px solid white;
     border-left: 3px solid white;
   }
-  .baccarat .main .play__deck--start {
+  .baccarat__main .play__deck--start {
     top: 5%;
     padding: 0;
     width: 35px;
@@ -1966,7 +2681,7 @@ body {
     left: 70%;
     border: none;
   }
-  .baccarat .main .play .option-btns {
+  .baccarat__main .play .option-btns {
     position: absolute;
     top: 50%;
     left: 45%;
@@ -1978,7 +2693,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .baccarat .main .play .option-btns__btn {
+  .baccarat__main .play .option-btns__btn {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
@@ -1988,14 +2703,14 @@ body {
     color: rgba(255, 217, 0, 0.7);
     border: 2px solid rgba(255, 217, 0, 0.7);
   }
-  .baccarat .main .play .option-btns__btn:hover {
+  .baccarat__main .play .option-btns__btn:hover {
     border: 4px solid rgba(255, 217, 0, 0.7);
     background: orangered;
   }
-  .baccarat .main .play .option-btns__btn--pick {
+  .baccarat__main .play .option-btns__btn--pick {
     margin-right: 1rem;
   }
-  .baccarat .main .play__circle-points {
+  .baccarat__main .play__circle-points {
     position: absolute;
     top: 5%;
     left: 30%;
@@ -2006,15 +2721,15 @@ body {
     color: orangered;
     display: none;
   }
-  .baccarat .main .play__circle-points--user {
+  .baccarat__main .play__circle-points--user {
     top: 35%;
   }
-  .baccarat .main .play__circle-points .play__points {
+  .baccarat__main .play__circle-points .play__points {
     text-align: center;
     line-height: 2rem;
     font-size: 1.1rem;
   }
-  .baccarat .main .play__active-card {
+  .baccarat__main .play__active-card {
     position: absolute;
     width: 35px;
     height: 50px;
@@ -2023,12 +2738,50 @@ body {
   }
 }
 
+@keyframes blurWindow {
+  0% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  30%,
+  99% {
+    -webkit-filter: blur(20px);
+            filter: blur(20px);
+  }
+  100% {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
 @media only screen and (orientation: landscape) and (min-height: 768px) {
   .rotate-container {
     display: none;
   }
-  .baccarat .main {
+  .baccarat__main {
     display: block;
+  }
+  .baccarat__main .play__deck {
+    width: 67px;
+    height: 82px;
+  }
+  .baccarat__main .play__deck--start {
+    width: 55px;
+    height: 70px;
+  }
+  .baccarat__main .play .option-btns__btn {
+    width: 6.5rem;
+    height: 6.5rem;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+  }
+  .baccarat__main .play__circle-points {
+    width: 3rem;
+    height: 3rem;
+  }
+  .baccarat__main .play .play__points {
+    line-height: 3rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -2036,8 +2789,30 @@ body {
   .rotate-container {
     display: none;
   }
-  .baccarat .main {
+  .baccarat__main {
     display: block;
+  }
+  .baccarat__main .play__deck {
+    width: 77px;
+    height: 92px;
+  }
+  .baccarat__main .play__deck--start {
+    width: 65px;
+    height: 80px;
+  }
+  .baccarat__main .play .option-btns__btn {
+    width: 6.5rem;
+    height: 6.5rem;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+  }
+  .baccarat__main .play__circle-points {
+    width: 3rem;
+    height: 3rem;
+  }
+  .baccarat__main .play .play__points {
+    line-height: 3rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -2060,7 +2835,7 @@ body {
     left: 10%;
   }
   .play__saldo span {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
     color: orangered;
   }
   .play .form {
@@ -2075,7 +2850,7 @@ body {
             box-shadow: 0 0 2px gold;
     font-size: 1rem;
     color: orangered;
-    width: 65px;
+    width: 55px;
     padding: .1rem;
   }
   .play .form__rate:focus {
@@ -2122,6 +2897,63 @@ body {
     color: orangered;
     font-size: 1.1rem;
   }
+  .score-info {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    z-index: 99;
+    line-height: 100vh;
+    font-size: 5rem;
+    font-family: 'Bebas Neue';
+    letter-spacing: 4px;
+    color: gold;
+    text-shadow: 0 0 5px orangered, 0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered, 0 0 40px orangered;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  .score-info--animate {
+    -webkit-animation: showScoreInfo 2s linear 1s both;
+            animation: showScoreInfo 2s linear 1s both;
+  }
+}
+
+@-webkit-keyframes showScoreInfo {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  99% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes showScoreInfo {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  99% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
 }
 
 @media only screen and (orientation: landscape) and (min-height: 768px) {
@@ -2141,7 +2973,7 @@ body {
   }
   .play .form__rate {
     font-size: 2rem;
-    width: 115px;
+    width: 95px;
   }
   .play__play-btn {
     position: absolute;
@@ -2164,6 +2996,10 @@ body {
   .play .stats span {
     color: orangered;
     font-size: 2rem;
+  }
+  .score-info {
+    font-size: 7rem;
+    letter-spacing: 5px;
   }
 }
 
@@ -2207,6 +3043,120 @@ body {
   .play .stats span {
     color: orangered;
     font-size: 2rem;
+  }
+  .score-info {
+    font-size: 9rem;
+    letter-spacing: 7px;
+  }
+}
+
+.user-info {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  .user-info {
+    display: block;
+    position: absolute;
+    top: 30vh;
+    left: 50%;
+    width: 50vh;
+    height: 15vh;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    background-color: #222222;
+    border-radius: 5px;
+    z-index: 99;
+    text-align: center;
+    -webkit-animation: showUserLogInfo 1s linear both;
+            animation: showUserLogInfo 1s linear both;
+  }
+  .user-info__border {
+    position: absolute;
+    width: 48vh;
+    height: 13vh;
+    top: 1vh;
+    left: 1vh;
+    background-color: transparent;
+    border: 1px solid #ff5e00;
+    border-radius: 5px;
+  }
+  .user-info__text {
+    line-height: 15vh;
+    font-size: .9rem;
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    color: gold;
+  }
+  .user-info__bgc {
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transform: translate(40%, -40%);
+            transform: translate(40%, -40%);
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .user-info__bgc:hover {
+    background-color: rgba(255, 68, 0, 0.7);
+  }
+  .user-info__bgc .user-info__exit {
+    margin: 2.5vh 0;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    color: gold;
+    font-size: .9rem;
+  }
+}
+
+@-webkit-keyframes showUserLogInfo {
+  0% {
+    -webkit-transform: translateX(-50%) scale(0);
+            transform: translateX(-50%) scale(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) scale(1);
+            transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes showUserLogInfo {
+  0% {
+    -webkit-transform: translateX(-50%) scale(0);
+            transform: translateX(-50%) scale(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%) scale(1);
+            transform: translateX(-50%) scale(1);
+  }
+}
+
+@media (orientation: landscape) and (min-height: 768px) {
+  .user-info__border {
+    border: 2px solid #ff5e00;
+  }
+  .user-info__text {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  .user-info .user-info__exit {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .user-info__border {
+    border: 2px solid #ff5e00;
+  }
+  .user-info__text {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  .user-info .user-info__exit {
+    font-size: 1.8rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -9,8 +9,14 @@
 
     .baccarat {
 
-        .main {
+        &__main {
             display: block;
+            filter: blur(1px);
+            pointer-events: none;
+
+            .main--blured {
+                animation: blurWindow 2s linear 1s both;
+            }
 
             .play {
 
@@ -99,6 +105,21 @@
     }
 }
 
+@keyframes blurWindow {
+    0% {
+        filter: blur(0);
+    }
+
+    30%,
+    99% {
+        filter: blur(20px);
+    }
+
+    100% {
+        filter: blur(0);
+    }
+}
+
 @media only screen and (orientation: landscape) and (min-height: 768px) {
     .rotate-container {
         display: none;
@@ -106,8 +127,42 @@
 
     .baccarat {
 
-        .main {
+        &__main {
             display: block;
+
+            .play {
+
+                &__deck {
+                    width: 67px;
+                    height: 82px;
+
+                    &--start {
+                        width: 55px;
+                        height: 70px;
+                    }
+                }
+
+                .option-btns {
+
+                    &__btn {
+                        width: 6.5rem;
+                        height: 6.5rem;
+                        font-size: 1.7rem;
+                        letter-spacing: 2px;
+                    }
+                }
+
+                &__circle-points {
+                    width: 3rem;
+                    height: 3rem;
+
+                }
+
+                .play__points {
+                    line-height: 3rem;
+                    font-size: 1.6rem;
+                }
+            }
         }
     }
 }
@@ -119,8 +174,42 @@
 
     .baccarat {
 
-        .main {
+        &__main {
             display: block;
+
+            .play {
+
+                &__deck {
+                    width: 77px;
+                    height: 92px;
+
+                    &--start {
+                        width: 65px;
+                        height: 80px;
+                    }
+                }
+
+                .option-btns {
+
+                    &__btn {
+                        width: 6.5rem;
+                        height: 6.5rem;
+                        font-size: 1.7rem;
+                        letter-spacing: 2px;
+                    }
+                }
+
+                &__circle-points {
+                    width: 3rem;
+                    height: 3rem;
+
+                }
+
+                .play__points {
+                    line-height: 3rem;
+                    font-size: 1.6rem;
+                }
+            }
         }
     }
 }

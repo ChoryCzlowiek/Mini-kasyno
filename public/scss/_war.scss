@@ -12,6 +12,10 @@
         .main {
             display: block;
 
+            &--blured {
+                animation: blurWindow 2s linear 1s both;
+            }
+
             .play {
 
                 .points-container {
@@ -103,6 +107,21 @@
                 }
             }
         }
+    }
+}
+
+@keyframes blurWindow {
+    0% {
+        filter: blur(0);
+    }
+
+    30%,
+    99% {
+        filter: blur(20px);
+    }
+
+    100% {
+        filter: blur(0);
     }
 }
 

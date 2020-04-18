@@ -13,6 +13,9 @@ const statistics = document.querySelectorAll('.stats span');
 const pointsContainers = document.querySelectorAll('.play__circle-points');
 const optionBtnsContainer = document.querySelector('.option-btns');
 const playContainer = document.querySelector('.play');
+const scoreInfo = document.querySelector('.score-info');
+const playWindow = document.querySelector('.main');
+const exitUserInfo = document.querySelector('.user-info__exit');
 
 // Variables
 
@@ -35,12 +38,22 @@ document.querySelector('.navbar__icon--login').style.display = 'none';
 // Show if user is logged or no
 
 function ifUserLogged() {
+    const userLogInfo = document.querySelector('.user-info__text');
     const user = localStorage.getItem('user');
-    if (user) alert('Grasz jako zalogowany gracz!')
-    else alert('Grasz jako gość!');
+
+    if (user) userLogInfo.innerHTML = `Witaj ${user.login}!`;
+    else userLogInfo.innerHTML = 'Grasz jako gość!';
 }
 
 ifUserLogged();
+
+// Close Info about log user or guest
+
+exitUserInfo.addEventListener('click', () => {
+    document.querySelector('.user-info').style.display = 'none';
+    playWindow.style.filter = 'blur(0)';
+    playWindow.style.pointerEvents = 'auto';
+})
 
 // Check if user is logged and show balance
 
@@ -62,6 +75,13 @@ bid.addEventListener('keydown', (e) => {
         event.preventDefault();
     }
 })
+
+// Clear animations
+
+function clearAnimations() {
+    scoreInfo.classList.remove('score-info--animate');
+    playWindow.classList.remove('main--blured');
+}
 
 // playBtn click functions
 
@@ -134,8 +154,7 @@ function updatePoints() {
 
     userPointsCircle.textContent = userPoints;
     aiPointsCircle.textContent = aiPoints;
-
-    console.log(aiPoints, userPoints)
+    console.log(userPoints, userCards, aiPoints, aiCards);
 }
 
 // Set localStorage of user stats
@@ -157,7 +176,7 @@ function updateUserLocalStorage() {
 
 // If game is end, reset game interface
 
-async function resetGame(win, draw, loss) {
+async function resetGame() {
     await new Promise(() => {
         setTimeout(() => {
             if (endGame) {
@@ -175,9 +194,22 @@ async function resetGame(win, draw, loss) {
                 statistics[2].textContent = losses;
 
                 updateUserLocalStorage();
+
+                setTimeout(() => {
+                    clearAnimations();
+                }, 1000)
             }
         }, 2000);
     })
+}
+
+// Show score information
+
+function showScoreInfo() {
+    if (endGame) {
+        scoreInfo.classList.add('score-info--animate');
+        playWindow.classList.add('main--blured');
+    }
 }
 
 // Check if somebody have 8 or 9
@@ -188,6 +220,8 @@ function checkIfEightOrNine() {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (8 <= aiPoints || 8 <= userPoints) {
+        pickBtn.disabled = 'true';
+        passBtn.disabled = 'true';
         if (userPoints > aiPoints) {
             // Win
             wins++;
@@ -197,6 +231,7 @@ function checkIfEightOrNine() {
                 body.nOfGames = user.nOfGames + 1;
                 body.balance = saldoCounter;
             }
+            scoreInfo.innerHTML = `Wygrałeś ${bid.value*2}`;
         } else if (userPoints == aiPoints) {
             // Draw
             draws++;
@@ -206,7 +241,8 @@ function checkIfEightOrNine() {
                 body.nOfGames = user.nOfGames + 1;
                 body.balance = saldoCounter;
             }
-        } else {
+            scoreInfo.innerHTML = `Remis`;
+        } else if (userPoints < aiPoints) {
             // Lose
             losses++;
             if (user) {
@@ -214,6 +250,7 @@ function checkIfEightOrNine() {
                 body.nOfGames = user.nOfGames + 1;
                 body.balance = saldoCounter;
             }
+            scoreInfo.innerHTML = `Przegrałeś ${bid.value}`;
         }
 
         if (user) {
@@ -223,9 +260,10 @@ function checkIfEightOrNine() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(body)
-            }).then(res => res.json()).then(res => console.log('res = ', res));
+            }).then(res => res.json());
         }
         endGame = true;
+        showScoreInfo();
         resetGame();
     }
 }
@@ -237,6 +275,8 @@ function prepareToPlay() {
         this.style.display = 'none';
         optionBtnsContainer.style.display = 'flex';
         pointsContainers.forEach(container => container.style.display = 'block');
+        pickBtn.disabled = '';
+        passBtn.disabled = '';
         saldoCounter -= bid.value;
         saldo.textContent = saldoCounter;
 
@@ -256,7 +296,7 @@ playBtn.addEventListener('click', prepareToPlay);
 function aiPlay() {
     updatePoints();
 
-    if (aiPoints < userPoints && aiPoints < 7) aiCards.push(drawCard(copyDeck));
+    if (aiPoints <= userPoints && aiPoints < 7) aiCards.push(drawCard(copyDeck));
 }
 
 // Check who win
@@ -275,6 +315,7 @@ function checkWinner() {
             body.nOfGames = user.nOfGames + 1;
             body.balance = saldoCounter;
         }
+        scoreInfo.innerHTML = `Wygrałeś ${bid.value*2}`;
     } else if (userPoints == aiPoints) {
         // Draw
         draws++;
@@ -284,6 +325,7 @@ function checkWinner() {
             body.nOfGames = user.nOfGames + 1;
             body.balance = saldoCounter;
         }
+        scoreInfo.innerHTML = `Remis`;
     } else {
         losses++;
         if (user) {
@@ -291,6 +333,7 @@ function checkWinner() {
             body.nOfGames = user.nOfGames + 1;
             body.balance = saldoCounter;
         }
+        scoreInfo.innerHTML = `Przegrałeś ${bid.value}`;
     }
 
     if (user) {
@@ -304,13 +347,25 @@ function checkWinner() {
     }
 
     endGame = true;
+    showScoreInfo();
     resetGame();
 }
 
 pickBtn.addEventListener('click', function pickCard() {
     userCards.push(drawCard(copyDeck));
-    console.log(userCards);
     aiPlay();
-    console.log(userCards);
     checkWinner();
+
+    this.disabled = 'true';
+    passBtn.disabled = 'true';
 });
+
+// Function of pass button
+
+passBtn.addEventListener('click', () => {
+    aiPlay();
+    checkWinner();
+
+    this.disabled = 'true';
+    pickBtn.disabled = 'true';
+})

@@ -68,7 +68,22 @@ function changeOnSignIn() {
 
 signIn.addEventListener('click', changeOnSignIn);
 
-const logOutBtn = document.querySelector('.user-stats__button');
+// Clear forms inputs
+
+function clearLoginAndRegisterInputs() {
+    document.getElementById('register_login').value = '';
+    document.getElementById('register_password').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('surname').value = '';
+    document.getElementById('dateOfBirth').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('login_login').value = '';
+    document.getElementById('login_password').value = '';
+}
+
+//  Register function
+
+const logOutBtn = document.querySelector('.user-stats__button--log');
 const userStatsBox = document.querySelector('.user-stats');
 const navForms = document.querySelector('.navigation-box-right__forms');
 
@@ -96,6 +111,8 @@ function register(e) {
                 if (res.errors) {
                     alert(`Login ${body.login} jest już zajęty`)
                 } else {
+                    clearLoginAndRegisterInputs();
+                    changeOnSignIn();
                     alert('Udało Ci się zarejestrować!')
                 }
             })
@@ -128,6 +145,7 @@ function login(e) {
         .then(res => res.json())
         .then(res => {
             if (res.success) {
+                clearLoginAndRegisterInputs();
                 updateLoggedInView(res);
             } else {
                 alert('Nieprawidłowy login lub hasło');
@@ -154,7 +172,7 @@ function setStatistics() {
     // JSON.parse(string) = string => obj / JSON.stringify(obj) = obj => stg
     document.getElementById('balance').innerHTML = user.balance || 0;
     document.getElementById('nOfGames').innerHTML = user.nOfGames || 0;
-    document.getElementById('nOfWonGames').innerHTML = user.nOfWins || 0;
+    document.getElementById('nOfWins').innerHTML = user.nOfWins || 0;
     document.getElementById('nOfDraws').innerHTML = user.nOfDraws || 0;
     document.getElementById('nOfLosses').innerHTML = user.nOfLosses || 0;
 }
@@ -193,3 +211,27 @@ function checkIfLogin() {
 }
 
 checkIfLogin();
+
+// Reset saldo
+
+document.querySelector('.user-stats__log-button--reset').addEventListener('click', () => {
+    let saldo = document.getElementById('balance');
+    body = {};
+
+    if (Math.floor(saldo.innerHTML) === 0) {
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        saldo.innerHTML = 1000;
+
+        body.login = user.login;
+        body.balance = Math.floor(saldo.innerHTML);
+
+        fetch('/api/user/resetbalance?id=', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+    } else alert('Nie możesz zresetować swojego salda, ponieważ nie przegrałeś wszystkich pieniędzy.');
+});

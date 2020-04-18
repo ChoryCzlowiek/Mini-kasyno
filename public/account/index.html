@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kontakt | Mini kasyno</title>
+    <title>Twoje konto | Mini kasyno</title>
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Bebas+Neue&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dd62baeea0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="contact">
-        <div class="contact__navigation-box-left navigation-box-left">
+    <div class="account">
+        <div class="account__navigation-box-left navigation-box-left">
             <i class="fas fa-times navigation-box-left__cross"></i>
             <ul class="navigation-box-left__list">
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../index.html">Strona Główna</a>
                 </li>
-                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="index.html">Kontakt</a>
-                </li>
+                <li class="navigation-box-left__item">
+                    <a class="navigation-box-left__link" href="../contact/index.html">Kontakt</a></li>
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../rankings/index.html">Rankingi</a></li>
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../blackjack/index.html">Blackjack</a></li>
                 <li class="navigation-box-left__item">
-                    <a class="navigation-box-left__link" href="../war/index.html">Wojna</a></li>
+                    <a class="navigation-box-left__link" href="../war/index.html">Wojna</a>
+                </li>
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></li>
                 <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
                 <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
             </ul>
         </div>
-        <div class="contact__navigation-box-right navigation-box-right">
+        <div class="account__navigation-box-right navigation-box-right">
             <i class="fas fa-times navigation-box-right__cross"></i>
             <div class="navigation-box-right__forms">
                 <div class="navigation-box-right__sign-container sign-container">
@@ -42,10 +43,10 @@
                 </div>
                 <h3 class="navigation-box-right__text">Zaloguj się do swojego konta</h3>
                 <form onsubmit="login(event)" class="navigation-box-right__sign-in-form sign-in-form">
-                    <input type="text" placeholder="Login" class="sign-in-form__input sign-in-form__input--login"
-                        id="login_login">
-                    <input type="password" placeholder="Hasło" class="sign-in-form__input sign-in-form__input--password"
-                        id="login_password">
+                    <input type="text" id="login_login" placeholder="Login"
+                        class="sign-in-form__input sign-in-form__input--login">
+                    <input type="password" id="login_password" placeholder="Hasło"
+                        class="sign-in-form__input sign-in-form__input--password">
                     <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
                     <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
                     <button type="submit" class="sign-in-form__button sign-in-form__button--log">Zaloguj</button>
@@ -69,7 +70,7 @@
                     <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
                     <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
                     <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
-                    <button type="submit" class="sign-up-form__button sign-up-form__button--log">Zarejestruj</button>
+                    <button type="submit" class="sign-up-form__button sign-in-form__button--log">Zarejestruj</button>
                 </form>
             </div>
             <div class="navigation-box-right__user-stats user-stats">
@@ -80,75 +81,46 @@
                 <p class="user-stats__data user-stats__data--draws">Remisy: <span id="nOfDraws">0</span></p>
                 <p class="user-stats__data user-stats__data--losses">Przegrane: <span id="nOfLosses">0</span></p>
                 <p class="user-stats__data user-stats__data--balance">Twoje saldo: <span id="balance">0</span></p>
-                <button class="user-stats__button user-stats__log-button--reset">Zresetuj saldo</button>
-                <a href="../account/index.html"><button class="user-stats__button user-stats__button--edit">Edytuj profil</button></a>
+                <button class="user-stats__button user-stats__button--reset">Zresetuj saldo</button>
                 <button type="submit" class="user-stats__button user-stats__button--log">Wyloguj się</button>
             </div>
         </div>
-        <div class="contact__main main ">
+        <div class="account__main main ">
             <div class="main__navbar navbar">
                 <i class="fas fa-bars navbar__icon"></i>
                 <a href="../index.html"class="navbar__title">Mini kasyno</a>
                 <i id="user-icon" class="far fa-user navbar__icon navbar__icon--login"></i>
             </div>
-            <div class="main__contact-box contact-box">
-                <h1 class="contact-box__title">Skontaktuj się z nami</h1>
-                <p class="contact-box__subtitle">Napisz lub zadzwoń do nas!</p>
-                <div class="contact-box__data-container data-container">
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-map-marker-alt data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">ADRES</p>
-                        <p class="data-box__text">Mini Kasyno<br>Aleja Żołnierzy Wyklętych 62,<br>08-111 Marynowice</p>
-                    </div>
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-phone-alt data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">TELEFON</p>
-                        <p class="data-box__text">+48 762 081 418</p>
-                    </div>
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-at data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">E-MAIL</p>
-                        <p class="data-box__text">kontakt@minikasyno.pl</p>
-                    </div>
-                    <div class="data-container__data-box data-box">
-                        <div class="data-box__circle">
-                            <i class="fas fa-clock data-box__icon"></i>
-                        </div>
-                        <p class="data-box__name">GODZINY OTWARCIA</p>
-                        <p class="data-box__text data-box__text--today"></p>
-                        <i class="fas fa-sort-down data-box__icon data-box__icon--open"></i>
-                        <i class="fas fa-sort-up data-box__icon data-box__icon--close"></i>
-                        <ul class="data-box__list">
-                            <li class="data-box__text data-box__text--day">Poniedziałek:
-                                <span class="data-box__text data-box__text--hours" id="1">08:00-16:00</span></li>
-                            <li class="data-box__text data-box__text--day">Wtorek:
-                                <span class="data-box__text data-box__text--hours" id="2">08:00-16:00</span></li>
-                            <li class="data-box__text data-box__text--day">Środa:
-                                <span class="data-box__text data-box__text--hours" id="3">08:00-16:00</span>
-                            </li>
-                            <li class="data-box__text data-box__text--day">Czwartek:
-                                <span class="data-box__text data-box__text--hours" id="4">08:00-16:00</span></li>
-                            <li class="data-box__text data-box__text--day">Piątek:
-                                <span class="data-box__text data-box__text--hours" id="5">08:00-16:00</span>
-                            </li>
-                            <li class="data-box__text data-box__text--day">Sobota:
-                                <span class="data-box__text data-box__text--hours" id="6">10:00-14:00</span>
-                            </li>
-                            <li class="data-box__text data-box__text--day">Niedziela:
-                                <span class="data-box__text data-box__text--hours" id="0">Zamknięte</span> </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="main__data-container data-container">
+                <h2 class="data-container__title">Dane użytkownika</br><span></span></h2>
+                <p class="data-container__name">Login:</p>
+                <p class="data-container__data data-container__data--login"></p>
+                <button class="data-container__button" id="edit_login">Edytuj</button>
+                <p class="data-container__name">Password:</p>
+                <p class="data-container__data data-container__data--password"></p>
+                <button class="data-container__button" id="edit_password">Edytuj</button>
+                <p class="data-container__name">Imię:</p>
+                <p class="data-container__data data-container__data--name"></p>
+                <button class="data-container__button" id="edit_name">Edytuj</button>
+                <p class="data-container__name">Nazwisko:</p>
+                <p class="data-container__data data-container__data--surname"></p>
+                <button class="data-container__button" id="edit_surname">Edytuj</button>
+                <p class="data-container__name">E-mail</p>
+                <p class="data-container__data data-container__data--email"></p>
+                <button class="data-container__button" id="edit_email">Edytuj</button>
+                <p class="data-container__name">Data Urodzenia</p>
+                <p class="data-container__data data-container__data--birth"></p>
+                <button class="data-container__button" id="edit_dateOfBirth">Edytuj</button>
             </div>
         </div>
     </div>
 
+    <div class="acount__edit-popup edit-popup">
+        <h3 class="edit-popup__title">Zmień swoje dane</h3>
+        <p class="edit-popup__name"></p>
+        <input type="text" class="edit-popup__data">
+        <button class="edit-popup__button">Zmień</button>
+    </div>
     <script src="script.js"></script>
     <script src="../js/nav.js"></script>
 </body>

@@ -1,0 +1,221 @@
+.account__main {
+    max-width: 100vw;
+    min-height: 100vh;
+    // filter: blur(5px);
+
+    .data-container {
+        margin: 2rem 1rem;
+        background-color: rgb(20, 20, 20);
+        border-radius: 10px;
+        padding: 2rem 2rem;
+
+        &__title {
+            text-align: center;
+            font-family: 'Bebas Neue';
+            letter-spacing: 1px;
+            font-size: 2rem;
+            color: gold;
+            text-shadow: 0 0 10px orangered, 0 0 20px orangered,
+                0 0 40px orangered, 0 0 30px orangered,
+                0 0 50px orangered;
+        }
+
+        &__name {
+            margin: 2rem 0 .3rem;
+            color: orangered;
+            font-family: 'Bebas Neue';
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+        }
+
+        &__data {
+            color: gold;
+            font-weight: bold;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        &__button {
+            float: right;
+            padding: .1rem .6rem;
+            background-color: orangered;
+            color: gold;
+            border: 1px solid orangered;
+            box-shadow: 0 0 3px 1px gold;
+        }
+    }
+}
+
+.edit-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(34, 34, 34);
+    border: 3px solid red;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    display: none;
+
+    &__title {
+        margin-bottom: 1rem;
+        text-align: center;
+        font-family: 'Bebas Neue';
+        letter-spacing: 1px;
+        font-size: 1.5rem;
+        color: gold;
+        text-shadow: 0 0 10px orangered, 0 0 20px orangered,
+            0 0 40px orangered, 0 0 30px orangered,
+            0 0 50px orangered;
+    }
+
+    &__name {
+        margin-bottom: .5rem;
+        color: orangered;
+        font-family: 'Bebas Neue';
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+    }
+
+    &__data {
+        min-height: 4vh;
+        width: 100%;
+        background-color: rgb(70, 70, 70);
+        border: none;
+        border-top: 1px solid rgb(100, 100, 100);
+        border-bottom: 1px solid rgb(100, 100, 100);
+        padding-left: .5rem;
+        color: gold;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button {
+        float: right;
+        margin-top: 1rem;
+        padding: .1rem .6rem;
+        background-color: orangered;
+        color: gold;
+        border: 1px solid orangered;
+        box-shadow: 0 0 3px 1px gold;
+    }
+}
+
+@media (min-width: 768px) {
+    .account__main {
+
+        .data-container {
+            margin: 4rem 8rem;
+            padding: 4rem 3rem;
+
+            &__title {
+                letter-spacing: 3px;
+                font-size: 3rem;
+            }
+
+            &__name {
+                margin: 4rem 0 .5rem;
+                letter-spacing: 1px;
+                font-size: 1.8rem;
+            }
+
+            &__data {
+                font-size: 1.5rem;
+            }
+
+            &__button {
+                padding: .3rem 1rem;
+                border: 2px solid orangered;
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .edit-popup {
+        width: 60%;
+        padding: 2rem 3rem;
+
+        &__title {
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            font-size: 2rem;
+        }
+
+        &__name {
+            margin-bottom: .7rem;
+            letter-spacing: 1px;
+            font-size: 1.8rem;
+        }
+
+        &__data {
+            padding-left: .5rem;
+            font-size: 1.5rem;
+        }
+
+        &__button {
+            padding: .3rem 1rem;
+            border: 2px solid orangered;
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media (orientation:landscape) and (min-height: 360px) {
+    .account__main {
+
+        .data-container {
+            margin: 2rem 8rem;
+            padding: 2rem 3rem;
+        }
+    }
+
+    .edit-popup {
+        width: 60%;
+
+        &__data {
+            padding-left: 0;
+            padding: .2rem .5rem;
+        }
+    }
+}
+
+@media (orientation:landscape) and (min-height: 768px) {
+    .account__main {
+
+        .data-container {
+            margin: 4rem 12rem;
+            padding: 4rem 3rem;
+        }
+    }
+
+    .edit-popup {
+        width: 60%;
+
+        &__data {
+            padding-left: 0;
+            padding: .2rem .5rem;
+        }
+    }
+}
+
+@media (min-width:1200px) {
+    .account__main {
+
+        .data-container {
+            margin: 4rem 30rem;
+            padding: 4rem 3rem;
+        }
+    }
+
+    .edit-popup {
+        width: 60%;
+
+        &__data {
+            padding-left: 0;
+            padding: .2rem .5rem;
+        }
+    }
+}

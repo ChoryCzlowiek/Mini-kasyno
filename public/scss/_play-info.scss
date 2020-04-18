@@ -18,7 +18,7 @@
             left: 10%;
 
             span {
-                font-size: 2.2rem;
+                font-size: 1.2rem;
                 color: orangered;
             }
         }
@@ -34,7 +34,7 @@
                 box-shadow: 0 0 2px gold;
                 font-size: 1rem;
                 color: orangered;
-                width: 65px;
+                width: 55px;
                 padding: .1rem;
 
                 &:focus {
@@ -85,6 +85,45 @@
             }
         }
     }
+
+    .score-info {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        z-index: 99;
+        line-height: 100vh;
+        font-size: 5rem;
+        font-family: 'Bebas Neue';
+        letter-spacing: 4px;
+        color: gold;
+        text-shadow: 0 0 5px orangered, 0 0 10px orangered,
+            0 0 20px orangered, 0 0 30px orangered,
+            0 0 40px orangered;
+        transform: scale(0);
+
+        &--animate {
+            animation: showScoreInfo 2s linear 1s both;
+        }
+    }
+}
+
+@keyframes showScoreInfo {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    99% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
 }
 
 @media only screen and (orientation: landscape) and (min-height: 768px) {
@@ -107,7 +146,7 @@
 
             &__rate {
                 font-size: 2rem;
-                width: 115px;
+                width: 95px;
             }
         }
 
@@ -136,6 +175,11 @@
                 font-size: 2rem;
             }
         }
+    }
+
+    .score-info {
+        font-size: 7rem;
+        letter-spacing: 5px;
     }
 }
 
@@ -188,5 +232,10 @@
                 font-size: 2rem;
             }
         }
+    }
+
+    .score-info {
+        font-size: 9rem;
+        letter-spacing: 7px;
     }
 }

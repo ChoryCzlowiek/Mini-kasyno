@@ -16,6 +16,8 @@ const scoreBox = document.querySelector('.score-container');
 const scoreInfo = document.querySelector('.score-container__text');
 const pointBox = document.querySelector('.points-container');
 const howCards = document.querySelectorAll('.points-container__points');
+const scoreInfo = document.querySelector('.score-info');
+const playWindow = document.querySelector('.main');
 
 // Variables
 
@@ -102,6 +104,9 @@ function updateNumberOfCards() {
 function prepareToPlay() {
     const canPlay = checkCanPlay();
     if (canPlay) {
+        scoreInfo.classList.remove('score-info--animate');
+        playWindow.classList.remove('main--blured');
+
         bid.disabled = 'true';
         this.style.display = 'none';
         hands.forEach((hand) => {
@@ -236,6 +241,15 @@ async function resetGame() {
     })
 }
 
+// Show score information
+
+function showScoreInfo() {
+    if (endGame) {
+        scoreInfo.classList.add('score-info--animate');
+        playWindow.classList.add('main--blured');
+    }
+}
+
 // Check if game is ended
 
 function checkGameOver() {
@@ -274,7 +288,8 @@ function checkGameOver() {
         }).then(res => res.json()).then(res => console.log('res = ', res));
     }
 
-    resetGame()
+    resetGame();
+    showScoreInfo();
 }
 
 // Main function of click Play Button

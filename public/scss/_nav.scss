@@ -149,6 +149,7 @@
             border: 2px solid orangered;
             background-color: transparent;
             color: orangered;
+            cursor: pointer;
 
             &:hover {
                 background-color: orangered;
@@ -246,6 +247,7 @@
             border: 2px solid orangered;
             background-color: transparent;
             color: orangered;
+            cursor: pointer;
 
             &:hover {
                 background-color: orangered;
@@ -455,6 +457,10 @@
             &__button {
                 font-size: .9rem;
                 padding: .5rem 1rem;
+
+                &--log {
+                    display: block;
+                }
             }
         }
     }

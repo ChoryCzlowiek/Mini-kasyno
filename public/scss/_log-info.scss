@@ -1,0 +1,108 @@
+.user-info {
+    display: none;
+}
+
+@media(orientation: landscape) {
+    .user-info {
+        display: block;
+        position: absolute;
+        top: 30vh;
+        left: 50%;
+        width: 50vh;
+        height: 15vh;
+        transform: translateX(-50%);
+        background-color: rgb(34, 34, 34);
+        border-radius: 5px;
+        z-index: 99;
+        text-align: center;
+        animation: showUserLogInfo 1s linear both;
+
+        &__border {
+            position: absolute;
+            width: 48vh;
+            height: 13vh;
+            top: 1vh;
+            left: 1vh;
+            background-color: transparent;
+            border: 1px solid rgb(255, 94, 0);
+            border-radius: 5px;
+        }
+
+        &__text {
+            line-height: 15vh;
+            font-size: .9rem;
+            font-family: 'Bebas Neue';
+            letter-spacing: 1px;
+            color: gold;
+        }
+
+        &__bgc {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(40%, -40%);
+            width: 5vh;
+            height: 5vh;
+            border-radius: 50%;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(255, 68, 0, 0.7);
+            }
+
+            .user-info__exit {
+                margin: 2.5vh 0;
+                transform: translateY(-50%);
+                color: gold;
+                font-size: .9rem;
+            }
+        }
+    }
+}
+
+@keyframes showUserLogInfo {
+    0% {
+        transform: translateX(-50%) scale(0);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@media(orientation: landscape) and (min-height: 768px) {
+    .user-info {
+
+        &__border {
+            border: 2px solid rgb(255, 94, 0);
+        }
+
+        &__text {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        .user-info__exit {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+@media (min-width:1200px) {
+    .user-info {
+
+        &__border {
+            border: 2px solid rgb(255, 94, 0);
+        }
+
+        &__text {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        .user-info__exit {
+            font-size: 1.8rem;
+        }
+    }
+}
