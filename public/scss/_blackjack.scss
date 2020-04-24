@@ -1,22 +1,16 @@
-.blackjack__main {
+.blackjack {
     display: none;
 }
 
-@media only screen and (orientation: landscape) and (min-height: 360px) {
+@media only screen and (orientation: landscape) {
     .rotate-container {
         display: none;
     }
 
     .blackjack {
+        display: block;
 
-        &__main {
-            display: block;
-            filter: blur(1px);
-            pointer-events: none;
-
-            .main--blured {
-                animation: blurWindow 2s linear 1s both;
-            }
+        .main {
 
             .play {
 
@@ -112,14 +106,9 @@
 }
 
 @media only screen and (orientation: landscape) and (min-height: 768px) {
-    .rotate-container {
-        display: none;
-    }
-
     .blackjack {
 
-        &__main {
-            display: block;
+        .main {
 
             .play {
 
@@ -159,14 +148,9 @@
 }
 
 @media only screen and (orientation: landscape) and (min-width: 1200px) {
-    .rotate-container {
-        display: none;
-    }
-
     .blackjack {
 
-        &__main {
-            display: block;
+        .main {
 
             .play {
 

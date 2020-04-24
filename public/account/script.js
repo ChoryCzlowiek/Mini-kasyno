@@ -31,12 +31,11 @@ const openPopUpBtns = document.querySelectorAll('.data-container__button');
 openPopUpBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const editPopUp = document.querySelector('.edit-popup');
-        const main = document.querySelector('.account__main');
-        const allSite = document.querySelector('.account');
+        const main = document.querySelector('.data-container');
 
         editPopUp.style.display = 'block';
         main.style.filter = 'blur(5px)';
-        allSite.style.pointerEvents = 'none';
+        main.style.pointerEvents = 'none';
 
         document.querySelector('.edit-popup__name').innerHTML = btn.id.slice(5);
 
@@ -77,6 +76,10 @@ openPopUpBtns.forEach(btn => {
                     },
                     body: JSON.stringify(body)
                 })
+
+                editPopUp.style.display = 'none';
+                main.style.filter = 'blur(0)';
+                main.style.pointerEvents = 'auto';
             };
 
             showUserDatas();

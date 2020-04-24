@@ -50,6 +50,7 @@ const api = express.Router();
 const authRequired = require('./middleware/auth');
 
 api.use('/user', require('./api/user/controller'));
+api.use('/message', require('./api/message/controller'));
 
 app.get('/protected-path', authRequired, (req, res) => {
   res.send('success');

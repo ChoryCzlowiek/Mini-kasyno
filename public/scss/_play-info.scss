@@ -1,109 +1,124 @@
-@media only screen and (orientation: landscape) and (min-height: 360px) {
+@media (orientation: landscape) {
+    .main {
+        position: relative;
 
-    .play {
-        position: absolute;
-        top: 11vh;
-        left: 0;
-        height: 89vh;
-        width: 100%;
-        z-index: 98;
-        font-family: 'Bebas Neue';
-        letter-spacing: 1px;
-        color: rgba(255, 217, 0, 0.7);
-        font-size: .9rem;
-
-        &__saldo {
+        .play {
             position: absolute;
-            top: 50%;
-            left: 10%;
+            top: 11vh;
+            left: 0;
+            height: 89vh;
+            width: 100%;
+            z-index: 98;
+            font-family: 'Bebas Neue';
+            letter-spacing: 1px;
+            color: rgba(255, 217, 0, 0.7);
+            font-size: .9rem;
+            pointer-events: none;
+            filter: blur(1px);
 
-            span {
-                font-size: 1.2rem;
-                color: orangered;
+            &--remove-blur {
+                filter: blur(0);
             }
-        }
 
-        .form {
-            position: absolute;
-            top: 40%;
-            left: 10%;
+            &--blur {
+                animation: 2s blurWindow linear 1s both;
+            }
 
-            &__rate {
+            &__saldo {
+                position: absolute;
+                top: 50%;
+                left: 10%;
+
+                span {
+                    font-size: 1.2rem;
+                    color: orangered;
+                }
+            }
+
+            .form {
+                position: absolute;
+                top: 40%;
+                left: 10%;
+
+                &__rate {
+                    background: transparent;
+                    border: 1px solid rgba(255, 217, 0, 0.7);
+                    box-shadow: 0 0 2px gold;
+                    font-size: 1rem;
+                    color: orangered;
+                    width: 55px;
+                    padding: .1rem;
+
+                    &:focus {
+                        outline: none;
+                        border: 1px solid orangered;
+                        box-shadow: 0 0 2px orangered;
+                    }
+                }
+            }
+
+            &__play-btn {
+                position: absolute;
+                top: 55%;
+                left: 45%;
+                padding: .2rem .6rem;
+                color: rgba(255, 217, 0, 0.7);
+                font-family: 'Bebas Neue';
+                letter-spacing: 1px;
+                font-size: 1.2rem;
+                overflow: hidden;
+                transition: .2s;
                 background: transparent;
-                border: 1px solid rgba(255, 217, 0, 0.7);
-                box-shadow: 0 0 2px gold;
-                font-size: 1rem;
-                color: orangered;
-                width: 55px;
-                padding: .1rem;
+                border: none;
+                box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+                cursor: pointer;
 
-                &:focus {
-                    outline: none;
-                    border: 1px solid orangered;
-                    box-shadow: 0 0 2px orangered;
+                &:hover {
+                    background: orangered;
+                    box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+                }
+            }
+
+            .stats {
+                position: absolute;
+                top: 10%;
+                left: 80%;
+                font-size: .8rem;
+
+                &__text {
+                    font-size: .9rem;
+                    margin-bottom: 1rem;
+                    text-shadow: 0 0 10px orangered, 0 0 30px orangered;
+                }
+
+                span {
+                    color: orangered;
+                    font-size: 1.1rem;
                 }
             }
         }
 
-        &__play-btn {
+        .main__score-info {
             position: absolute;
-            top: 55%;
-            left: 45%;
-            padding: .2rem .6rem;
-            color: rgba(255, 217, 0, 0.7);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            z-index: 99;
+            line-height: 100vh;
+            font-size: 5rem;
             font-family: 'Bebas Neue';
-            letter-spacing: 1px;
-            font-size: 1.2rem;
-            overflow: hidden;
-            transition: .2s;
-            background: transparent;
-            border: none;
-            box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
-            cursor: pointer;
+            letter-spacing: 4px;
+            color: gold;
+            text-shadow: 0 0 5px orangered, 0 0 10px orangered,
+                0 0 20px orangered, 0 0 30px orangered,
+                0 0 40px orangered;
+            transform: scale(0);
 
-            &:hover {
-                background: orangered;
-                box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
+            &--animate {
+                animation: showScoreInfo 2s linear 1s both;
             }
-        }
-
-        .stats {
-            position: absolute;
-            top: 10%;
-            left: 80%;
-            font-size: .8rem;
-
-            &__text {
-                font-size: .9rem;
-                margin-bottom: 1rem;
-                text-shadow: 0 0 10px orangered, 0 0 30px orangered;
-            }
-
-            span {
-                color: orangered;
-                font-size: 1.1rem;
-            }
-        }
-    }
-
-    .score-info {
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        text-align: center;
-        z-index: 99;
-        line-height: 100vh;
-        font-size: 5rem;
-        font-family: 'Bebas Neue';
-        letter-spacing: 4px;
-        color: gold;
-        text-shadow: 0 0 5px orangered, 0 0 10px orangered,
-            0 0 20px orangered, 0 0 30px orangered,
-            0 0 40px orangered;
-        transform: scale(0);
-
-        &--animate {
-            animation: showScoreInfo 2s linear 1s both;
         }
     }
 }
@@ -126,7 +141,7 @@
     }
 }
 
-@media only screen and (orientation: landscape) and (min-height: 768px) {
+@media (orientation: landscape) and (min-height: 768px) {
 
     .play {
         font-size: 2rem;
@@ -177,13 +192,13 @@
         }
     }
 
-    .score-info {
+    .main__score-info {
         font-size: 7rem;
         letter-spacing: 5px;
     }
 }
 
-@media only screen and (orientation: landscape) and (min-width: 1440px) {
+@media (orientation: landscape) and (min-width: 1200px) {
 
     .play {
         font-size: 2rem;
@@ -234,7 +249,7 @@
         }
     }
 
-    .score-info {
+    .main__score-info {
         font-size: 9rem;
         letter-spacing: 7px;
     }

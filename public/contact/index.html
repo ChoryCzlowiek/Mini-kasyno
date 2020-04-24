@@ -29,8 +29,6 @@
                     <a class="navigation-box-left__link" href="../war/index.html">Wojna</a></li>
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></li>
-                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
-                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
             </ul>
         </div>
         <div class="contact__navigation-box-right navigation-box-right">
@@ -144,6 +142,31 @@
                                 <span class="data-box__text data-box__text--hours" id="0">Zamknięte</span> </li>
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div class="main__contact-message contact-message">
+                <h2 class="contact-message__title">
+                    Napisz do nas wiadomość
+                </h2>
+                <form onsubmit="sendMessage(event)" class="contact-message__contact-form contact-form">
+                    <input type="text" class="contact-form__input contact-form__input--name" placeholder="Your name">
+                    <input type="text" class="contact-form__input contact-form__input--surname"
+                        placeholder="Your surname">
+                    <input type="text" class="contact-form__input contact-form__input--email" placeholder="Your email">
+                    <textarea name="" id="" cols="30" rows="10" class="contact-form__input contact-form__input--message"
+                        placeholder="Write a message"></textarea>
+                    <i class="fas fa-signature contact-form__icon contact-form__icon--name"></i>
+                    <i class="fas fa-signature contact-form__icon contact-form__icon--surname"></i>
+                    <i class="fas fa-envelope contact-form__icon contact-form__icon--email"></i>
+                    <button type="submit" class="contact-form__button contact-form__button--message">Wyślij</button>
+                </form>
+            </div>
+            <div class="main__footer footer">
+                <div class="footer__name-box">
+                    <p class="footer__name">Mini Kasyno</p>
+                </div>
+                <div class="footer__copyright-box">
+                    <p class="footer__copyright">© 2020 ChoryCzłowiek All Rights Reserved.</p>
                 </div>
             </div>
         </div>

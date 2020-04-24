@@ -1,20 +1,16 @@
-.war__main {
+.war {
     display: none;
 }
 
-@media only screen and (orientation: landscape) and (min-height: 360px) {
+@media only screen and (orientation: landscape) {
     .rotate-container {
         display: none;
     }
 
     .war {
+        display: block;
 
         .main {
-            display: block;
-
-            &--blured {
-                animation: blurWindow 2s linear 1s both;
-            }
 
             .play {
 
@@ -125,111 +121,6 @@
     }
 }
 
-@media only screen and (orientation: landscape) and (min-height: 768px) {
-    .rotate-container {
-        display: none;
-    }
-}
+@media only screen and (orientation: landscape) and (min-height: 768px) {}
 
-@media only screen and (orientation: landscape) and (min-width: 1440px) {
-    .rotate-container {
-        display: none;
-    }
-}
-
-
-
-@keyframes showComputerActiveCard {
-    0% {
-        left: 30vw;
-    }
-
-    100% {
-        left: 47.5vw;
-    }
-}
-
-@keyframes showUserActiveCard {
-    0% {
-        left: 65vw;
-    }
-
-    100% {
-        left: 47.5vw;
-    }
-}
-
-@keyframes hideComputerActiveCard {
-    0% {
-        left: 47.5vw;
-    }
-
-    100% {
-        left: 30vw;
-    }
-}
-
-@keyframes hideUserActiveCard {
-    0% {
-        left: 47.5vw;
-    }
-
-    100% {
-        left: 65vw;
-    }
-}
-
-@keyframes hideComputerActiveCardToUser {
-    0% {
-        left: 47.5vw;
-        top: 8%
-    }
-
-    100% {
-        left: 65vw;
-        top: 40%;
-    }
-}
-
-@keyframes hideUserActiveCardToComputer {
-    0% {
-        left: 47.5vw;
-        top: 40%;
-    }
-
-    100% {
-        left: 30vw;
-        top: 8%;
-    }
-}
-
-@keyframes blurTable {
-
-    0%,
-    100% {
-        filter: blur(0);
-    }
-
-    1%,
-    99% {
-        filter: blur(3px) brightness(30%);
-    }
-}
-
-@keyframes growUpFont {
-    0% {
-        font-size: 0;
-    }
-
-    25% {
-        font-size: 5rem;
-    }
-
-    75% {
-        font-size: 5rem;
-    }
-
-    100% {
-        font-size: 0;
-    }
-}
+@media only screen and (orientation: landscape) and (min-width: 1440px) {}

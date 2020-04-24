@@ -36,8 +36,6 @@
                 </li>
                 <li class="navigation-box-left__item">
                     <a class="navigation-box-left__link" href="../baccarat/index.html">Baccarat</a></li>
-                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
-                <li class="navigation-box-left__item"><a class="navigation-box-left__link" href="#">Game</a></li>
             </ul>
         </div>
         <div class="war__navigation-box-right navigation-box-right">
@@ -55,7 +53,7 @@
                         id="login_password">
                     <i class="fas fa-user sign-in-form__icon sign-in-form__icon--login"></i>
                     <i class="fas fa-lock sign-in-form__icon sign-in-form__icon--password"></i>
-                    <button type="submit" class="sign-in-form__button">Zaloguj</button>
+                    <button type="submit" class="sign-in-form__button sign-in-form__button--log">Zaloguj</button>
                 </form>
                 <form onsubmit="register(event)" class="navigation-box-right__sign-up-form sign-up-form">
                     <input type="text" id="name" placeholder="Imię"
@@ -76,7 +74,7 @@
                     <i class="fas fa-envelope sign-up-form__icon sign-up-form__icon--email"></i>
                     <i class="fas fa-user sign-up-form__icon sign-up-form__icon--login"></i>
                     <i class="fas fa-lock sign-up-form__icon sign-up-form__icon--password"></i>
-                    <button type="submit" class="sign-up-form__button">Zarejestruj</button>
+                    <button type="submit" class="sign-up-form__button sign-up-form__button--log">Zarejestruj</button>
                 </form>
             </div>
             <div class="navigation-box-right__user-stats user-stats">
@@ -87,7 +85,9 @@
                 <p class="user-stats__data user-stats__data--draws">Remisy: <span id="nOfDraws">0</span></p>
                 <p class="user-stats__data user-stats__data--losses">Przegrane: <span id="nOfLosses">0</span></p>
                 <p class="user-stats__data user-stats__data--balance">Twoje saldo: <span id="balance">0</span></p>
-                <button type="submit" class="user-stats__button">Wyloguj się</button>
+                <button class="user-stats__button user-stats__log-button--reset">Zresetuj saldo</button>
+                <a href="./account/index.html"><button class="user-stats__button user-stats__button--edit">Edytuj profil</button></a>
+                <button type="submit" class="user-stats__button user-stats__button--log">Wyloguj się</button>
             </div>
         </div>
         <div class="war__main main ">
@@ -133,14 +133,21 @@
                     <p class="stats__option stats__option--loses">Przegrane: <span class="stats__number">0</span></p>
                 </div>
             </div>
-            <div class="main__score-container score-container">
-                <p class="score-container__text"></p>
+        </div>
+
+        <h1 class="main__score-info"></h1>
+
+        <div class="main__user-info user-info">
+            <div class="user-info__border"></div>
+            <h3 class="user-info__text"></h3>
+            <div class="user-info__bgc">
+                <i class="fas fa-times user-info__exit"></i>
             </div>
         </div>
-        <h1 class="score-info"></h1>
-        <script src="../js/nav.js"></script>
-        <script src="../js/table-color.js"></script>
-        <script src="script.js"></script>
+    </div>
+    <script src="../js/nav.js"></script>
+    <script src="../js/table-color.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

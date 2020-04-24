@@ -13,11 +13,11 @@ const hands = document.querySelectorAll('.play__hand');
 const background = document.querySelector('.background');
 const tableText = document.querySelector('.play');
 const scoreBox = document.querySelector('.score-container');
-const scoreInfo = document.querySelector('.score-container__text');
 const pointBox = document.querySelector('.points-container');
 const howCards = document.querySelectorAll('.points-container__points');
-const scoreInfo = document.querySelector('.score-info');
-const playWindow = document.querySelector('.main');
+const playContainer = document.querySelector('.play');
+const scoreInfo = document.querySelector('.main__score-info');
+const exitUserInfo = document.querySelector('.user-info__exit');
 
 // Variables
 
@@ -38,12 +38,22 @@ document.querySelector('.navbar__icon--login').style.display = 'none';
 // Show if user is logged or no
 
 function ifUserLogged() {
-    const user = localStorage.getItem('user');
-    if (user) alert('Grasz jako zalogowany gracz!')
-    else alert('Grasz jako gość!');
+    const userLogInfo = document.querySelector('.user-info__text');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user) userLogInfo.innerHTML = `Witaj ${user.login}!`;
+    else userLogInfo.innerHTML = 'Grasz jako gość!';
 }
 
 ifUserLogged();
+
+// Close Info about log user or guest
+
+exitUserInfo.addEventListener('click', () => {
+    document.querySelector('.user-info').style.display = 'none';
+    playContainer.classList.add('play--remove-blur');
+    playContainer.style.pointerEvents = 'auto';
+})
 
 // Check if user is logged and show balance
 
@@ -104,9 +114,6 @@ function updateNumberOfCards() {
 function prepareToPlay() {
     const canPlay = checkCanPlay();
     if (canPlay) {
-        scoreInfo.classList.remove('score-info--animate');
-        playWindow.classList.remove('main--blured');
-
         bid.disabled = 'true';
         this.style.display = 'none';
         hands.forEach((hand) => {
@@ -215,6 +222,13 @@ function updateUserLocalStorage() {
         });
 }
 
+// Clear animations
+
+function clearAnimations() {
+    scoreInfo.classList.remove('main__score-info--animate');
+    playContainer.classList.remove('play--blur');
+}
+
 // If game is end, reset game interface
 
 async function resetGame() {
@@ -236,6 +250,10 @@ async function resetGame() {
                 statistics[1].textContent = losses;
 
                 updateUserLocalStorage();
+
+                setTimeout(() => {
+                    clearAnimations();
+                }, 1000)
             }
         })
     })
@@ -245,8 +263,9 @@ async function resetGame() {
 
 function showScoreInfo() {
     if (endGame) {
-        scoreInfo.classList.add('score-info--animate');
-        playWindow.classList.add('main--blured');
+        console.log('git')
+        scoreInfo.classList.add('main__score-info--animate');
+        playContainer.classList.add('play--blur');
     }
 }
 

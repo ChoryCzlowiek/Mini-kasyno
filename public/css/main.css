@@ -21,7 +21,6 @@ body {
   display: -ms-flexbox;
   display: flex;
   z-index: 1;
-  display: none;
 }
 
 .curtain__site {
@@ -1193,7 +1192,7 @@ body {
             justify-content: center;
   }
   .home .main .games-container .games-box .game {
-    margin: 1.5rem .2rem;
+    margin: 1.5rem .5rem;
     height: 50vh;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -1230,7 +1229,7 @@ body {
   .home .main .games-container .games-box .game {
     height: 30vh;
     width: 20vh;
-    margin: 1.5rem 0.4rem;
+    margin: 1.5rem 0.9rem;
   }
   .home .main .games-container .games-box .game:hover {
     height: 50vh;
@@ -1544,7 +1543,7 @@ body {
 .contact .main .contact-box__title {
   margin: 3rem 0 2rem;
   font-family: 'Bebas Neue';
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   font-size: 2rem;
   color: whitesmoke;
   text-shadow: 0 0 10px green, 0 0 20px green, 0 0 40px green, 0 0 30px green, 0 0 50px green;
@@ -1640,6 +1639,132 @@ body {
   display: none;
 }
 
+.contact .main .contact-message {
+  background-image: url("../images/contact-img.jpg");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding: 2rem 0 3rem;
+}
+
+.contact .main .contact-message__title {
+  margin-bottom: 3rem;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+  font-size: 2rem;
+  color: whitesmoke;
+  text-shadow: 0 0 10px green, 0 0 20px green, 0 0 40px green, 0 0 30px green, 0 0 50px green;
+  position: relative;
+}
+
+.contact .main .contact-message__title:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  margin-top: 1rem;
+  width: 40%;
+  height: 2px;
+  background-color: green;
+}
+
+.contact .main .contact-message .contact-form {
+  position: relative;
+  padding: 0 4rem;
+}
+
+.contact .main .contact-message .contact-form__input {
+  min-height: 2rem;
+  margin: .5rem 0;
+  width: 100%;
+  background-color: #464646;
+  border: none;
+  border: 1px solid #646464;
+  padding-left: 2rem;
+  color: #cfcfcf;
+}
+
+.contact .main .contact-message .contact-form__input--message {
+  padding: .3rem 1rem;
+}
+
+.contact .main .contact-message .contact-form__input::-webkit-input-placeholder {
+  font-size: .7rem;
+}
+
+.contact .main .contact-message .contact-form__input:-ms-input-placeholder {
+  font-size: .7rem;
+}
+
+.contact .main .contact-message .contact-form__input::-ms-input-placeholder {
+  font-size: .7rem;
+}
+
+.contact .main .contact-message .contact-form__input::placeholder {
+  font-size: .7rem;
+}
+
+.contact .main .contact-message .contact-form__input:focus {
+  outline: none;
+  border-color: orangered;
+  color: orangered;
+  -webkit-box-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+          box-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+}
+
+.contact .main .contact-message .contact-form__input--name:focus ~ .contact-form__icon--name {
+  opacity: 1;
+  color: orangered;
+}
+
+.contact .main .contact-message .contact-form__input--surname:focus ~ .contact-form__icon--surname {
+  opacity: 1;
+  color: orangered;
+}
+
+.contact .main .contact-message .contact-form__input--email:focus ~ .contact-form__icon--email {
+  opacity: 1;
+  color: orangered;
+}
+
+.contact .main .contact-message .contact-form__icon {
+  position: absolute;
+  top: 1.5rem;
+  left: 4.5rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: .8rem;
+  color: #cfcfcf;
+  opacity: .3;
+}
+
+.contact .main .contact-message .contact-form__icon--surname {
+  top: 4.5rem;
+}
+
+.contact .main .contact-message .contact-form__icon--email {
+  top: 7.5rem;
+}
+
+.contact .main .contact-message .contact-form__button {
+  text-decoration: none;
+  display: inline-block;
+  margin: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid gold;
+  color: #709625;
+  background-color: gold;
+  -webkit-box-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+          box-shadow: 0 0 10px orangered, 0 0 20px orangered, 0 0 40px orangered, 0 0 30px orangered, 0 0 50px orangered;
+  cursor: pointer;
+}
+
+.contact .main .contact-message .contact-form__button:hover {
+  background-color: orangered;
+  border-color: orangered;
+  color: gold;
+}
+
 @media screen and (min-width: 768px) {
   .contact .main .contact-box__title {
     margin: 5rem 0 3rem;
@@ -1682,6 +1807,56 @@ body {
   .contact .main .contact-box .data-container .data-box__list {
     margin: 2rem;
   }
+  .contact .main .contact-message {
+    padding: 5rem 0 3rem;
+  }
+  .contact .main .contact-message__title {
+    letter-spacing: 5px;
+    font-size: 4rem;
+    text-shadow: 0 0 20px green, 0 0 30px green, 0 0 50px green, 0 0 40px green, 0 0 60px green;
+  }
+  .contact .main .contact-message__title:before {
+    left: 25%;
+    width: 50%;
+    height: 4px;
+  }
+  .contact .main .contact-message .contact-form {
+    padding: 0 10rem;
+  }
+  .contact .main .contact-message .contact-form__input {
+    min-height: 2.5rem;
+    margin: .8rem 0;
+    padding-left: 3rem;
+    font-size: 1rem;
+  }
+  .contact .main .contact-message .contact-form__input::-webkit-input-placeholder {
+    font-size: 1rem;
+  }
+  .contact .main .contact-message .contact-form__input:-ms-input-placeholder {
+    font-size: 1rem;
+  }
+  .contact .main .contact-message .contact-form__input::-ms-input-placeholder {
+    font-size: 1rem;
+  }
+  .contact .main .contact-message .contact-form__input::placeholder {
+    font-size: 1rem;
+  }
+  .contact .main .contact-message .contact-form__icon {
+    top: 2.05rem;
+    left: 10.5rem;
+    font-size: 1.3rem;
+    color: #cfcfcf;
+    opacity: .3;
+  }
+  .contact .main .contact-message .contact-form__icon--surname {
+    top: 6.15rem;
+  }
+  .contact .main .contact-message .contact-form__icon--email {
+    top: 10.25rem;
+  }
+  .contact .main .contact-message .contact-form__button {
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (orientation: landscape) and (min-height: 360px) {
@@ -1711,6 +1886,12 @@ body {
   .contact .main .contact-box .data-container .data-box__icon {
     font-size: .8rem;
   }
+  .contact .main .contact-message .contact-form {
+    padding: 0 7rem;
+  }
+  .contact .main .contact-message .contact-form__icon {
+    left: 7.5rem;
+  }
 }
 
 @media screen and (orientation: landscape) and (min-height: 768px) {
@@ -1737,6 +1918,43 @@ body {
   }
   .contact .main .contact-box .data-container .data-box__icon {
     font-size: 1.1rem;
+  }
+  .contact .main .contact-message {
+    padding: 5rem 0 3rem;
+  }
+  .contact .main .contact-message .contact-form {
+    padding: 0 10rem;
+  }
+  .contact .main .contact-message .contact-form__input {
+    min-height: 3rem;
+    font-size: 1.2rem;
+  }
+  .contact .main .contact-message .contact-form__input::-webkit-input-placeholder {
+    font-size: 1.1rem;
+  }
+  .contact .main .contact-message .contact-form__input:-ms-input-placeholder {
+    font-size: 1.1rem;
+  }
+  .contact .main .contact-message .contact-form__input::-ms-input-placeholder {
+    font-size: 1.1rem;
+  }
+  .contact .main .contact-message .contact-form__input::placeholder {
+    font-size: 1.1rem;
+  }
+  .contact .main .contact-message .contact-form__icon {
+    top: 2.3rem;
+    left: 10.5rem;
+    font-size: 1.5rem;
+  }
+  .contact .main .contact-message .contact-form__icon--surname {
+    top: 6.9rem;
+  }
+  .contact .main .contact-message .contact-form__icon--email {
+    top: 11.5rem;
+  }
+  .contact .main .contact-message .contact-form__button {
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -1768,6 +1986,12 @@ body {
   }
   .contact .main .contact-box .data-container .data-box__icon {
     font-size: 1.1rem;
+  }
+  .contact .main .contact-message .contact-form {
+    padding: 0 20rem;
+  }
+  .contact .main .contact-message .contact-form__icon {
+    left: 20.5rem;
   }
 }
 
@@ -2171,25 +2395,18 @@ body {
   }
 }
 
-.blackjack__main {
+.blackjack {
   display: none;
 }
 
-@media only screen and (orientation: landscape) and (min-height: 360px) {
+@media only screen and (orientation: landscape) {
   .rotate-container {
     display: none;
   }
-  .blackjack__main {
+  .blackjack {
     display: block;
-    -webkit-filter: blur(1px);
-            filter: blur(1px);
-    pointer-events: none;
   }
-  .blackjack__main .main--blured {
-    -webkit-animation: blurWindow 2s linear 1s both;
-            animation: blurWindow 2s linear 1s both;
-  }
-  .blackjack__main .play__deck {
+  .blackjack .main .play__deck {
     position: absolute;
     top: calc(5% - 7px);
     left: 15%;
@@ -2200,7 +2417,7 @@ body {
     border-top: 3px solid white;
     border-left: 3px solid white;
   }
-  .blackjack__main .play__deck--start {
+  .blackjack .main .play__deck--start {
     top: 5%;
     padding: 0;
     width: 35px;
@@ -2208,7 +2425,7 @@ body {
     left: 70%;
     border: none;
   }
-  .blackjack__main .play .option-btns {
+  .blackjack .main .play .option-btns {
     position: absolute;
     top: 50%;
     left: 45%;
@@ -2220,7 +2437,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .blackjack__main .play .option-btns__btn {
+  .blackjack .main .play .option-btns__btn {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
@@ -2230,14 +2447,14 @@ body {
     color: rgba(255, 217, 0, 0.7);
     border: 2px solid rgba(255, 217, 0, 0.7);
   }
-  .blackjack__main .play .option-btns__btn:hover {
+  .blackjack .main .play .option-btns__btn:hover {
     border: 4px solid rgba(255, 217, 0, 0.7);
     background: orangered;
   }
-  .blackjack__main .play .option-btns__btn--pick {
+  .blackjack .main .play .option-btns__btn--pick {
     margin-right: 1rem;
   }
-  .blackjack__main .play__circle-points {
+  .blackjack .main .play__circle-points {
     position: absolute;
     top: 5%;
     left: 30%;
@@ -2248,10 +2465,10 @@ body {
     color: orangered;
     display: none;
   }
-  .blackjack__main .play__circle-points--user {
+  .blackjack .main .play__circle-points--user {
     top: 35%;
   }
-  .blackjack__main .play__circle-points .play__points {
+  .blackjack .main .play__circle-points .play__points {
     text-align: center;
     line-height: 2rem;
     font-size: 1.1rem;
@@ -2291,81 +2508,65 @@ body {
 }
 
 @media only screen and (orientation: landscape) and (min-height: 768px) {
-  .rotate-container {
-    display: none;
-  }
-  .blackjack__main {
-    display: block;
-  }
-  .blackjack__main .play__deck {
+  .blackjack .main .play__deck {
     width: 67px;
     height: 82px;
   }
-  .blackjack__main .play__deck--start {
+  .blackjack .main .play__deck--start {
     width: 55px;
     height: 70px;
   }
-  .blackjack__main .play .option-btns__btn {
+  .blackjack .main .play .option-btns__btn {
     width: 6.5rem;
     height: 6.5rem;
     font-size: 1.7rem;
     letter-spacing: 2px;
   }
-  .blackjack__main .play__circle-points {
+  .blackjack .main .play__circle-points {
     width: 3rem;
     height: 3rem;
   }
-  .blackjack__main .play .play__points {
+  .blackjack .main .play .play__points {
     line-height: 3rem;
     font-size: 1.6rem;
   }
 }
 
 @media only screen and (orientation: landscape) and (min-width: 1200px) {
-  .rotate-container {
-    display: none;
-  }
-  .blackjack__main {
-    display: block;
-  }
-  .blackjack__main .play__deck {
+  .blackjack .main .play__deck {
     width: 77px;
     height: 92px;
   }
-  .blackjack__main .play__deck--start {
+  .blackjack .main .play__deck--start {
     width: 65px;
     height: 80px;
   }
-  .blackjack__main .play .option-btns__btn {
+  .blackjack .main .play .option-btns__btn {
     width: 6.5rem;
     height: 6.5rem;
     font-size: 1.7rem;
     letter-spacing: 2px;
   }
-  .blackjack__main .play__circle-points {
+  .blackjack .main .play__circle-points {
     width: 3rem;
     height: 3rem;
   }
-  .blackjack__main .play .play__points {
+  .blackjack .main .play .play__points {
     line-height: 3rem;
     font-size: 1.6rem;
   }
 }
 
-.war__main {
+.war {
   display: none;
 }
 
-@media only screen and (orientation: landscape) and (min-height: 360px) {
+@media only screen and (orientation: landscape) {
   .rotate-container {
     display: none;
   }
-  .war .main {
+  .war {
     display: block;
-  }
-  .war .main--blured {
-    -webkit-animation: blurWindow 2s linear 1s both;
-            animation: blurWindow 2s linear 1s both;
   }
   .war .main .play .points-container {
     position: absolute;
@@ -2460,209 +2661,18 @@ body {
   }
 }
 
-@media only screen and (orientation: landscape) and (min-height: 768px) {
-  .rotate-container {
-    display: none;
-  }
-}
-
-@media only screen and (orientation: landscape) and (min-width: 1440px) {
-  .rotate-container {
-    display: none;
-  }
-}
-
-@-webkit-keyframes showComputerActiveCard {
-  0% {
-    left: 30vw;
-  }
-  100% {
-    left: 47.5vw;
-  }
-}
-
-@keyframes showComputerActiveCard {
-  0% {
-    left: 30vw;
-  }
-  100% {
-    left: 47.5vw;
-  }
-}
-
-@-webkit-keyframes showUserActiveCard {
-  0% {
-    left: 65vw;
-  }
-  100% {
-    left: 47.5vw;
-  }
-}
-
-@keyframes showUserActiveCard {
-  0% {
-    left: 65vw;
-  }
-  100% {
-    left: 47.5vw;
-  }
-}
-
-@-webkit-keyframes hideComputerActiveCard {
-  0% {
-    left: 47.5vw;
-  }
-  100% {
-    left: 30vw;
-  }
-}
-
-@keyframes hideComputerActiveCard {
-  0% {
-    left: 47.5vw;
-  }
-  100% {
-    left: 30vw;
-  }
-}
-
-@-webkit-keyframes hideUserActiveCard {
-  0% {
-    left: 47.5vw;
-  }
-  100% {
-    left: 65vw;
-  }
-}
-
-@keyframes hideUserActiveCard {
-  0% {
-    left: 47.5vw;
-  }
-  100% {
-    left: 65vw;
-  }
-}
-
-@-webkit-keyframes hideComputerActiveCardToUser {
-  0% {
-    left: 47.5vw;
-    top: 8%;
-  }
-  100% {
-    left: 65vw;
-    top: 40%;
-  }
-}
-
-@keyframes hideComputerActiveCardToUser {
-  0% {
-    left: 47.5vw;
-    top: 8%;
-  }
-  100% {
-    left: 65vw;
-    top: 40%;
-  }
-}
-
-@-webkit-keyframes hideUserActiveCardToComputer {
-  0% {
-    left: 47.5vw;
-    top: 40%;
-  }
-  100% {
-    left: 30vw;
-    top: 8%;
-  }
-}
-
-@keyframes hideUserActiveCardToComputer {
-  0% {
-    left: 47.5vw;
-    top: 40%;
-  }
-  100% {
-    left: 30vw;
-    top: 8%;
-  }
-}
-
-@-webkit-keyframes blurTable {
-  0%,
-  100% {
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  1%,
-  99% {
-    -webkit-filter: blur(3px) brightness(30%);
-            filter: blur(3px) brightness(30%);
-  }
-}
-
-@keyframes blurTable {
-  0%,
-  100% {
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  1%,
-  99% {
-    -webkit-filter: blur(3px) brightness(30%);
-            filter: blur(3px) brightness(30%);
-  }
-}
-
-@-webkit-keyframes growUpFont {
-  0% {
-    font-size: 0;
-  }
-  25% {
-    font-size: 5rem;
-  }
-  75% {
-    font-size: 5rem;
-  }
-  100% {
-    font-size: 0;
-  }
-}
-
-@keyframes growUpFont {
-  0% {
-    font-size: 0;
-  }
-  25% {
-    font-size: 5rem;
-  }
-  75% {
-    font-size: 5rem;
-  }
-  100% {
-    font-size: 0;
-  }
-}
-
-.baccarat__main {
+.baccarat {
   display: none;
 }
 
-@media only screen and (orientation: landscape) and (min-height: 360px) {
+@media only screen and (orientation: landscape) {
   .rotate-container {
     display: none;
   }
-  .baccarat__main {
+  .baccarat {
     display: block;
-    -webkit-filter: blur(1px);
-            filter: blur(1px);
-    pointer-events: none;
   }
-  .baccarat__main .main--blured {
-    -webkit-animation: blurWindow 2s linear 1s both;
-            animation: blurWindow 2s linear 1s both;
-  }
-  .baccarat__main .play__deck {
+  .baccarat .main .play__deck {
     position: absolute;
     top: 5%;
     left: 15%;
@@ -2673,7 +2683,7 @@ body {
     border-top: 3px solid white;
     border-left: 3px solid white;
   }
-  .baccarat__main .play__deck--start {
+  .baccarat .main .play__deck--start {
     top: 5%;
     padding: 0;
     width: 35px;
@@ -2681,7 +2691,7 @@ body {
     left: 70%;
     border: none;
   }
-  .baccarat__main .play .option-btns {
+  .baccarat .main .play .option-btns {
     position: absolute;
     top: 50%;
     left: 45%;
@@ -2693,7 +2703,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .baccarat__main .play .option-btns__btn {
+  .baccarat .main .play .option-btns__btn {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
@@ -2703,14 +2713,14 @@ body {
     color: rgba(255, 217, 0, 0.7);
     border: 2px solid rgba(255, 217, 0, 0.7);
   }
-  .baccarat__main .play .option-btns__btn:hover {
+  .baccarat .main .play .option-btns__btn:hover {
     border: 4px solid rgba(255, 217, 0, 0.7);
     background: orangered;
   }
-  .baccarat__main .play .option-btns__btn--pick {
+  .baccarat .main .play .option-btns__btn--pick {
     margin-right: 1rem;
   }
-  .baccarat__main .play__circle-points {
+  .baccarat .main .play__circle-points {
     position: absolute;
     top: 5%;
     left: 30%;
@@ -2721,15 +2731,15 @@ body {
     color: orangered;
     display: none;
   }
-  .baccarat__main .play__circle-points--user {
+  .baccarat .main .play__circle-points--user {
     top: 35%;
   }
-  .baccarat__main .play__circle-points .play__points {
+  .baccarat .main .play__circle-points .play__points {
     text-align: center;
     line-height: 2rem;
     font-size: 1.1rem;
   }
-  .baccarat__main .play__active-card {
+  .baccarat .main .play__active-card {
     position: absolute;
     width: 35px;
     height: 50px;
@@ -2755,69 +2765,60 @@ body {
 }
 
 @media only screen and (orientation: landscape) and (min-height: 768px) {
-  .rotate-container {
-    display: none;
-  }
-  .baccarat__main {
-    display: block;
-  }
-  .baccarat__main .play__deck {
+  .baccarat .main .play__deck {
     width: 67px;
     height: 82px;
   }
-  .baccarat__main .play__deck--start {
+  .baccarat .main .play__deck--start {
     width: 55px;
     height: 70px;
   }
-  .baccarat__main .play .option-btns__btn {
+  .baccarat .main .play .option-btns__btn {
     width: 6.5rem;
     height: 6.5rem;
     font-size: 1.7rem;
     letter-spacing: 2px;
   }
-  .baccarat__main .play__circle-points {
+  .baccarat .main .play__circle-points {
     width: 3rem;
     height: 3rem;
   }
-  .baccarat__main .play .play__points {
+  .baccarat .main .play .play__points {
     line-height: 3rem;
     font-size: 1.6rem;
   }
 }
 
 @media only screen and (orientation: landscape) and (min-width: 1440px) {
-  .rotate-container {
-    display: none;
-  }
-  .baccarat__main {
-    display: block;
-  }
-  .baccarat__main .play__deck {
+  .baccarat .main .play__deck {
     width: 77px;
     height: 92px;
   }
-  .baccarat__main .play__deck--start {
+  .baccarat .main .play__deck--start {
     width: 65px;
     height: 80px;
   }
-  .baccarat__main .play .option-btns__btn {
+  .baccarat .main .play .option-btns__btn {
     width: 6.5rem;
     height: 6.5rem;
     font-size: 1.7rem;
     letter-spacing: 2px;
   }
-  .baccarat__main .play__circle-points {
+  .baccarat .main .play__circle-points {
     width: 3rem;
     height: 3rem;
   }
-  .baccarat__main .play .play__points {
+  .baccarat .main .play .play__points {
     line-height: 3rem;
     font-size: 1.6rem;
   }
 }
 
-@media only screen and (orientation: landscape) and (min-height: 360px) {
-  .play {
+@media (orientation: landscape) {
+  .main {
+    position: relative;
+  }
+  .main .play {
     position: absolute;
     top: 11vh;
     left: 0;
@@ -2828,22 +2829,33 @@ body {
     letter-spacing: 1px;
     color: rgba(255, 217, 0, 0.7);
     font-size: .9rem;
+    pointer-events: none;
+    -webkit-filter: blur(1px);
+            filter: blur(1px);
   }
-  .play__saldo {
+  .main .play--remove-blur {
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  .main .play--blur {
+    -webkit-animation: 2s blurWindow linear 1s both;
+            animation: 2s blurWindow linear 1s both;
+  }
+  .main .play__saldo {
     position: absolute;
     top: 50%;
     left: 10%;
   }
-  .play__saldo span {
+  .main .play__saldo span {
     font-size: 1.2rem;
     color: orangered;
   }
-  .play .form {
+  .main .play .form {
     position: absolute;
     top: 40%;
     left: 10%;
   }
-  .play .form__rate {
+  .main .play .form__rate {
     background: transparent;
     border: 1px solid rgba(255, 217, 0, 0.7);
     -webkit-box-shadow: 0 0 2px gold;
@@ -2853,13 +2865,13 @@ body {
     width: 55px;
     padding: .1rem;
   }
-  .play .form__rate:focus {
+  .main .play .form__rate:focus {
     outline: none;
     border: 1px solid orangered;
     -webkit-box-shadow: 0 0 2px orangered;
             box-shadow: 0 0 2px orangered;
   }
-  .play__play-btn {
+  .main .play__play-btn {
     position: absolute;
     top: 55%;
     left: 45%;
@@ -2877,28 +2889,30 @@ body {
             box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
     cursor: pointer;
   }
-  .play__play-btn:hover {
+  .main .play__play-btn:hover {
     background: orangered;
     -webkit-box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
             box-shadow: 0 0 10px orangered, 0 0 40px orangered, 0 0 80px orangered;
   }
-  .play .stats {
+  .main .play .stats {
     position: absolute;
     top: 10%;
     left: 80%;
     font-size: .8rem;
   }
-  .play .stats__text {
+  .main .play .stats__text {
     font-size: .9rem;
     margin-bottom: 1rem;
     text-shadow: 0 0 10px orangered, 0 0 30px orangered;
   }
-  .play .stats span {
+  .main .play .stats span {
     color: orangered;
     font-size: 1.1rem;
   }
-  .score-info {
+  .main .main__score-info {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     text-align: center;
@@ -2912,7 +2926,7 @@ body {
     -webkit-transform: scale(0);
             transform: scale(0);
   }
-  .score-info--animate {
+  .main .main__score-info--animate {
     -webkit-animation: showScoreInfo 2s linear 1s both;
             animation: showScoreInfo 2s linear 1s both;
   }
@@ -2956,7 +2970,7 @@ body {
   }
 }
 
-@media only screen and (orientation: landscape) and (min-height: 768px) {
+@media (orientation: landscape) and (min-height: 768px) {
   .play {
     font-size: 2rem;
   }
@@ -2997,13 +3011,13 @@ body {
     color: orangered;
     font-size: 2rem;
   }
-  .score-info {
+  .main__score-info {
     font-size: 7rem;
     letter-spacing: 5px;
   }
 }
 
-@media only screen and (orientation: landscape) and (min-width: 1440px) {
+@media (orientation: landscape) and (min-width: 1200px) {
   .play {
     font-size: 2rem;
   }
@@ -3044,119 +3058,9 @@ body {
     color: orangered;
     font-size: 2rem;
   }
-  .score-info {
+  .main__score-info {
     font-size: 9rem;
     letter-spacing: 7px;
-  }
-}
-
-.user-info {
-  display: none;
-}
-
-@media (orientation: landscape) {
-  .user-info {
-    display: block;
-    position: absolute;
-    top: 30vh;
-    left: 50%;
-    width: 50vh;
-    height: 15vh;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    background-color: #222222;
-    border-radius: 5px;
-    z-index: 99;
-    text-align: center;
-    -webkit-animation: showUserLogInfo 1s linear both;
-            animation: showUserLogInfo 1s linear both;
-  }
-  .user-info__border {
-    position: absolute;
-    width: 48vh;
-    height: 13vh;
-    top: 1vh;
-    left: 1vh;
-    background-color: transparent;
-    border: 1px solid #ff5e00;
-    border-radius: 5px;
-  }
-  .user-info__text {
-    line-height: 15vh;
-    font-size: .9rem;
-    font-family: 'Bebas Neue';
-    letter-spacing: 1px;
-    color: gold;
-  }
-  .user-info__bgc {
-    position: absolute;
-    top: 0;
-    right: 0;
-    -webkit-transform: translate(40%, -40%);
-            transform: translate(40%, -40%);
-    width: 5vh;
-    height: 5vh;
-    border-radius: 50%;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  .user-info__bgc:hover {
-    background-color: rgba(255, 68, 0, 0.7);
-  }
-  .user-info__bgc .user-info__exit {
-    margin: 2.5vh 0;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    color: gold;
-    font-size: .9rem;
-  }
-}
-
-@-webkit-keyframes showUserLogInfo {
-  0% {
-    -webkit-transform: translateX(-50%) scale(0);
-            transform: translateX(-50%) scale(0);
-  }
-  100% {
-    -webkit-transform: translateX(-50%) scale(1);
-            transform: translateX(-50%) scale(1);
-  }
-}
-
-@keyframes showUserLogInfo {
-  0% {
-    -webkit-transform: translateX(-50%) scale(0);
-            transform: translateX(-50%) scale(0);
-  }
-  100% {
-    -webkit-transform: translateX(-50%) scale(1);
-            transform: translateX(-50%) scale(1);
-  }
-}
-
-@media (orientation: landscape) and (min-height: 768px) {
-  .user-info__border {
-    border: 2px solid #ff5e00;
-  }
-  .user-info__text {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-  .user-info .user-info__exit {
-    font-size: 1.8rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .user-info__border {
-    border: 2px solid #ff5e00;
-  }
-  .user-info__text {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-  .user-info .user-info__exit {
-    font-size: 1.8rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

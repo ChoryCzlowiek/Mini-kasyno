@@ -13,8 +13,7 @@ const statistics = document.querySelectorAll('.stats span');
 const pointsContainers = document.querySelectorAll('.play__circle-points');
 const optionBtnsContainer = document.querySelector('.option-btns');
 const playContainer = document.querySelector('.play');
-const scoreInfo = document.querySelector('.score-info');
-const playWindow = document.querySelector('.main');
+const scoreInfo = document.querySelector('.main__score-info');
 const exitUserInfo = document.querySelector('.user-info__exit');
 
 // Variables
@@ -51,8 +50,8 @@ ifUserLogged();
 
 exitUserInfo.addEventListener('click', () => {
     document.querySelector('.user-info').style.display = 'none';
-    playWindow.style.filter = 'blur(0)';
-    playWindow.style.pointerEvents = 'auto';
+    playContainer.classList.add('play--remove-blur');
+    playContainer.style.pointerEvents = 'auto';
 })
 
 // Check if user is logged and show balance
@@ -231,8 +230,8 @@ updateUserLocalStorage();
 // Clear animations
 
 function clearAnimations() {
-    scoreInfo.classList.remove('score-info--animate');
-    playWindow.classList.remove('main--blured');
+    scoreInfo.classList.remove('main__score-info--animate');
+    playContainer.classList.remove('play--blur');
 }
 
 // If game is end, reset game interface
@@ -372,8 +371,9 @@ function checkGameOver() {
 
 function showScoreInfo() {
     if (endGame) {
-        scoreInfo.classList.add('score-info--animate');
-        playWindow.classList.add('main--blured');
+        console.log('git')
+        scoreInfo.classList.add('main__score-info--animate');
+        playContainer.classList.add('play--blur');
     }
 }
 

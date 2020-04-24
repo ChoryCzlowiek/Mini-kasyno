@@ -13,7 +13,7 @@
             &__title {
                 margin: 3rem 0 2rem;
                 font-family: 'Bebas Neue';
-                letter-spacing: 3px;
+                letter-spacing: 1px;
                 font-size: 2rem;
                 color: rgb(245, 245, 245);
                 text-shadow: 0 0 10px green, 0 0 20px green,
@@ -104,6 +104,123 @@
                 }
             }
         }
+
+        .contact-message {
+            background-image: url('../images/contact-img.jpg');
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            padding: 2rem 0 3rem;
+
+            &__title {
+                margin-bottom: 3rem;
+                font-family: 'Bebas Neue';
+                letter-spacing: 1px;
+                font-size: 2rem;
+                color: rgb(245, 245, 245);
+                text-shadow: 0 0 10px green, 0 0 20px green,
+                    0 0 40px green, 0 0 30px green,
+                    0 0 50px green;
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 30%;
+                    margin-top: 1rem;
+                    width: 40%;
+                    height: 2px;
+                    background-color: green;
+                }
+            }
+
+            .contact-form {
+                position: relative;
+                padding: 0 4rem;
+
+                &__input {
+                    min-height: 2rem;
+                    margin: .5rem 0;
+                    width: 100%;
+                    background-color: rgb(70, 70, 70);
+                    border: none;
+                    border: 1px solid rgb(100, 100, 100);
+                    padding-left: 2rem;
+                    color: rgb(207, 207, 207);
+
+                    &--message {
+                        padding: .3rem 1rem;
+                    }
+
+                    &::placeholder {
+                        font-size: .7rem;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: orangered;
+                        color: orangered;
+                        box-shadow: 0 0 10px orangered, 0 0 20px orangered,
+                            0 0 40px orangered, 0 0 30px orangered,
+                            0 0 50px orangered;
+                    }
+
+                    &--name:focus~.contact-form__icon--name {
+                        opacity: 1;
+                        color: orangered;
+                    }
+
+                    &--surname:focus~.contact-form__icon--surname {
+                        opacity: 1;
+                        color: orangered
+                    }
+
+                    &--email:focus~.contact-form__icon--email {
+                        opacity: 1;
+                        color: orangered;
+                    }
+                }
+
+                &__icon {
+                    position: absolute;
+                    top: 1.5rem;
+                    left: 4.5rem;
+                    transform: translateY(-50%);
+                    font-size: .8rem;
+                    color: rgb(207, 207, 207);
+                    opacity: .3;
+
+                    &--surname {
+                        top: 4.5rem;
+                    }
+
+                    &--email {
+                        top: 7.5rem;
+                    }
+                }
+
+                &__button {
+                    text-decoration: none;
+                    display: inline-block;
+                    margin: 1rem 1.5rem;
+                    padding: 0.5rem 1rem;
+                    border: 1px solid gold;
+                    color: rgb(112, 150, 37);
+                    background-color: gold;
+                    box-shadow: 0 0 10px orangered, 0 0 20px orangered,
+                        0 0 40px orangered, 0 0 30px orangered,
+                        0 0 50px orangered;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: orangered;
+                        border-color: orangered;
+                        color: gold;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -170,6 +287,59 @@
                     }
                 }
             }
+
+            .contact-message {
+                padding: 5rem 0 3rem;
+
+                &__title {
+                    letter-spacing: 5px;
+                    font-size: 4rem;
+                    text-shadow: 0 0 20px green, 0 0 30px green,
+                        0 0 50px green, 0 0 40px green,
+                        0 0 60px green;
+
+                    &:before {
+                        left: 25%;
+                        width: 50%;
+                        height: 4px;
+                    }
+                }
+
+                .contact-form {
+                    padding: 0 10rem;
+
+                    &__input {
+                        min-height: 2.5rem;
+                        margin: .8rem 0;
+                        padding-left: 3rem;
+                        font-size: 1rem;
+
+                        &::placeholder {
+                            font-size: 1rem;
+                        }
+                    }
+
+                    &__icon {
+                        top: 2.05rem;
+                        left: 10.5rem;
+                        font-size: 1.3rem;
+                        color: rgb(207, 207, 207);
+                        opacity: .3;
+
+                        &--surname {
+                            top: 6.15rem;
+                        }
+
+                        &--email {
+                            top: 10.25rem;
+                        }
+                    }
+
+                    &__button {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
         }
     }
 }
@@ -211,6 +381,17 @@
                         &__icon {
                             font-size: .8rem;
                         }
+                    }
+                }
+            }
+
+            .contact-message {
+
+                .contact-form {
+                    padding: 0 7rem;
+
+                    &__icon {
+                        left: 7.5rem;
                     }
                 }
             }
@@ -256,6 +437,43 @@
                         &__icon {
                             font-size: 1.1rem;
                         }
+                    }
+                }
+            }
+
+            .contact-message {
+                padding: 5rem 0 3rem;
+
+
+                .contact-form {
+                    padding: 0 10rem;
+
+                    &__input {
+                        min-height: 3rem;
+                        font-size: 1.2rem;
+
+                        &::placeholder {
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                    &__icon {
+                        top: 2.3rem;
+                        left: 10.5rem;
+                        font-size: 1.5rem;
+
+                        &--surname {
+                            top: 6.9rem;
+                        }
+
+                        &--email {
+                            top: 11.5rem;
+                        }
+                    }
+
+                    &__button {
+                        padding: 1rem 2rem;
+                        font-size: 1.3rem;
                     }
                 }
             }
@@ -306,6 +524,17 @@
                         &__icon {
                             font-size: 1.1rem;
                         }
+                    }
+                }
+            }
+
+            .contact-message {
+
+                .contact-form {
+                    padding: 0 20rem;
+
+                    &__icon {
+                        left: 20.5rem;
                     }
                 }
             }
