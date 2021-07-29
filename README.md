@@ -24,7 +24,7 @@ Project is created with:
 
 ## Installation
 
-* CLone or download repository from [repo](https://github.com/ChoryCzlowiek/Mini-kasyno.git)
+* Clone or download repository from [repo](https://github.com/ChoryCzlowiek/Mini-kasyno.git)
 * Run command `npm install`
 * Test `npm test`
 * Run app `npm start`
